@@ -1,3 +1,4 @@
+
 --drop tables
 
 DROP table login cascade constraints;
@@ -7,6 +8,7 @@ DROP table status cascade constraints;
 DROP table task cascade constraints;
 DROP table tasks_comment cascade constraints;
 DROP table projects_comment cascade constraints;
+DROP table alert cascade constraints;
 
 --create tables
 
@@ -66,7 +68,8 @@ CREATE table projects_comment (
     proejct_id number (20) not null,
         constraint fk_projectcomment_projects foreign key (project_id) references projects (id),
     employee_id number (20) not null,
-        constraint fk_projectcomment_employee foreign key (employee_id) references employee (id)
+        constraint fk_projectcomment_employee foreign key (employee_id) references employee (id),
+        comments varchar2 (250) not null
 );
 
 CREATE table alert (
@@ -78,3 +81,14 @@ CREATE table alert (
     time_stamp date,
     message varchar2 (250) not null
 );
+
+--sequences
+
+CREATE sequence login_seq nocache;
+CREATE sequence employee_seq nocache;
+CREATE sequence projects_seq nocache;
+CREATE sequence tasks_seq nocache;
+CREATE sequence status_seq nocache;
+CREATE sequence alert_seq nocache;
+CREATE sequence projects_comment_seq nocache;
+CREATE sequence tasks_comment_seq nocache;
