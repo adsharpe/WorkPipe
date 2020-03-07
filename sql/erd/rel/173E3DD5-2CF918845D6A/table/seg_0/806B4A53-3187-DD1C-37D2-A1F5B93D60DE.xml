@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="806B4A53-3187-DD1C-37D2-A1F5B93D60DE" name="Text">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:22:21 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="DBA7B745-A93B-6E1F-9367-C0E8F445EBE2">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:23:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="string" id="433CA964-AE37-D82A-560A-946E8371A658">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:23:09 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="584177FD-B58D-AEAD-4B55-AC8BC8B765EE" name="Text_PK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:23:17 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DBA7B745-A93B-6E1F-9367-C0E8F445EBE2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

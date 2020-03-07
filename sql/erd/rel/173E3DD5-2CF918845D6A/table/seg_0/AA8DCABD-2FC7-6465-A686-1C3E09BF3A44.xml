@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AA8DCABD-2FC7-6465-A686-1C3E09BF3A44" name="Task">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:04:25 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="20BC78AD-88AB-68B0-DF5F-3C7D54722C98">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:06:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="815B11D9-01C1-EB04-7C2C-D3037727D7CB">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:06:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="employee_id" id="84E9FF4B-ED0C-6120-088D-28EE590EAEEA">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:06:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="status_id" id="BA9BA6EB-3CC5-A95C-7602-EFEA15B27D3C">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:06:24 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="60D872FF-301B-06F7-012A-BEEC076235FD" name="Task_PK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:06:49 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20BC78AD-88AB-68B0-DF5F-3C7D54722C98"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
