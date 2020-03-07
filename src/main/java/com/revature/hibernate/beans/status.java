@@ -4,14 +4,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class status {
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login")
-	@SequenceGenerator(name="login", sequenceName="login_seq", allocationSize=1)
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="status")
+	@SequenceGenerator(name="status", sequenceName="status_seq", allocationSize=1)
 	private Integer id;
 	@Column(name="status_level")
 	private String statLevel;
