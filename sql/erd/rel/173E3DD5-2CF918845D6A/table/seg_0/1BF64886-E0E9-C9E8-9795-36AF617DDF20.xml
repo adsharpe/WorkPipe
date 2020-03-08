@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1BF64886-E0E9-C9E8-9795-36AF617DDF20" name="Login">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 21:58:31 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="E05A2CCF-1576-5926-1BB6-DC8E0DA0D57A">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:00:12 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="username" id="F968E386-5EC5-1289-4ABD-CD08BC8564F7">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:00:12 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="E45E9C24-0AAE-3F1E-1AE6-9C81FC65F74A">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:00:12 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="282F136F-F9C9-E392-07D6-8E30F6FAA79A" name="Login_PK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:00:12 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E05A2CCF-1576-5926-1BB6-DC8E0DA0D57A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

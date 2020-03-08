@@ -10,6 +10,10 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<sonar.projectKey>TeamWorkflow_WorkPipe</sonar.projectKey>
+		<sonar.organization>teamworkflow</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>f4b8b631b2e534d981b80cad8598963d50e0672f</sonar.login>
 	</properties>
 	<dependencies>
 		<dependency>
