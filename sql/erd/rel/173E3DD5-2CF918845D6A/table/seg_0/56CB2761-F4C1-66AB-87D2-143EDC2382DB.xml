@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="56CB2761-F4C1-66AB-87D2-143EDC2382DB" name="Project_Comment">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:15:55 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="A5E2D5AE-141F-F3D0-4C90-582872EB94B1">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:17:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="project_id" id="AC1CC13E-2A74-99E3-B510-9251D5444F69">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:17:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BE3CCB16-F24A-78CE-7DEA-8A13055E2758" referredColumn="43491F20-7B82-AEEC-5ABF-D3BD560559BE"/>
+</associations>
+</Column>
+<Column name="employee_id" id="24646D6C-C167-FEB2-281C-B14518823289">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:17:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4429C265-6ACC-A7E9-A789-F1A925274F49" referredColumn="4898AC82-F4A6-3977-E4C0-BB25F6643E6E"/>
+</associations>
+</Column>
+<Column name="text_id" id="A779880A-943C-F29D-13AD-EDF7A334C945">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:17:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="56758C1C-D26C-BEAF-9AA5-2DE1D00D7C1A" referredColumn="DBA7B745-A93B-6E1F-9367-C0E8F445EBE2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AD3B09CE-0DE4-1652-9BA6-816AA8F1D8F7" name="Project_Comment_PK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 22:17:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5E2D5AE-141F-F3D0-4C90-582872EB94B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="99D58B3B-072C-72C8-8FA1-578AB6D58CAB" name="Project_Comment_Project_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:33:01 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC1CC13E-2A74-99E3-B510-9251D5444F69"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F72B9904-D2AF-E1ED-191A-B1D2E383D0D3" name="Project_Comment_Text_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:34:25 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A779880A-943C-F29D-13AD-EDF7A334C945"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="288D21BD-5D39-611A-9877-44CC5162A4EF" name="Project_Comment_Employee_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:34:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="24646D6C-C167-FEB2-281C-B14518823289"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

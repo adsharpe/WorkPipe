@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="A9BE6EE1-E3CF-E877-9C08-338D7F3E5A89" mainViewID="E41B6B35-FE72-DBA2-E21B-F3F2DAA4634E">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-07 21:54:30 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>
