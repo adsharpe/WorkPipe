@@ -23,7 +23,6 @@
 <createdBy>adsharpesr</createdBy>
 <createdTime>2020-03-07 22:08:37 UTC</createdTime>
 <ownerDesignName>erd</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>

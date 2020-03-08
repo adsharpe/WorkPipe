@@ -27,7 +27,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>20</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="F451813A-1C21-912F-9334-480BDF3C85E1" referredColumn="4898AC82-F4A6-3977-E4C0-BB25F6643E6E"/>
@@ -44,12 +44,14 @@
 <dataTypePrecision>20</dataTypePrecision>
 <ownDataTypeParameters>,20,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5B62F7D4-1DAF-C518-138D-B0657457B679" referredColumn="43491F20-7B82-AEEC-5ABF-D3BD560559BE"/>
+</associations>
 </Column>
 <Column name="timestamp" id="6F8864BA-7DE0-847F-298B-31A1AF9B7688">
 <createdBy>adsharpesr</createdBy>
 <createdTime>2020-03-07 22:15:07 UTC</createdTime>
 <ownerDesignName>erd</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -61,12 +63,11 @@
 <createdBy>adsharpesr</createdBy>
 <createdTime>2020-03-07 22:15:07 UTC</createdTime>
 <ownerDesignName>erd</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>20</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="7FC9DD82-F733-B4EB-F43B-FA0BD66FC531" referredColumn="DBA7B745-A93B-6E1F-9367-C0E8F445EBE2"/>
@@ -80,7 +81,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>20</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -128,6 +129,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="45EB732B-DE82-BD35-9472-541BE60E72D8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C9FD729D-8D06-CB5E-1BE7-5FDF00F64E07" name="Communique_Project_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 18:38:21 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6504CF43-3AFC-CDCC-2BB1-D621B371124F"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
