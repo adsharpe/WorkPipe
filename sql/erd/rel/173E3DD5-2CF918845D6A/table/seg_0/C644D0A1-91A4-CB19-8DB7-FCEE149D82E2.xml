@@ -23,13 +23,15 @@
 <createdBy>adsharpesr</createdBy>
 <createdTime>2020-03-07 22:15:07 UTC</createdTime>
 <ownerDesignName>erd</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>20</dataTypePrecision>
-<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F451813A-1C21-912F-9334-480BDF3C85E1" referredColumn="4898AC82-F4A6-3977-E4C0-BB25F6643E6E"/>
+</associations>
 </Column>
 <Column name="project_id" id="6504CF43-3AFC-CDCC-2BB1-D621B371124F">
 <createdBy>adsharpesr</createdBy>
@@ -55,18 +57,6 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="communique_id" id="FE97A60F-4E22-2666-14AC-6DB7BC49A0CC">
-<createdBy>adsharpesr</createdBy>
-<createdTime>2020-03-07 22:15:07 UTC</createdTime>
-<ownerDesignName>erd</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>20</dataTypePrecision>
-<ownDataTypeParameters>,20,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="text_id" id="C0BF7215-CF38-D5D6-0DDB-6857A3E1FB96">
 <createdBy>adsharpesr</createdBy>
 <createdTime>2020-03-07 22:15:07 UTC</createdTime>
@@ -76,8 +66,26 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>20</dataTypePrecision>
-<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7FC9DD82-F733-B4EB-F43B-FA0BD66FC531" referredColumn="DBA7B745-A93B-6E1F-9367-C0E8F445EBE2"/>
+</associations>
+</Column>
+<Column name="communiquetype_id" id="BC1E6167-0BE9-2588-FED9-01052B04D00B">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:19:30 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4901AA17-D378-1C77-CB0B-0A91B97C4169" referredColumn="6D9DEAD9-E156-7066-D777-BF82E7D2F63E"/>
+</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -90,6 +98,36 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="5E3A6CEA-B6CE-A376-6665-4D769EE0DE0E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F65386A9-236B-A26F-207D-7697CF6D73D9" name="Communique_Text_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:18:29 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C0BF7215-CF38-D5D6-0DDB-6857A3E1FB96"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBF4F715-387A-4534-55B2-456EC1D50BA1" name="Communique_Communique_Type_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:19:30 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BC1E6167-0BE9-2588-FED9-01052B04D00B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="642D1A83-594A-F315-7441-D957B4D5219F" name="Communique_Employee_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:40:41 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45EB732B-DE82-BD35-9472-541BE60E72D8"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

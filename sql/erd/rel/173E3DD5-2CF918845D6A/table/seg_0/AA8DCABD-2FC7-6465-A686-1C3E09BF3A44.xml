@@ -19,17 +19,19 @@
 <ownDataTypeParameters>,20,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="description" id="815B11D9-01C1-EB04-7C2C-D3037727D7CB">
+<Column name="description_id" id="815B11D9-01C1-EB04-7C2C-D3037727D7CB">
 <createdBy>adsharpesr</createdBy>
 <createdTime>2020-03-07 22:06:24 UTC</createdTime>
 <ownerDesignName>erd</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>500</dataTypeSize>
-<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D7A66158-DDBF-B984-CFF5-F969A57F04B3" referredColumn="DBA7B745-A93B-6E1F-9367-C0E8F445EBE2"/>
+</associations>
 </Column>
 <Column name="employee_id" id="84E9FF4B-ED0C-6120-088D-28EE590EAEEA">
 <createdBy>adsharpesr</createdBy>
@@ -40,8 +42,11 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>20</dataTypePrecision>
-<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="83BEF2C5-A0E5-DC98-2CDA-5E895AA84959" referredColumn="4898AC82-F4A6-3977-E4C0-BB25F6643E6E"/>
+</associations>
 </Column>
 <Column name="status_id" id="BA9BA6EB-3CC5-A95C-7602-EFEA15B27D3C">
 <createdBy>adsharpesr</createdBy>
@@ -52,8 +57,26 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>20</dataTypePrecision>
-<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2037DEE0-6C2E-2025-CA85-9E5E17DE0430" referredColumn="42177D27-8BAE-55D6-A549-96C63E64C00F"/>
+</associations>
+</Column>
+<Column name="project_id" id="34D46949-FB4B-A332-3049-0557F475544E">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:24:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C123435E-F1CE-B025-ACC2-5B604C9ED2F5" referredColumn="43491F20-7B82-AEEC-5ABF-D3BD560559BE"/>
+</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -66,6 +89,46 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="20BC78AD-88AB-68B0-DF5F-3C7D54722C98"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="59E1D5EC-1F28-7F14-27F8-BB2806F99978" name="Task_Project_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:26:02 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34D46949-FB4B-A332-3049-0557F475544E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F9337F43-6997-988C-EEFB-2A562C9C11A2" name="Task_Employee_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:27:15 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="84E9FF4B-ED0C-6120-088D-28EE590EAEEA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6743FFBA-71E6-C313-194C-9110704EDE92" name="Task_Status_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:28:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA9BA6EB-3CC5-A95C-7602-EFEA15B27D3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C6F438E6-34BE-278F-E537-575A7C013B39" name="Task_Text_FK">
+<createdBy>adsharpesr</createdBy>
+<createdTime>2020-03-08 12:30:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="815B11D9-01C1-EB04-7C2C-D3037727D7CB"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
