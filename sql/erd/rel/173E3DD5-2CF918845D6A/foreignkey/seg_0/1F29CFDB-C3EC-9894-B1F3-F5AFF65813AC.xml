@@ -8,7 +8,7 @@
 <referredTableID>0FC8B043-1B47-7BB5-190B-01375089BCFA</referredTableID>
 <keyObject>7CBC691E-7997-F987-6A9B-8BBC899EF835</keyObject>
 <referredKeyID>7CBC691E-7997-F987-6A9B-8BBC899EF835</referredKeyID>
-<mandatory>false</mandatory>
+<mandatory>true</mandatory>
 <refColNames>id</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
