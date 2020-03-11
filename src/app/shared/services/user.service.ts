@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { UrlService } from '../url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+<<<<<<< HEAD
+=======
+import { TeamLeader } from './classes/teamLeader';
+>>>>>>> c614c3b1c53ceb7dbc5b8e5a0e7b24850a7097aa
 import { Employee } from '../classes/employee';
 import { Currentuser } from '../classes/currentuser';
 import { Observable } from 'rxjs';
