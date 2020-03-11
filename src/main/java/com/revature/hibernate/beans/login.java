@@ -1,6 +1,5 @@
 package com.revature.hibernate.beans;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +18,6 @@ public class login {
 	@SequenceGenerator(name="login", sequenceName="login_seq", allocationSize=1)
 	private Integer id;
 	private String username;
-	@Column(name="password")
 	private String password;
 	
 	//constructor from superclass

@@ -6,7 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,12 +19,14 @@ public class Group {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Group")
 	@SequenceGenerator(name="Group", sequenceName="Group_seq", allocationSize=1)
 	private Integer id;
-	//not sure if this is a many to one relationship
-	//depends on how we want employees in the projects
-	//maybe this is a one (group) to many (projects)?
+	
+	//I think this is how we make a JoinTable with Hibernate
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name="employee_id")
+	@JoinTable(name="Group_Employee",
+		joinColumns=@JoinColumn(name="group_id"),
+		inverseJoinColumns=@JoinColumn(name="employee_id"))
 	private Integer empId;
+	@OneToMany
 	@JoinColumn(name="project_id")
 	private Integer projId;
 	public Integer getId() {
