@@ -1,6 +1,21 @@
 package com.revature.data;
 
+import java.util.Set;
+
+import com.revature.hibernate.beans.Employee;
+import com.revature.hibernate.beans.Project;
+import com.revature.hibernate.beans.ProjectComment;
+
 public interface ProjectCommentDAO {
-	//inserting an intentional error to display as a reminder that I need to add methods for this interface
-		error in syntax as a reminder;
+	// create
+	public int addProjectComment(ProjectComment pc);
+	// read
+	public ProjectComment getProjectComment(int i);
+	public Set<ProjectComment> getProjectComments();
+	public Set<ProjectComment> getProjectCommentsByProject(Project p);
+	public Set<ProjectComment> getProjectCommentsByEmployee(Employee emp);
+	// update
+	public void updateProjectComment(ProjectComment pc);
+	// delete
+	public void deleteProjectComment(ProjectComment pc);
 }
