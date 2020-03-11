@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class text {
+public class Text {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="text")
 	@SequenceGenerator(name="text", sequenceName="text_seq", allocationSize=1)
@@ -45,7 +45,7 @@ public class text {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		text other = (text) obj;
+		Text other = (Text) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -62,10 +62,10 @@ public class text {
 	public String toString() {
 		return "text [id=" + id + ", textstring=" + textstring + "]";
 	}
-	public text() {
+	public Text() {
 		super();
 	}
-	public text(Integer id, String textstring) {
+	public Text(Integer id, String textstring) {
 		super();
 		this.id = id;
 		this.textstring = textstring;

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "login")
 @Inheritance(strategy=InheritanceType.JOINED)
-public class login {
+public class Login {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login")
 	@SequenceGenerator(name="login", sequenceName="login_seq", allocationSize=1)
@@ -21,12 +21,12 @@ public class login {
 	private String password;
 	
 	//constructor from superclass
-	public login(Integer id) {
+	public Login(Integer id) {
 		super();
 		this.id = id;
 	}
 	//constructor from fields
-	public login(Integer id, String username, String pass) {
+	public Login(Integer id, String username, String pass) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -75,7 +75,7 @@ public class login {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		login other = (login) obj;
+		Login other = (Login) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

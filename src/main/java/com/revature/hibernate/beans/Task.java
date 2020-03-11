@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class task {
+public class Task {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="task")
 	@SequenceGenerator(name="task", sequenceName="task_seq", allocationSize=1)
@@ -81,7 +81,7 @@ public class task {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		task other = (task) obj;
+		Task other = (Task) obj;
 		if (descriptionId == null) {
 			if (other.descriptionId != null)
 				return false;
@@ -114,10 +114,10 @@ public class task {
 		return "task [id=" + id + ", statusId=" + statusId + ", empId=" + empId + ", descriptionId=" + descriptionId
 				+ ", projId=" + projId + "]";
 	}
-	public task() {
+	public Task() {
 		super();
 	}
-	public task(Integer id, Integer statusId, Integer empId, String descriptionId, String projId) {
+	public Task(Integer id, Integer statusId, Integer empId, String descriptionId, String projId) {
 		super();
 		this.id = id;
 		this.statusId = statusId;
