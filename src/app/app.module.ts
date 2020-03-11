@@ -5,12 +5,16 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import {RouterModule} from '@angular/router';
+
 import { LoginComponent } from './shared/login/login.component';
 import { ServicesComponent } from './shared/services/services.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './projects/tasks/tasks.component';
 import { NotificationsComponent } from './projects/notifications/notifications.component';
+
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -24,6 +28,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 
 
 
+import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,11 +41,13 @@ import {MatNativeDateModule} from '@angular/material/core';
     NotificationsComponent,
     MainToolBarComponent,
     DragDropTasksComponent
-    
+  
+    SubNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     MatToolbarModule, 
     MatCardModule, 
     MatMenuModule,
@@ -47,6 +55,24 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatIconModule,
     DragDropModule,
     MatNativeDateModule
+
+    RouterModule.forRoot([
+      {
+        path: "/login",
+        component: LoginComponent
+      },
+      {
+        path: "/projects",
+        component: ProjectsComponent
+      },
+      {
+        path: "/tasks",
+        component: TasksComponent
+      }
+
+
+    ])
+
   ],
   providers: [],
   bootstrap: [AppComponent,MainToolBarComponent,DragDropTasksComponent]
