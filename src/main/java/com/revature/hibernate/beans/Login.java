@@ -12,25 +12,25 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "login")
 @Inheritance(strategy=InheritanceType.JOINED)
-public class login {
+public class Login {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login")
 	@SequenceGenerator(name="login", sequenceName="login_seq", allocationSize=1)
 	private Integer id;
 	private String username;
-	private String pass;
+	private String password;
 	
 	//constructor from superclass
-	public login(Integer id) {
+	public Login(Integer id) {
 		super();
 		this.id = id;
 	}
 	//constructor from fields
-	public login(Integer id, String username, String pass) {
+	public Login(Integer id, String username, String pass) {
 		super();
 		this.id = id;
 		this.username = username;
-		this.pass = pass;
+		this.password = pass;
 	}
 	//getters and setters from fields
 	public Integer getId() {
@@ -46,15 +46,15 @@ public class login {
 		this.username = username;
 	}
 	public String getPass() {
-		return pass;
+		return password;
 	}
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.password = pass;
 	}
 	//toString method
 	@Override
 	public String toString() {
-		return "login [id=" + id + ", username=" + username + ", pass=" + pass + "]";
+		return "login [id=" + id + ", username=" + username + ", pass=" + password + "]";
 	}
 	//haschcode from fields
 	@Override
@@ -62,7 +62,7 @@ public class login {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((pass == null) ? 0 : pass.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -75,16 +75,16 @@ public class login {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		login other = (login) obj;
+		Login other = (Login) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (pass == null) {
-			if (other.pass != null)
+		if (password == null) {
+			if (other.password != null)
 				return false;
-		} else if (!pass.equals(other.pass))
+		} else if (!password.equals(other.password))
 			return false;
 		if (username == null) {
 			if (other.username != null)

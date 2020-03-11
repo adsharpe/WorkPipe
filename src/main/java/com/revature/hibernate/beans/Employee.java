@@ -11,17 +11,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name="login")
 @PrimaryKeyJoinColumn(name="id")
-public class employee extends login{
-	@Column(name="first_name")
+public class Employee extends Login{
+	@Column(name="firstname")
 	private String first;
-	@Column(name="last_name")
+	@Column(name="lastname")
 	private String last;
 	private String title;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="login_id")
 	private Integer logId;
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="supervisor")
+	@JoinColumn(name="supervisor_id")
 	private Integer supervisor;
 	public String getFirst() {
 		return first;
@@ -53,7 +53,7 @@ public class employee extends login{
 	public void setSupervisor(Integer supervisor) {
 		this.supervisor = supervisor;
 	}
-	public employee(Integer id, String username, String pass, String first, String last, String title, Integer logId, Integer supervisor) {
+	public Employee(Integer id, String username, String pass, String first, String last, String title, Integer logId, Integer supervisor) {
 		super(id, username, pass);
 		this.first = first;
 		this.last = last;
@@ -61,7 +61,7 @@ public class employee extends login{
 		this.logId = logId;
 		this.supervisor = supervisor;
 	}
-	public employee(Integer id) {
+	public Employee(Integer id) {
 		super(id);
 	}
 	@Override
@@ -83,7 +83,7 @@ public class employee extends login{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		employee other = (employee) obj;
+		Employee other = (Employee) obj;
 		if (first == null) {
 			if (other.first != null)
 				return false;

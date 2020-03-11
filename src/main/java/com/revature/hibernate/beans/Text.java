@@ -10,31 +10,31 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class status {
+public class Text {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="status")
-	@SequenceGenerator(name="status", sequenceName="status_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="text")
+	@SequenceGenerator(name="text", sequenceName="text_seq", allocationSize=1)
 	private Integer id;
-	@Column(name="status_level")
-	private String statLevel;
+	@Column(name="string")
+	private String textstring;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getStatLevel() {
-		return statLevel;
+	public String getTextstring() {
+		return textstring;
 	}
-	public void setStatLevel(String statLevel) {
-		this.statLevel = statLevel;
+	public void setTextstring(String textstring) {
+		this.textstring = textstring;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((statLevel == null) ? 0 : statLevel.hashCode());
+		result = prime * result + ((textstring == null) ? 0 : textstring.hashCode());
 		return result;
 	}
 	@Override
@@ -45,30 +45,30 @@ public class status {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		status other = (status) obj;
+		Text other = (Text) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (statLevel == null) {
-			if (other.statLevel != null)
+		if (textstring == null) {
+			if (other.textstring != null)
 				return false;
-		} else if (!statLevel.equals(other.statLevel))
+		} else if (!textstring.equals(other.textstring))
 			return false;
 		return true;
 	}
-	public status() {
-		super();
-	}
-	public status(Integer id, String statLevel) {
-		super();
-		this.id = id;
-		this.statLevel = statLevel;
-	}
 	@Override
 	public String toString() {
-		return "status [id=" + id + ", statLevel=" + statLevel + "]";
+		return "text [id=" + id + ", textstring=" + textstring + "]";
+	}
+	public Text() {
+		super();
+	}
+	public Text(Integer id, String textstring) {
+		super();
+		this.id = id;
+		this.textstring = textstring;
 	}
 	
 }
