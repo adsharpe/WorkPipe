@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UrlService } from '../url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TeamLeader } from '../classes/teamLeader';
+import { TeamLeader } from './classes/teamLeader';
 import { Employee } from '../classes/employee';
 import { Currentuser } from '../classes/currentuser';
 import { Observable } from 'rxjs';
