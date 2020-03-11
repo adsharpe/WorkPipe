@@ -33,7 +33,7 @@ public class Communique {
 	@JoinColumn(name="text_id")
 	private Integer textId;
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="connuique_type")
+	@JoinColumn(name="communique_type")
 	private Integer commType;
 	public Integer getId() {
 		return id;

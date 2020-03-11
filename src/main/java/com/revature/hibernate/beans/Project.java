@@ -1,6 +1,5 @@
 package com.revature.hibernate.beans;
 
-import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -23,10 +23,12 @@ public class Project {
 	
 	//curious about how Hibernate joins this to the employee table
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name="teamlead_id")
+	@JoinTable(name="Project_Employee",
+		joinColumns=@JoinColumn(name="project_id"),
+		inverseJoinColumns=@JoinColumn(name="teamlead_id"))
 	private Integer lead;
-	private Timestamp startdate;
-	private Timestamp enddate;
+	private String startdate;
+	private String enddate;
 	public Integer getId() {
 		return id;
 	}
@@ -45,16 +47,16 @@ public class Project {
 	public void setLead(Integer lead) {
 		this.lead = lead;
 	}
-	public Timestamp getStartdate() {
+	public String getStartdate() {
 		return startdate;
 	}
-	public void setStartdate(Timestamp startdate) {
+	public void setStartdate(String startdate) {
 		this.startdate = startdate;
 	}
-	public Timestamp getEnddate() {
+	public String getEnddate() {
 		return enddate;
 	}
-	public void setEnddate(Timestamp enddate) {
+	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
 	@Override
@@ -112,7 +114,7 @@ public class Project {
 	public Project() {
 		super();
 	}
-	public Project(Integer id, String projectname, Integer lead, Timestamp startdate, Timestamp enddate) {
+	public Project(Integer id, String projectname, Integer lead, String startdate, String enddate) {
 		super();
 		this.id = id;
 		this.projectname = projectname;

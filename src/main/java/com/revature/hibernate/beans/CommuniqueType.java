@@ -1,5 +1,6 @@
 package com.revature.hibernate.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class CommuniqueType {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Communique_Type")
 	@SequenceGenerator(name="Communique_Type", sequenceName="Communique_Type_seq", allocationSize=1)
 	private Integer id;
+	@Column(name="typename")
 	private String type;
 	public Integer getId() {
 		return id;
