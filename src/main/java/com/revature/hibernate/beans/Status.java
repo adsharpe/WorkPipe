@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class status {
+public class Status {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="status")
 	@SequenceGenerator(name="status", sequenceName="status_seq", allocationSize=1)
@@ -45,7 +45,7 @@ public class status {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		status other = (status) obj;
+		Status other = (Status) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -58,10 +58,10 @@ public class status {
 			return false;
 		return true;
 	}
-	public status() {
+	public Status() {
 		super();
 	}
-	public status(Integer id, String statLevel) {
+	public Status(Integer id, String statLevel) {
 		super();
 		this.id = id;
 		this.statLevel = statLevel;
