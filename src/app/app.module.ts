@@ -20,8 +20,6 @@ import { DragDropTasksComponent } from './projects/drag-drop-tasks/drag-drop-tas
 import { MainToolBarComponent } from './shared/main-tool-bar/main-tool-bar.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +44,8 @@ import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
     MatIconModule,
     DragDropModule,
     MatNativeDateModule,
+    MatNativeDateModule,
+
     RouterModule.forRoot([
       {
         path: "login",
@@ -60,6 +60,7 @@ import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
         component: TasksComponent
       }
     ])
+
   ],
   providers: [],
   bootstrap: [AppComponent,MainToolBarComponent,DragDropTasksComponent,]
