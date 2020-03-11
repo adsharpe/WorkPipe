@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './projects/tasks/tasks.component';
 import { NotificationsComponent } from './projects/notifications/notifications.component';
 import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
+import { MainNavComponent } from './shared/main-nav/main-nav.component';
 
 @NgModule({
   declarations: [
@@ -21,26 +24,31 @@ import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
     ProjectsComponent,
     TasksComponent,
     NotificationsComponent,
-    SubNavComponent
+    SubNavComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
-        path: "/login",
+        path: "login",
         component: LoginComponent
       },
       {
-        path: "/projects",
+        path: "projects",
         component: ProjectsComponent
       },
       {
-        path: "/tasks",
+        path: "tasks",
         component: TasksComponent
       }
-
-
+      // {
+      //   path: "discussions",
+      //   component: DiscussionComponent
+      // }
     ])
   ],
   providers: [],

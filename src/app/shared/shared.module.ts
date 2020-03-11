@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { SubNavComponent } from './sub-nav/sub-nav.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 
 
@@ -14,7 +15,8 @@ import { SubNavComponent } from './sub-nav/sub-nav.component';
   declarations: [
     NavBarComponent,
     LoginComponent,
-    SubNavComponent
+    SubNavComponent,
+    MainNavComponent
   ],
   imports: [
     CommonModule,
