@@ -1,6 +1,16 @@
 package com.revature.data;
 
+import com.revature.hibernate.beans.Status;
+import com.revature.hibernate.beans.Task;
+
 public interface StatusDAO {
-	//inserting an intentional error to display as a reminder that I need to add methods for this interface
-		error in syntax as a reminder;
+		// create
+		public int addStatus(Status s);
+		// read
+		public Status getStatus(int i);
+		public Status getStatusByTask(Task t);
+		// update
+		public void updateStatus(Status s);
+		// delete
+		public void deleteStatus(Status s);
 }
