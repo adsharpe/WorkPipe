@@ -26,11 +26,11 @@ public class Login {
 		this.id = id;
 	}
 	//constructor from fields
-	public Login(Integer id, String username, String pass) {
+	public Login(Integer id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
-		this.password = pass;
+		this.password = password;
 	}
 	//getters and setters from fields
 	public Integer getId() {
@@ -45,16 +45,16 @@ public class Login {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPass() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPass(String pass) {
-		this.password = pass;
+	public void setPass(String password) {
+		this.password = password;
 	}
 	//toString method
 	@Override
 	public String toString() {
-		return "login [id=" + id + ", username=" + username + ", pass=" + password + "]";
+		return "login [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
 	//haschcode from fields
 	@Override
