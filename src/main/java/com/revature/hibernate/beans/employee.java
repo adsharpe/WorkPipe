@@ -12,16 +12,16 @@ import javax.persistence.Table;
 @Table(name="login")
 @PrimaryKeyJoinColumn(name="id")
 public class employee extends login{
-	@Column(name="first_name")
+	@Column(name="firstname")
 	private String first;
-	@Column(name="last_name")
+	@Column(name="lastname")
 	private String last;
 	private String title;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="login_id")
 	private Integer logId;
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="supervisor")
+	@JoinColumn(name="supervisor_id")
 	private Integer supervisor;
 	public String getFirst() {
 		return first;
