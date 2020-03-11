@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {RouterModule} from '@angular/router';
 import { LoginComponent } from './shared/login/login.component';
 import { ServicesComponent } from './shared/services/services.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
@@ -20,8 +19,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragDropTasksComponent } from './projects/drag-drop-tasks/drag-drop-tasks.component';
 import { MainToolBarComponent } from './shared/main-tool-bar/main-tool-bar.component';
 import {MatNativeDateModule} from '@angular/material/core';
-
-
+import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
 
 
 @NgModule({
@@ -34,22 +32,37 @@ import {MatNativeDateModule} from '@angular/material/core';
     TasksComponent,
     NotificationsComponent,
     MainToolBarComponent,
-    DragDropTasksComponent
-    
+    DragDropTasksComponent,
+    SubNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     MatToolbarModule, 
     MatCardModule, 
     MatMenuModule,
     MatGridListModule,
     MatIconModule,
     DragDropModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    RouterModule.forRoot([
+      {
+        path: "login",
+        component: LoginComponent
+      },
+      {
+        path: "projects",
+        component: ProjectsComponent
+      },
+      {
+        path: "tasks",
+        component: TasksComponent
+      }
+    ])
   ],
   providers: [],
-  bootstrap: [AppComponent,MainToolBarComponent,DragDropTasksComponent]
+  bootstrap: [AppComponent,MainToolBarComponent,DragDropTasksComponent,]
 })
 
 export class AppModule { }
