@@ -4,7 +4,7 @@ import com.revature.hibernate.beans.Login;
 
 public interface LoginDAO {
 
-	public int addUser(Login user);
+	public Login addUser(Login user);
 	
 	
 	public Login getLogin(String username, String password);
