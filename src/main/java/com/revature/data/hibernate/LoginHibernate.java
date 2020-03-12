@@ -33,7 +33,7 @@ public class LoginHibernate implements LoginDAO {
 	@Override
 	public Login getLogin(String username, String password) {
 		Session s = hu.getSession();
-		String query = "from User u where u.username=:username and u.password=:password";
+		String query = "from Login l where l.username=:username and l.password=:password";
 		Query<Login> q = s.createQuery(query, Login.class);
 		q.setParameter("username", username);
 		q.setParameter("password", password);
