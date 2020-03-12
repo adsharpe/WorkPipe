@@ -18,7 +18,7 @@ public class CommuniqueHibernate implements CommuniqueDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 
 		@Override
-		public int addCommuniqueType(Communique c) {
+		public Communique addCommuniqueType(Communique c) {
 			Session s = hu.getSession();
 			Transaction tx = null;
 			try {
@@ -33,7 +33,7 @@ public class CommuniqueHibernate implements CommuniqueDAO {
 			} finally {
 				s.close();
 			}
-			return c.getId();
+			return c;
 		}
 
 		@Override

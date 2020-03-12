@@ -18,7 +18,7 @@ public class EmployeeHibernate implements EmployeeDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	
 	@Override
-	public void addEmployee(Employee employee) {
+	public Employee addEmployee(Employee employee) {
 		Session s = hu.getSession();
 		Transaction t = null;
 		try {
@@ -32,6 +32,7 @@ public class EmployeeHibernate implements EmployeeDAO {
 		} finally {
 			s.close();
 		}
+		return employee;
 	}
 
 	@Override

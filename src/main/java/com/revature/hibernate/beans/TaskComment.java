@@ -1,5 +1,7 @@
 package com.revature.hibernate.beans;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,7 +25,7 @@ public class TaskComment {
 	private Integer id;
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="task_id")
-	private Integer taskId;
+	private Set<Task> tasks;
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="employee_id")
 	private Integer empId;
@@ -38,11 +40,12 @@ public class TaskComment {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getTaskId() {
-		return taskId;
+	
+	public Set<Task> getTasks() {
+		return tasks;
 	}
-	public void setTaskId(Integer taskId) {
-		this.taskId = taskId;
+	public void setTasks(Set<Task> tasks) {
+		this.tasks = tasks;
 	}
 	public Integer getEmpId() {
 		return empId;
@@ -62,7 +65,7 @@ public class TaskComment {
 		int result = 1;
 		result = prime * result + ((empId == null) ? 0 : empId.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((taskId == null) ? 0 : taskId.hashCode());
+		result = prime * result + ((tasks == null) ? 0 : tasks.hashCode());
 		result = prime * result + ((textId == null) ? 0 : textId.hashCode());
 		return result;
 	}
@@ -85,10 +88,10 @@ public class TaskComment {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (taskId == null) {
-			if (other.taskId != null)
+		if (tasks == null) {
+			if (other.tasks != null)
 				return false;
-		} else if (!taskId.equals(other.taskId))
+		} else if (!tasks.equals(other.tasks))
 			return false;
 		if (textId == null) {
 			if (other.textId != null)
@@ -99,12 +102,13 @@ public class TaskComment {
 	}
 	@Override
 	public String toString() {
-		return "TaskComment [id=" + id + ", taskId=" + taskId + ", empId=" + empId + ", textId=" + textId + "]";
+		return "TaskComment [id=" + id + ", tasks=" + tasks + ", empId=" + empId + ", textId=" + textId + "]";
 	}
-	public TaskComment(Integer id, Integer taskId, Integer empId, Integer textId) {
+	
+	public TaskComment(Integer id, Set<Task> tasks, Integer empId, Integer textId) {
 		super();
 		this.id = id;
-		this.taskId = taskId;
+		this.tasks = tasks;
 		this.empId = empId;
 		this.textId = textId;
 	}

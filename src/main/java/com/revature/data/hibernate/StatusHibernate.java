@@ -15,7 +15,7 @@ public class StatusHibernate implements StatusDAO {
 	//intentional error as a reminder to implement methods from DAO
 	//error in syntax as
 	@Override
-	public int addStatus(Status s) {
+	public Status addStatus(Status s) {
 		Session sess = hu.getSession();
 		Transaction t = null;
 		Integer i = 0;
@@ -29,7 +29,7 @@ public class StatusHibernate implements StatusDAO {
 		} finally {
 			sess.close();
 		}
-		return i;
+		return s;
 	}
 	@Override
 	public Status getStatus(int i) {

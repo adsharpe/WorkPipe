@@ -11,7 +11,7 @@ import com.revature.utils.LogUtil;
 public class CommuniqueTypeHibernate implements CommuniqueTypeDAO{
 	private HibernateUtil hu = HibernateUtil.getInstance();
 		@Override
-		public int addCommuniqueType(CommuniqueType ct) {
+		public CommuniqueType addCommuniqueType(CommuniqueType ct) {
 			Session s = hu.getSession();
 			Transaction tx = null;
 			try {
@@ -26,7 +26,7 @@ public class CommuniqueTypeHibernate implements CommuniqueTypeDAO{
 			} finally {
 				s.close();
 			}
-			return ct.getId();
+			return ct;
 		}
 		@Override
 		public CommuniqueType getCommuniqueType(int i) {

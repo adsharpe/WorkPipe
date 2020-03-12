@@ -22,7 +22,7 @@ public class TaskHibernate implements TaskDAO {
 	private HibernateUtil hibernateUtil = HibernateUtil.getInstance();
 
 	@Override
-	public int addTask(Task task) {
+	public Task addTask(Task task) {
 		Session session = hibernateUtil.getSession();
 		Transaction transaction = null;
 		
@@ -38,7 +38,7 @@ public class TaskHibernate implements TaskDAO {
 			session.close();
 		}
 		
-		return task.getId();
+		return task;
 	}
 
 	@Override

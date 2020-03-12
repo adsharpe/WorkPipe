@@ -8,7 +8,7 @@ import com.revature.hibernate.beans.ProjectComment;
 
 public interface ProjectCommentDAO {
 	// create
-	public int addProjectComment(ProjectComment pc);
+	public ProjectComment addProjectComment(ProjectComment pc);
 	// read
 	public ProjectComment getProjectComment(int i);
 	public Set<ProjectComment> getProjectComments();
