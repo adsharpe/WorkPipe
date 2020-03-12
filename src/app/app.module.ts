@@ -23,6 +23,16 @@ import { MainToolBarComponent } from './shared/main-tool-bar/main-tool-bar.compo
 import {MatNativeDateModule} from '@angular/material/core';
 import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
+import { UserService } from './shared/services/user.service';
+import { UrlService } from './shared/url.service';
+import { HomeComponent } from './projects/Home/home/home.component';
+import { ActivitiesComponent } from './projects/Activities/activities/activities.component';
+import { DiscussionsComponent } from './projects/Discussions/discussions/discussions.component';
+import { EventsComponent } from './projects/Events/events/events.component';
+import { FilesComponent } from './projects/Files/files/files.component';
+import { MessagesComponent } from './projects/Messages/messages/messages.component';
+import { TeamsComponent } from './projects/Teams/teams/teams.component';
+import { fileURLToPath } from 'url';
 
 @NgModule({
   declarations: [
@@ -38,7 +48,14 @@ import { MainNavComponent } from './shared/main-nav/main-nav.component';
     MainToolBarComponent,
     DragDropTasksComponent,
     SubNavComponent,
-    DragDropTasksComponent
+    DragDropTasksComponent,
+    HomeComponent,
+    ActivitiesComponent,
+    DiscussionsComponent,
+    EventsComponent,
+    FilesComponent,
+    MessagesComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,
@@ -60,22 +77,46 @@ import { MainNavComponent } from './shared/main-nav/main-nav.component';
         component: LoginComponent
       },
       {
+        path: "home",
+        component: HomeComponent
+      },
+      {
         path: "projects",
         component: ProjectsComponent
       },
       {
         path: "tasks",
         component: TasksComponent
+      },
+      {
+        path: "discussions",
+        component: DiscussionsComponent
+      },
+      {
+        path: "teams",
+        component: TeamsComponent
+      },
+      {
+        path: "messages",
+        component: MessagesComponent
+      },
+      {
+        path: "files",
+        component: FilesComponent
+      },
+      {
+        path: "activities",
+        component: ActivitiesComponent
+      },
+      {
+        path: "events",
+        component: EventsComponent
       }
-      // {
-      //   path: "discussions",
-      //   component: DiscussionComponent
-      // }
     ])
 
   ],
-  providers: [],
-  bootstrap: [AppComponent,MainToolBarComponent,DragDropTasksComponent,]
+  providers: [UserService, UrlService],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }
