@@ -19,6 +19,7 @@ export class DragDropTasksComponent {
     });
   }
   todo = [
+  
     'Get to work',
     'Pick up groceries',
     'Go home',

@@ -189,6 +189,7 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view>&#xD;&#xA;&lt;presentation currentPage=&quot;qroot&quot; restore=&quot;true&quot;/>&#xD;&#xA;&lt;standbyPart/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_7Gt5IGCoEeqtBL5vbQFrDQ" elementId="org.eclipse.ui.internal.introview">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -354,7 +355,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5dVggGCoEeqtBL5vbQFrDQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_qxI_kGCtEeq86p9WD54-NA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_4dAE8GCoEeqtBL5vbQFrDQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_vi9P0GR-EeqxeIv5Lv_ctQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_4dAE8GCoEeqtBL5vbQFrDQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5dVggWCoEeqtBL5vbQFrDQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -391,7 +392,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5dVgiGCoEeqtBL5vbQFrDQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_qxN4EGCtEeq86p9WD54-NA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_4c9o5WCoEeqtBL5vbQFrDQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_vjATIGR-EeqxeIv5Lv_ctQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_4c9o5WCoEeqtBL5vbQFrDQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5dVgiWCoEeqtBL5vbQFrDQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -422,11 +423,6 @@
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_4bisV2CoEeqtBL5vbQFrDQ" elementId="org.eclipse.ui.ProgressBar" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim">
-        <tags>Draggable</tags>
-      </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_5qG-8GCtEeq86p9WD54-NA" elementId="org.eclipse.ui.internal.intro.impl.presentations.IntroLaunchBar" contributionURI="bundleclass://org.eclipse.ui.intro/org.eclipse.ui.internal.intro.impl.presentations.IntroLaunchBar">
-        <persistedState key="introConfigId" value="org.eclipse.ui.intro.universalConfig"/>
-        <persistedState key="lastPageId" value="qroot"/>
         <tags>Draggable</tags>
       </children>
     </trimBars>
