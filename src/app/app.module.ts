@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,8 @@ import { DragDropTasksComponent } from './projects/drag-drop-tasks/drag-drop-tas
 import { MainToolBarComponent } from './shared/main-tool-bar/main-tool-bar.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
+import { MainNavComponent } from './shared/main-nav/main-nav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,14 +33,18 @@ import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
     ProjectsComponent,
     TasksComponent,
     NotificationsComponent,
+    SubNavComponent,
+    MainNavComponent,
     MainToolBarComponent,
     DragDropTasksComponent,
-    SubNavComponent
+    SubNavComponent,
+    DragDropTasksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
+    HttpClientModule,
     MatToolbarModule, 
     MatCardModule, 
     MatMenuModule,
@@ -59,6 +67,10 @@ import { SubNavComponent } from './shared/sub-nav/sub-nav.component';
         path: "tasks",
         component: TasksComponent
       }
+      // {
+      //   path: "discussions",
+      //   component: DiscussionComponent
+      // }
     ])
 
   ],
