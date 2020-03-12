@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import {MatDialog} from '@angular/material/dialog';
+import {Task} from '../tasks/Beans/task';
 
 @Component({
   selector: 'app-drag-drop-tasks',
@@ -8,7 +9,7 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./drag-drop-tasks.component.css'],
 })
 
-export class DragDropTasksComponent {
+export class DragDropTasksComponent implements OnInit {
   //Modal
   // constructor(public dialog: MatDialog) {}
   // openDialog() {
@@ -19,28 +20,30 @@ export class DragDropTasksComponent {
   //   });
   // }
   
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  todo: Task[];
 
   done = [
     'Get up',
     'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
+    'Take a shower'
   ];
 
   review = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
     'Check e-mail',
-    'Walk dog'
+    'Walk dog',
+    'Go home',
+    'Fall asleep'
   ];
+
+  ngOnInit(): void {
+    this.todo = [];
+    let t = new Task();
+    t.id = 1;
+    this.todo.push(t);
+    t = new Task();
+    t.id = 2;
+    this.todo.push(t);
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
