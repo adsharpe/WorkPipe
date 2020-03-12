@@ -1,5 +1,7 @@
 package com.revature.hibernate.beans;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,7 +27,9 @@ public class Group {
 	@JoinTable(name="Group_Employee",
 		joinColumns=@JoinColumn(name="group_id"),
 		inverseJoinColumns=@JoinColumn(name="employee_id"))
-	private Integer empId;
+	//changing bean
+	private Set<Employee> employees;
+	
 	@OneToMany
 	@JoinColumn(name="project_id")
 	private Integer projId;
@@ -35,23 +39,23 @@ public class Group {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getEmpId() {
-		return empId;
-	}
-	public void setEmpId(Integer empId) {
-		this.empId = empId;
-	}
 	public Integer getProjId() {
 		return projId;
 	}
 	public void setProjId(Integer projId) {
 		this.projId = projId;
 	}
+	public Set<Employee> getEmployees() {
+		return employees;
+	}
+	public void setEmployees(Set<Employee> employees) {
+		this.employees = employees;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((empId == null) ? 0 : empId.hashCode());
+		result = prime * result + ((employees == null) ? 0 : employees.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((projId == null) ? 0 : projId.hashCode());
 		return result;
@@ -65,10 +69,10 @@ public class Group {
 		if (getClass() != obj.getClass())
 			return false;
 		Group other = (Group) obj;
-		if (empId == null) {
-			if (other.empId != null)
+		if (employees == null) {
+			if (other.employees != null)
 				return false;
-		} else if (!empId.equals(other.empId))
+		} else if (!employees.equals(other.employees))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -82,15 +86,15 @@ public class Group {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Group [id=" + id + ", empId=" + empId + ", projId=" + projId + "]";
-	}
-	public Group(Integer id, Integer empId, Integer projId) {
+	public Group(Integer id, Set<Employee> employees, Integer projId) {
 		super();
 		this.id = id;
-		this.empId = empId;
+		this.employees = employees;
 		this.projId = projId;
+	}
+	@Override
+	public String toString() {
+		return "Group [id=" + id + ", employees=" + employees + ", projId=" + projId + "]";
 	}
 	public Group() {
 		super();
