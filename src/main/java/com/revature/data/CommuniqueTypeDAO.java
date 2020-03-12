@@ -6,7 +6,7 @@ import com.revature.hibernate.beans.Task;
 
 public interface CommuniqueTypeDAO {
 	// create
-	public int addCommuniqueType(CommuniqueType ct);
+	public CommuniqueType addCommuniqueType(CommuniqueType ct);
 	// read
 	public CommuniqueType getCommuniqueType(int i);
 	// update

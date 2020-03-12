@@ -8,7 +8,7 @@ import com.revature.hibernate.beans.TaskComment;
 
 public interface TaskCommentDAO {
 		// create
-		public int addTaskComment(TaskComment tc);
+		public TaskComment addTaskComment(TaskComment tc);
 		// read
 		public TaskComment getTaskComment(int i);
 		public Set<TaskComment> getTaskComments();

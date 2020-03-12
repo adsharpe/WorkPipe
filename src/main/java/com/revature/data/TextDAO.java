@@ -8,16 +8,16 @@ import com.revature.hibernate.beans.Task;
 import com.revature.hibernate.beans.Text;
 
 public interface TextDAO {
-			// create
-		public int addText(Text txt);
+		// create
+		public Text addText(Text text);
+		
 		// read
-		public Text getText(int i);
-		public Text getTextByEmployee(Employee emp);
+		public Text getText(int textId);
 		public Set<Text> getTexts();
-		public Set<Text> getTextsByProject(Project p);
-		public Set<Text> getTextsByTask(Task t);
+		
 		// update
-		public void updateText(Text txt);
+		public void updateText(Text text);
+		
 		// delete
-		public void deleteText(Text txt);
+		public void deleteText(Text text);
 }

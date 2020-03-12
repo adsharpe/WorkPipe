@@ -10,7 +10,7 @@ import com.revature.hibernate.beans.Task;
 public interface ProjectDAO {
 
 		// create
-		public int addProject(Project p);
+		public Project addProject(Project p);
 		// read
 		public Project getProject(int i);
 		public Project getProjectByTask(Task t);
