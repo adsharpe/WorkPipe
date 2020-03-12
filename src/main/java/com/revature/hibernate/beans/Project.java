@@ -1,6 +1,7 @@
 package com.revature.hibernate.beans;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,6 +27,7 @@ public class Project {
 	@JoinTable(name="Project_Employee",
 		joinColumns=@JoinColumn(name="project_id"),
 		inverseJoinColumns=@JoinColumn(name="teamlead_id"))
+	@Column(name="teamlead_id")
 	private Integer lead;
 	private String startdate;
 	private String enddate;

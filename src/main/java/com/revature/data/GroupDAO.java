@@ -10,7 +10,7 @@ public interface GroupDAO {
 	// create
 	public int addGroup(Group g);
 	// read
-	public Group getTaskComment(int i);
+	public Group getGroup(int i);
 	public Group getGroupByProject(Project p);
 	public Set<Group> getGroupsByEmployee(Employee emp);
 	// update
