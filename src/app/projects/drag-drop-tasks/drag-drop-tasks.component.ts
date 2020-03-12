@@ -10,14 +10,15 @@ import {MatDialog} from '@angular/material/dialog';
 
 export class DragDropTasksComponent {
   //Modal
-  constructor(public dialog: MatDialog) {}
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+  // constructor(public dialog: MatDialog) {}
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(DialogContentExampleDialog);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
+  
   todo = [
     'Get to work',
     'Pick up groceries',
@@ -52,8 +53,8 @@ export class DragDropTasksComponent {
     }
   }
 }
-@Component({
-  selector: 'dialog-content-example-dialog',
-  templateUrl: 'dialog-content-example-dialog.html',
-})                                                                                                                                                                                                                                                        
-export class DialogContentExampleDialog {}
+// @Component({
+//   selector: 'dialog-content-example-dialog',
+//   templateUrl: 'dialog-content-example-dialog.html',
+// })                                                                                                                                                                                                                                                        
+// export class DialogContentExampleDialog {}
