@@ -9,8 +9,6 @@ public interface CommuniqueTypeDAO {
 	public int addCommuniqueType(CommuniqueType ct);
 	// read
 	public CommuniqueType getCommuniqueType(int i);
-	public CommuniqueType getCommuniqueTypeByTask(Task t);
-	public CommuniqueType getCommuniqueTypeByProject(Project p);
 	// update
 	public void updateCommuniqueType(CommuniqueType ct);
 	// delete
