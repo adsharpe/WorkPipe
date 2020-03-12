@@ -7,7 +7,7 @@ import com.revature.hibernate.beans.Employee;
 
 public interface EmployeeDAO {
 	
-		public void addEmployee(Employee employee);
+		public Employee addEmployee(Employee employee);
 		
 		public Employee getEmployee(Employee emp);
 		
