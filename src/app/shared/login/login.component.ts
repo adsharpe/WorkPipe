@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.userService.login(this.username, this.password).subscribe(
       resp => {
+        if(Currentuser)
         this.loggedUser = resp;
       }
     );

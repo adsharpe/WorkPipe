@@ -1,12 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-=======
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
->>>>>>> c614c3b1c53ceb7dbc5b8e5a0e7b24850a7097aa
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,33 +42,24 @@ import { MainNavComponent } from './shared/main-nav/main-nav.component';
     ProjectsComponent,
     TasksComponent,
     NotificationsComponent,
-<<<<<<< HEAD
     SubNavComponent,
-    MainNavComponent
-=======
+    MainNavComponent,
     MainToolBarComponent,
     DragDropTasksComponent
-  
-    SubNavComponent
->>>>>>> c614c3b1c53ceb7dbc5b8e5a0e7b24850a7097aa
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     FormsModule,
     HttpClientModule,
-=======
-
     MatToolbarModule, 
     MatCardModule, 
     MatMenuModule,
     MatGridListModule,
     MatIconModule,
     DragDropModule,
-    MatNativeDateModule
+    MatNativeDateModule,
 
->>>>>>> c614c3b1c53ceb7dbc5b8e5a0e7b24850a7097aa
     RouterModule.forRoot([
       {
         path: "login",
