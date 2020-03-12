@@ -8,7 +8,7 @@ public interface StatusDAO {
 		public int addStatus(Status s);
 		// read
 		public Status getStatus(int i);
-		public Status getStatusByTask(Task t);
+		public Status getStatusById(Status s);
 		// update
 		public void updateStatus(Status s);
 		// delete
