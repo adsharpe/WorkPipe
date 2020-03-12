@@ -21,7 +21,7 @@ public class TextHibernate implements TextDAO {
 	private HibernateUtil hibernateUtil = HibernateUtil.getInstance();
 
 	@Override
-	public int addText(Text text) {
+	public Text addText(Text text) {
 		Session session = hibernateUtil.getSession();
 		Transaction transaction = null;
 		
@@ -37,7 +37,7 @@ public class TextHibernate implements TextDAO {
 			session.close();
 		}
 		
-		return text.getId();
+		return text;
 	}
 
 	@Override
@@ -54,12 +54,6 @@ public class TextHibernate implements TextDAO {
 		}
 		
 		return text;
-	}
-
-	@Override
-	public Text getTextByEmployee(Employee emp) {
-		// TODO Remove this call from DAO interface
-		return null;
 	}
 
 	@Override
@@ -80,18 +74,6 @@ public class TextHibernate implements TextDAO {
 		}
 		
 		return texts;
-	}
-
-	@Override
-	public Set<Text> getTextsByProject(Project p) {
-		// TODO Remove this call from DAO interface
-		return null;
-	}
-
-	@Override
-	public Set<Text> getTextsByTask(Task t) {
-		// TODO Remove this call from DAO interface
-		return null;
 	}
 
 	@Override
