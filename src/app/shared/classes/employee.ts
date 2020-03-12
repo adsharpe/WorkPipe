@@ -5,5 +5,4 @@ export class Employee extends User {
     last: string;
     title: string;
     supervisor: Employee;
-
 }
