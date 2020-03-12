@@ -18,12 +18,12 @@ public class GroupService {
 	GroupDAO groupDAO;
 	
 	@Transactional(readOnly=false)
-	public int addGroup(Group group) {
+	public Group addGroup(Group group) {
 		return groupDAO.addGroup(group);
 	}
 	
-	public Group getTaskComment(int taskId) {
-		return groupDAO.getTaskComment(taskId);
+	public Group getGroup(int groupId) {
+		return groupDAO.getGroup(groupId);
 	}
 	
 	public Group getGroupByProject(Project project) {

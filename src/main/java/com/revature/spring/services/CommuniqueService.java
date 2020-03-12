@@ -17,7 +17,7 @@ public class CommuniqueService {
 	CommuniqueDAO communiqueDao;
 	
 	@Transactional(readOnly=false)
-	public int addCommuniqueType(Communique communique) {
+	public Communique addCommuniqueType(Communique communique) {
 		return communiqueDao.addCommuniqueType(communique);
 	}
 	

@@ -18,7 +18,7 @@ public class TaskCommentService {
 	TaskCommentDAO taskCommentDao;
 	
 	@Transactional(readOnly=false)
-	public int addTaskComment(TaskComment taskComment) {
+	public TaskComment addTaskComment(TaskComment taskComment) {
 		return taskCommentDao.addTaskComment(taskComment);
 	}
 	
