@@ -16,20 +16,12 @@ public class CommuniqueTypeService {
 	CommuniqueTypeDAO communiqueTypeDao;
 	
 	@Transactional(readOnly=false)
-	public int addCommuniqueType(CommuniqueType communiqueType) {
+	public CommuniqueType addCommuniqueType(CommuniqueType communiqueType) {
 		return communiqueTypeDao.addCommuniqueType(communiqueType);
 	}
 	
 	public CommuniqueType getCommuniqueType(int communiqueTypeId) {
 		return communiqueTypeDao.getCommuniqueType(communiqueTypeId);
-	}
-	
-	public CommuniqueType getCommuniqueTypeByTask(Task task) {
-		return communiqueTypeDao.getCommuniqueTypeByTask(task);
-	}
-	
-	public CommuniqueType getCommuniqueTypeByProject(Project project) {
-		return communiqueTypeDao.getCommuniqueTypeByProject(project);
 	}
 
 	@Transactional(readOnly=false)

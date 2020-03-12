@@ -19,7 +19,7 @@ public class TextService {
 	TextDAO textDao;
 	
 	@Transactional(readOnly=false)
-	public int addText(Text text) {
+	public Text addText(Text text) {
 		return textDao.addText(text);
 	}
 	
@@ -27,20 +27,8 @@ public class TextService {
 		return textDao.getText(taskId);
 	}
 	
-	public Text getTextByEmployee(Employee employee) {
-		return textDao.getTextByEmployee(employee);
-	}
-	
 	public Set<Text> getTexts() {
 		return textDao.getTexts();
-	}
-	
-	public Set<Text> getTextsByProject(Project project) {
-		return textDao.getTextsByProject(project);
-	}
-	
-	public Set<Text> getTextsByTask(Task task) {
-		return textDao.getTextsByTask(task);
 	}
 	
 	@Transactional(readOnly=false)

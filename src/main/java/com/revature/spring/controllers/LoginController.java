@@ -29,7 +29,7 @@ public class LoginController {
 	
 	@GetMapping
 	public ResponseEntity<Employee> login(HttpSession session) {
-		Employee employee = (Employee)session.getAttribute("loggedUser");
+		Employee employee = (Employee)session.getAttribute("currentUser");
 		if(employee == null)
 			return ResponseEntity.status(401).build();
 		return ResponseEntity.ok(employee);
@@ -55,7 +55,7 @@ public class LoginController {
 			return ResponseEntity.status(401).build();
 		}
 		
-		session.setAttribute("loggedUser", employee);
+		session.setAttribute("currentUser", employee);
 		return ResponseEntity.ok(employee);
 	}
 	

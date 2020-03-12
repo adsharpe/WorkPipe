@@ -14,7 +14,7 @@ public class LoginService {
 	LoginDAO loginDao;
 	
 	@Transactional(readOnly=false)
-	public int addUser(Login user) {
+	public Login addUser(Login user) {
 		return loginDao.addUser(user);
 	}
 	

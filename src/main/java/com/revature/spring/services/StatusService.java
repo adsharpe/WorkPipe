@@ -15,7 +15,7 @@ public class StatusService {
 	StatusDAO statusDao;
 	
 	@Transactional(readOnly=false)
-	public int addStatus(Status status) {
+	public Status addStatus(Status status) {
 		return statusDao.addStatus(status);
 	}
 	

@@ -19,7 +19,7 @@ public class TaskService {
 	TaskDAO taskDao;
 	
 	@Transactional(readOnly=false)
-	public int addTask(Task task) {
+	public Task addTask(Task task) {
 		return taskDao.addTask(task);
 	}
 	

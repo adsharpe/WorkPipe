@@ -18,7 +18,7 @@ public class ProjectService {
 	ProjectDAO projectDao;
 	
 	@Transactional(readOnly=false)
-	public int addProject(Project project) {
+	public Project addProject(Project project) {
 		return projectDao.addProject(project);
 	}
 	
