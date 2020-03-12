@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { UrlService } from '../url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Employee } from '../classes/employee';
-import { Currentuser } from '../classes/currentuser';
+import { Currentuser } from '../classes/currentUser';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
