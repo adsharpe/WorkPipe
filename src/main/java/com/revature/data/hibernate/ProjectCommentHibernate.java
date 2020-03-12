@@ -19,7 +19,7 @@ public class ProjectCommentHibernate implements ProjectCommentDAO{
 	private HibernateUtil hu = HibernateUtil.getInstance();
 
 	@Override
-	public int addProjectComment(ProjectComment pc) {
+	public ProjectComment addProjectComment(ProjectComment pc) {
 		Session s = hu.getSession();
 		Transaction tx = null;
 		try {
@@ -34,7 +34,7 @@ public class ProjectCommentHibernate implements ProjectCommentDAO{
 		} finally {
 			s.close();
 		}
-		return pc.getId();
+		return pc;
 	}
 
 	@Override

@@ -19,7 +19,7 @@ import com.revature.utils.LogUtil;
 public class GroupHibernate implements GroupDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 		@Override
-		public int addGroup(Group g) {
+		public Group addGroup(Group g) {
 			Session s = hu.getSession();
 			Transaction t = null;
 			Integer i = 0;
@@ -33,7 +33,7 @@ public class GroupHibernate implements GroupDAO {
 			} finally {
 				s.close();
 			}
-			return i;
+			return g;
 		}
 		@Override
 		public Group getGroup(int i) {

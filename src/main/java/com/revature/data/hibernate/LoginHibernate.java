@@ -13,7 +13,7 @@ import com.revature.utils.LogUtil;
 public class LoginHibernate implements LoginDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	@Override
-	public int addUser(Login user) {
+	public Login addUser(Login user) {
 		Session s = hu.getSession();
 		Transaction t = null;
 		Integer i = 0;
@@ -27,7 +27,7 @@ public class LoginHibernate implements LoginDAO {
 		} finally {
 			s.close();
 		}
-		return i;
+		return user;
 	}
 
 	@Override
