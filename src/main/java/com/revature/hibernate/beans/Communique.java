@@ -1,6 +1,7 @@
 package com.revature.hibernate.beans;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,7 +35,7 @@ public class Communique {
 	private Integer textId;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="communique_type")
-	private Integer commType;
+	private Set<CommuniqueType> commTypes;
 	public Integer getId() {
 		return id;
 	}
@@ -65,17 +66,18 @@ public class Communique {
 	public void setTextId(Integer textId) {
 		this.textId = textId;
 	}
-	public Integer getCommType() {
-		return commType;
+	
+	public Set<CommuniqueType> getCommTypes() {
+		return commTypes;
 	}
-	public void setCommType(Integer commType) {
-		this.commType = commType;
+	public void setCommTypes(Set<CommuniqueType> commTypes) {
+		this.commTypes = commTypes;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((commType == null) ? 0 : commType.hashCode());
+		result = prime * result + ((commTypes == null) ? 0 : commTypes.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((projId == null) ? 0 : projId.hashCode());
 		result = prime * result + ((senderId == null) ? 0 : senderId.hashCode());
@@ -92,10 +94,10 @@ public class Communique {
 		if (getClass() != obj.getClass())
 			return false;
 		Communique other = (Communique) obj;
-		if (commType == null) {
-			if (other.commType != null)
+		if (commTypes == null) {
+			if (other.commTypes != null)
 				return false;
-		} else if (!commType.equals(other.commType))
+		} else if (!commTypes.equals(other.commTypes))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -127,17 +129,17 @@ public class Communique {
 	@Override
 	public String toString() {
 		return "Communique [id=" + id + ", senderId=" + senderId + ", projId=" + projId + ", timestamp=" + timestamp
-				+ ", textId=" + textId + ", commType=" + commType + "]";
+				+ ", textId=" + textId + ", commTypes=" + commTypes + "]";
 	}
 	public Communique(Integer id, Integer senderId, Integer projId, Timestamp timestamp, Integer textId,
-			Integer commType) {
+			Set<CommuniqueType> commType) {
 		super();
 		this.id = id;
 		this.senderId = senderId;
 		this.projId = projId;
 		this.timestamp = timestamp;
 		this.textId = textId;
-		this.commType = commType;
+		this.commTypes = commType;
 	}
 	public Communique() {
 		super();
