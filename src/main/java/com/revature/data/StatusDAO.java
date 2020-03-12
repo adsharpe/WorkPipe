@@ -5,7 +5,7 @@ import com.revature.hibernate.beans.Task;
 
 public interface StatusDAO {
 		// create
-		public int addStatus(Status s);
+		public Status addStatus(Status s);
 		// read
 		public Status getStatus(int i);
 		public Status getStatusById(Status s);

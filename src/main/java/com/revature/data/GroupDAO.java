@@ -8,7 +8,7 @@ import com.revature.hibernate.beans.Project;
 
 public interface GroupDAO {
 	// create
-	public int addGroup(Group g);
+	public Group addGroup(Group g);
 	// read
 	public Group getGroup(int i);
 	public Group getGroupByProject(Project p);
