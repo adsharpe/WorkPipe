@@ -23,8 +23,8 @@ public class StatusService {
 		return statusDao.getStatus(statusId);
 	}
 	
-	public Status getStatusByTask(Task task) {
-		return statusDao.getStatusByTask(task);
+	public Status getStatusById(Status status) {
+		return statusDao.getStatusById(status);
 	}
 
 	@Transactional(readOnly=false)

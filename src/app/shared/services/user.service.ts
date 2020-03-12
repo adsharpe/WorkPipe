@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { UrlService } from '../url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TeamLeader } from './classes/teamLeader';
 import { Employee } from '../classes/employee';
-import { Currentuser } from '../classes/currentuser';
+import { Currentuser } from '../classes/currentUser';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -13,7 +12,6 @@ export class UserService {
   private headers = new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded'
   });
-  private teamLeader: TeamLeader;
   private employee: Employee;
 
   constructor(
@@ -33,7 +31,6 @@ export class UserService {
           const user: Currentuser = resp as Currentuser;
           if (user) {
             this.employee = user.employee;
-            this.teamLeader = user.teamLeader;
           }
           return user;
         })
@@ -45,7 +42,6 @@ export class UserService {
           const user: Currentuser = resp as Currentuser;
           if (user) {
             this.employee = user.employee;
-            this.teamLeader = user.teamLeader;
           }
           return user;
         })
@@ -56,22 +52,15 @@ export class UserService {
     return this.http.delete(this.appUrl, {withCredentials: true}).pipe(
       map(success => {
         this.employee = null;
-        this.teamLeader = null;
         return success;
       })
     );
   }
 
-  getCustomer(): TeamLeader {
-    return this.teamLeader;
-  }
   getEmployee(): Employee {
     return this.employee;
   }
   isEmployee(): boolean {
     return (this.employee !== undefined && this.employee !== null);
-  }
-  isCustomer(): boolean {
-    return (this.teamLeader !== undefined && this.teamLeader !== null);
   }
 }
