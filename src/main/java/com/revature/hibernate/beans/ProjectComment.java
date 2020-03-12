@@ -1,11 +1,14 @@
 package com.revature.hibernate.beans;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -20,24 +23,26 @@ public class ProjectComment {
 	private Integer id;
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="project_id")
-	private Integer projId;
+	private Set<Project> projects;
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="employee_id")
 	private Integer empId;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="text_id")
 	private Integer textId;
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getProjId() {
-		return projId;
+	
+	public Set<Project> getProjects() {
+		return projects;
 	}
-	public void setProjId(Integer projId) {
-		this.projId = projId;
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
 	}
 	public Integer getEmpId() {
 		return empId;
@@ -57,7 +62,7 @@ public class ProjectComment {
 		int result = 1;
 		result = prime * result + ((empId == null) ? 0 : empId.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((projId == null) ? 0 : projId.hashCode());
+		result = prime * result + ((projects == null) ? 0 : projects.hashCode());
 		result = prime * result + ((textId == null) ? 0 : textId.hashCode());
 		return result;
 	}
@@ -80,10 +85,10 @@ public class ProjectComment {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (projId == null) {
-			if (other.projId != null)
+		if (projects == null) {
+			if (other.projects != null)
 				return false;
-		} else if (!projId.equals(other.projId))
+		} else if (!projects.equals(other.projects))
 			return false;
 		if (textId == null) {
 			if (other.textId != null)
@@ -94,17 +99,17 @@ public class ProjectComment {
 	}
 	@Override
 	public String toString() {
-		return "ProjectComment [id=" + id + ", projId=" + projId + ", empId=" + empId + ", textId=" + textId + "]";
-	}
-	public ProjectComment(Integer id, Integer projId, Integer empId, Integer textId) {
-		super();
-		this.id = id;
-		this.projId = projId;
-		this.empId = empId;
-		this.textId = textId;
+		return "ProjectComment [id=" + id + ", projects=" + projects + ", empId=" + empId + ", textId=" + textId + "]";
 	}
 	public ProjectComment() {
 		super();
+	}
+	public ProjectComment(Integer id, Set<Project> projects, Integer empId, Integer textId) {
+		super();
+		this.id = id;
+		this.projects = projects;
+		this.empId = empId;
+		this.textId = textId;
 	}
 	
 }
