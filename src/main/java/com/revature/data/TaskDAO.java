@@ -9,15 +9,18 @@ import com.revature.hibernate.beans.Task;
 
 public interface TaskDAO {
 		// create
-		public int addTask(Task t);
+		public Task addTask(Task task);
+		
 		// read
-		public Task getTask(int i);
-		public Set<Task> getTasksByProject(Project p);
+		public Task getTask(int taskId);
+		public Set<Task> getTasksByProject(Project project);
 		public Set<Task> getTasks();
-		public Set<Task> getTasksByStatus(Status s);
-		public Set<Task> getTasksByEmployee(Employee emp);
+		public Set<Task> getTasksByStatus(Status status);
+		public Set<Task> getTasksByEmployee(Employee employee);
+		
 		// update
-		public void updateTask(Task t);
+		public void updateTask(Task task);
+		
 		// delete
-		public void deleteTask(Task t);
+		public void deleteTask(Task task);
 }

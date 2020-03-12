@@ -32,7 +32,7 @@ public class TextHibernate implements TextDAO {
 		} catch(HibernateException ex) {
 			if(transaction != null)
 				transaction.rollback();
-			LogUtil.logException(ex, EmployeeHibernate.class);
+			LogUtil.logException(ex, TextHibernate.class);
 		} finally {
 			session.close();
 		}
@@ -48,7 +48,7 @@ public class TextHibernate implements TextDAO {
 		try {
 			text = session.get(Text.class, textId);
 		} catch(HibernateException ex) {
-			LogUtil.logException(ex, EmployeeHibernate.class);
+			LogUtil.logException(ex, TextHibernate.class);
 		} finally {
 			session.close();
 		}
@@ -74,7 +74,7 @@ public class TextHibernate implements TextDAO {
 			Set<Text> textSet = new HashSet<Text>();
 			textSet.addAll(textList);
 		} catch(HibernateException ex) {
-			LogUtil.logException(ex, EmployeeHibernate.class);
+			LogUtil.logException(ex, TextHibernate.class);
 		} finally {
 			session.close();
 		}
@@ -106,7 +106,7 @@ public class TextHibernate implements TextDAO {
 		} catch(HibernateException ex) {
 			if(transaction != null)
 				transaction.rollback();
-			LogUtil.logException(ex, EmployeeHibernate.class);
+			LogUtil.logException(ex, TextHibernate.class);
 		} finally {
 			session.close();
 		}
@@ -124,7 +124,7 @@ public class TextHibernate implements TextDAO {
 		} catch(HibernateException ex) {
 			if(transaction != null)
 				transaction.rollback();
-			LogUtil.logException(ex, EmployeeHibernate.class);
+			LogUtil.logException(ex, TextHibernate.class);
 		} finally {
 			session.close();
 		}
