@@ -4,8 +4,8 @@
 	<session-factory>
 		<!-- JDBC set up -->
 		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
-		<property name="hibernate.connection.username">bookapp</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@rev2001.crqzuakn9fls.us-east-2.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.username">WorkPipe_admin</property>
 		<property name="hibernate.connection.password">p4ssw0rd</property>
 		
 		<!-- Hibernate set up -->
@@ -18,14 +18,16 @@
 		<!-- Tell Hibernate where our mappings are -->
 		
 		<!-- Annotation Mappings -->
-		<mapping class="com.revature.beans.Address"/>
-		<mapping class="com.revature.beans.Author"/>
-		<mapping class="com.revature.beans.Book"/>
-		<mapping class="com.revature.beans.Customer"/>
-		<mapping class="com.revature.beans.Employee"/>
-		<mapping class="com.revature.beans.Genre"/>
-		<mapping class="com.revature.beans.InvoiceLine"/>
-		<mapping class="com.revature.beans.Purchase"/>
-		<mapping class="com.revature.beans.User"/>
+		<mapping class="com.revature.hibernate.beans.Commuinque"/>
+		<mapping class="com.revature.hibernate.beans.CommuinqueType"/>
+		<mapping class="com.revature.hibernate.beans.Employee"/>
+		<mapping class="com.revature.hibernate.beans.Group"/>
+		<mapping class="com.revature.hibernate.beans.Login"/>
+		<mapping class="com.revature.hibernate.beans.Project"/>
+		<mapping class="com.revature.hibernate.beans.ProjectComment"/>
+		<mapping class="com.revature.hibernate.beans.Status"/>
+		<mapping class="com.revature.hibernate.beans.Task"/>
+		<mapping class="com.revature.hibernate.beans.TaskComment"/>
+		<mapping class="com.revature.hibernate.beans.Text"/>
 	</session-factory>
 </hibernate-configuration>
