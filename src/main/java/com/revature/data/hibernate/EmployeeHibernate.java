@@ -8,12 +8,13 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.revature.data.EmployeeDAO;
 import com.revature.hibernate.beans.Employee;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
-
+@Repository
 public class EmployeeHibernate implements EmployeeDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	

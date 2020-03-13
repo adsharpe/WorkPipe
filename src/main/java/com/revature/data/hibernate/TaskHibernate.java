@@ -8,6 +8,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.revature.data.TaskDAO;
 import com.revature.hibernate.beans.Employee;
@@ -17,7 +18,7 @@ import com.revature.hibernate.beans.Task;
 import com.revature.hibernate.beans.Text;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
-
+@Repository
 public class TaskHibernate implements TaskDAO {
 	private HibernateUtil hibernateUtil = HibernateUtil.getInstance();
 

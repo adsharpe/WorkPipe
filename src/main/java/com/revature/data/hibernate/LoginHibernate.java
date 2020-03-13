@@ -4,12 +4,14 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.revature.data.LoginDAO;
 import com.revature.hibernate.beans.Login;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 
+@Repository
 public class LoginHibernate implements LoginDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	@Override

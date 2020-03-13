@@ -4,12 +4,13 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.revature.data.StatusDAO;
 import com.revature.hibernate.beans.Status;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
-
+@Repository
 public class StatusHibernate implements StatusDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	//intentional error as a reminder to implement methods from DAO
