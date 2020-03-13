@@ -18,7 +18,7 @@ public class ProjectCommentService {
 	ProjectCommentDAO projectCommentDao;
 	
 	@Transactional(readOnly=false)
-	public int addProjectComment(ProjectComment projectComment) {
+	public ProjectComment addProjectComment(ProjectComment projectComment) {
 		return projectCommentDao.addProjectComment(projectComment);
 	}
 	
