@@ -7,6 +7,7 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.revature.data.CommuniqueDAO;
 import com.revature.hibernate.beans.Communique;
@@ -14,6 +15,7 @@ import com.revature.hibernate.beans.CommuniqueType;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 
+@Repository
 public class CommuniqueHibernate implements CommuniqueDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 

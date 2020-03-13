@@ -2,12 +2,13 @@ package com.revature.data.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import com.revature.data.CommuniqueTypeDAO;
 import com.revature.hibernate.beans.CommuniqueType;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
-
+@Repository
 public class CommuniqueTypeHibernate implements CommuniqueTypeDAO{
 	private HibernateUtil hu = HibernateUtil.getInstance();
 		@Override
