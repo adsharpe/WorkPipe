@@ -14,7 +14,7 @@ public interface ProjectEmployeeDAO {
 	public ProjectEmployee getProjectEmployeeByProject(Project project);
 	public Set<ProjectEmployee> getProjectEmployeeByEmployee(Employee employee);
 	// update
-	public void updateGroup(ProjectEmployee projectEmployee);
+	public void updateProjectEmployee(ProjectEmployee projectEmployee);
 	// delete
-	public void deleteGroup(ProjectEmployee projectEmployee);
+	public void deleteProjectEmployee(ProjectEmployee projectEmployee);
 }

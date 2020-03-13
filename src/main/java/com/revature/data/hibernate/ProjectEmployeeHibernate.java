@@ -68,7 +68,7 @@ public class ProjectEmployeeHibernate implements ProjectEmployeeDAO {
 			return groupSet;
 		}
 		@Override
-		public void updateGroup(ProjectEmployee p) {
+		public void updateProjectEmployee(ProjectEmployee p) {
 			Session s = hu.getSession();
 			Transaction t = null;
 			try{
@@ -85,7 +85,7 @@ public class ProjectEmployeeHibernate implements ProjectEmployeeDAO {
 		}
 		
 		@Override
-		public void deleteGroup(ProjectEmployee p) {
+		public void deleteProjectEmployee(ProjectEmployee p) {
 			Session s = hu.getSession();
 			Transaction t = null;
 			try{
