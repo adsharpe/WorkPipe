@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Group {
+public class ProjectEmployee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Group")
 	@SequenceGenerator(name="Group", sequenceName="Group_seq", allocationSize=1)
@@ -61,7 +61,7 @@ public class Group {
 	public void setProjects(Set<Project> projects) {
 		this.projects = projects;
 	}
-	public Group(Integer id, Set<Employee> employees, Set<Project> projects) {
+	public ProjectEmployee(Integer id, Set<Employee> employees, Set<Project> projects) {
 		super();
 		this.id = id;
 		this.employees = employees;
@@ -75,7 +75,7 @@ public class Group {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Group other = (Group) obj;
+		ProjectEmployee other = (ProjectEmployee) obj;
 		if (employees == null) {
 			if (other.employees != null)
 				return false;
@@ -97,7 +97,7 @@ public class Group {
 	public String toString() {
 		return "Group [id=" + id + ", employees=" + employees + ", projects=" + projects + "]";
 	}
-	public Group() {
+	public ProjectEmployee() {
 		super();
 	}
 	

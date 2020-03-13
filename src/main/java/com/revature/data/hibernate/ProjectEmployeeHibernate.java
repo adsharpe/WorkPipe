@@ -10,93 +10,93 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.revature.data.GroupDAO;
+import com.revature.data.ProjectEmployeeDAO;
 import com.revature.hibernate.beans.Employee;
-import com.revature.hibernate.beans.Group;
+import com.revature.hibernate.beans.ProjectEmployee;
 import com.revature.hibernate.beans.Project;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 @Repository
-public class GroupHibernate implements GroupDAO {
+public class ProjectEmployeeHibernate implements ProjectEmployeeDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 		@Override
-		public Group addGroup(Group g) {
+		public ProjectEmployee addProjectEmployee(ProjectEmployee projectEmployee) {
 			Session s = hu.getSession();
 			Transaction t = null;
-			Integer i = 0;
+
 			try {
 				t = s.beginTransaction();
-				i = (Integer) s.save(g);
+				s.save(projectEmployee);
 				t.commit();
 			} catch(HibernateException e) {
 				t.rollback();
-				LogUtil.logException(e, GroupHibernate.class);
+				LogUtil.logException(e, ProjectEmployeeHibernate.class);
 			} finally {
 				s.close();
 			}
-			return g;
+			return projectEmployee;
 		}
 		@Override
-		public Group getGroup(int i) {
+		public ProjectEmployee getProjectEmployee(int projectEmployeeId) {
 			Session s = hu.getSession();
-			Group g = s.get(Group.class, i);
+			ProjectEmployee projectEmployee = s.get(ProjectEmployee.class, projectEmployeeId);
 			s.close();
-			return g;
+			return projectEmployee;
 		}
 		@Override
-		public Group getGroupByProject(Project p) {
-			Group g;
+		public ProjectEmployee getProjectEmployeeByProject(Project project) {
+			ProjectEmployee projectEmployee;
 			Session s = hu.getSession();
 			//first projId might actually be column name "project_id"
-			String query = "from Group where projId=:projId";
-			Query<Group> q = s.createQuery(query, Group.class);
-			q.setParameter("projId", p.getId());
-			g = q.uniqueResult();
+			String query = "from Project_Employee where projId=:projId";
+			Query<ProjectEmployee> q = s.createQuery(query, ProjectEmployee.class);
+			q.setParameter("projId", project.getId());
+			projectEmployee = q.uniqueResult();
 			s.close();
-			return g;
+			return projectEmployee;
 		}
 		@Override
-		public Set<Group> getGroupsByEmployee(Employee emp) {
+		public Set<ProjectEmployee> getProjectEmployeeByEmployee(Employee emp) {
 			Session s = hu.getSession();
-			String query = "FROM Group g where :employee = some elements(g.employees)";
-			Query<Group> q = s.createQuery(query, Group.class);
+			String query = "from Project_Employee p where :employee = some elements(p.employees)";
+			Query<ProjectEmployee> q = s.createQuery(query, ProjectEmployee.class);
 			q.setParameter("employees", emp);
-			List<Group> groupList = q.getResultList();
-			Set<Group> groupSet = new HashSet<Group>();
+			List<ProjectEmployee> groupList = q.getResultList();
+			Set<ProjectEmployee> groupSet = new HashSet<ProjectEmployee>();
 			groupSet.addAll(groupList);
 			s.close();
 			return groupSet;
 		}
 		@Override
-		public void updateGroup(Group g) {
+		public void updateGroup(ProjectEmployee p) {
 			Session s = hu.getSession();
 			Transaction t = null;
 			try{
 				t = s.beginTransaction();
-				s.update(g.getId());
+				s.update(p.getId());
 				t.commit();
 			} catch(Exception e) {
 				if(t != null)
 					t.rollback();
-				LogUtil.logException(e, GroupHibernate.class);
+				LogUtil.logException(e, ProjectEmployeeHibernate.class);
 			} finally {
 				s.close();
 			}
 		}
 		
 		@Override
-		public void deleteGroup(Group g) {
+		public void deleteGroup(ProjectEmployee p) {
 			Session s = hu.getSession();
 			Transaction t = null;
 			try{
 				t = s.beginTransaction();
 				//this is the better delete
-				s.delete(g);
+				s.delete(p);
 				t.commit();
 			} catch(Exception e) {
 				if(t != null)
 					t.rollback();
-				LogUtil.logException(e, GroupHibernate.class);
+				LogUtil.logException(e, ProjectEmployeeHibernate.class);
 			} finally {
 				s.close();
 			}
