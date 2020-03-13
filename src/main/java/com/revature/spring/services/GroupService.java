@@ -6,41 +6,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.revature.data.GroupDAO;
+import com.revature.data.ProjectEmployeeDAO;
 import com.revature.hibernate.beans.Employee;
-import com.revature.hibernate.beans.Group;
+import com.revature.hibernate.beans.ProjectEmployee;
 import com.revature.hibernate.beans.Project;
 
 @Service
 @Transactional(readOnly=true)
 public class GroupService {
 	@Autowired
-	GroupDAO groupDAO;
+	ProjectEmployeeDAO groupDAO;
 	
 	@Transactional(readOnly=false)
-	public Group addGroup(Group group) {
+	public ProjectEmployee addGroup(ProjectEmployee group) {
 		return groupDAO.addGroup(group);
 	}
 	
-	public Group getGroup(int groupId) {
+	public ProjectEmployee getGroup(int groupId) {
 		return groupDAO.getGroup(groupId);
 	}
 	
-	public Group getGroupByProject(Project project) {
+	public ProjectEmployee getGroupByProject(Project project) {
 		return groupDAO.getGroupByProject(project);
 	}
 	
-	public Set<Group> getGroupsByEmployee(Employee employee) {
+	public Set<ProjectEmployee> getGroupsByEmployee(Employee employee) {
 		return groupDAO.getGroupsByEmployee(employee);
 	}
 
 	@Transactional(readOnly=false)
-	public void updateGroup(Group group) {
+	public void updateGroup(ProjectEmployee group) {
 		groupDAO.updateGroup(group);
 	}
 
 	@Transactional(readOnly=false)
-	public void deleteGroup(Group group) {
+	public void deleteGroup(ProjectEmployee group) {
 		groupDAO.deleteGroup(group);
 	}
 }
