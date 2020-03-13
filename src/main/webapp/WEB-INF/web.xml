@@ -3,7 +3,7 @@
   <display-name>WorkPipe</display-name>
      <servlet>
   	<servlet-name>home</servlet-name>
-  	<servlet-class>com.Workpipe</servlet-class>
+  	<servlet-class>com.revature.workpipe.Home</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>home</servlet-name>
