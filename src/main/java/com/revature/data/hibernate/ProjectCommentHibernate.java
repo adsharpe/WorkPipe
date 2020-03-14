@@ -7,6 +7,7 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.revature.data.ProjectCommentDAO;
 import com.revature.hibernate.beans.Employee;
@@ -14,7 +15,7 @@ import com.revature.hibernate.beans.Project;
 import com.revature.hibernate.beans.ProjectComment;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
-
+@Repository
 public class ProjectCommentHibernate implements ProjectCommentDAO{
 	private HibernateUtil hu = HibernateUtil.getInstance();
 

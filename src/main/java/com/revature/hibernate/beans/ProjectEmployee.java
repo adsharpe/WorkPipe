@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Group {
+public class ProjectEmployee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Group")
 	@SequenceGenerator(name="Group", sequenceName="Group_seq", allocationSize=1)
@@ -32,19 +32,14 @@ public class Group {
 	
 	@OneToMany
 	@JoinColumn(name="project_id")
-	private Integer projId;
+	private Set<Project> projects;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getProjId() {
-		return projId;
-	}
-	public void setProjId(Integer projId) {
-		this.projId = projId;
-	}
+
 	public Set<Employee> getEmployees() {
 		return employees;
 	}
@@ -57,8 +52,20 @@ public class Group {
 		int result = 1;
 		result = prime * result + ((employees == null) ? 0 : employees.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((projId == null) ? 0 : projId.hashCode());
+		result = prime * result + ((projects == null) ? 0 : projects.hashCode());
 		return result;
+	}
+	public Set<Project> getProjects() {
+		return projects;
+	}
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
+	}
+	public ProjectEmployee(Integer id, Set<Employee> employees, Set<Project> projects) {
+		super();
+		this.id = id;
+		this.employees = employees;
+		this.projects = projects;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -68,7 +75,7 @@ public class Group {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Group other = (Group) obj;
+		ProjectEmployee other = (ProjectEmployee) obj;
 		if (employees == null) {
 			if (other.employees != null)
 				return false;
@@ -79,24 +86,18 @@ public class Group {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (projId == null) {
-			if (other.projId != null)
+		if (projects == null) {
+			if (other.projects != null)
 				return false;
-		} else if (!projId.equals(other.projId))
+		} else if (!projects.equals(other.projects))
 			return false;
 		return true;
 	}
-	public Group(Integer id, Set<Employee> employees, Integer projId) {
-		super();
-		this.id = id;
-		this.employees = employees;
-		this.projId = projId;
-	}
 	@Override
 	public String toString() {
-		return "Group [id=" + id + ", employees=" + employees + ", projId=" + projId + "]";
+		return "Group [id=" + id + ", employees=" + employees + ", projects=" + projects + "]";
 	}
-	public Group() {
+	public ProjectEmployee() {
 		super();
 	}
 	

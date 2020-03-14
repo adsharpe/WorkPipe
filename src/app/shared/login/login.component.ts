@@ -13,16 +13,16 @@ export class LoginComponent  {
   public password: string;
   constructor(private userService: UserService) { }
 
-  // ngOnInit(): void {
-  //   this.userService.login(null,null).subscribe(
-  //     resp => {
-  //       this.loggedUser = resp;
-  //     },
-  //     error => {
-  //       this.loggedUser = null;
-  //     }
-  //   );
-  // }
+  ngOnInit(): void {
+    // this.userService.login(null,null).subscribe(
+    //   resp => {
+    //     this.loggedUser = resp;
+    //   },
+    //   error => {
+    //     this.loggedUser = null;
+    //   }
+    // );
+  }
 
   login() {
     console.log("Calling the login method");

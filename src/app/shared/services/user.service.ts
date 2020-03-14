@@ -10,8 +10,11 @@ import { map } from 'rxjs/operators';
 export class UserService {
   private appUrl  = this.url.getUrl() + 'login';
   private headers = new HttpHeaders({
-    'Content-Type': 'application/x-www-form-urlencoded'
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Methods':'POST'
   });
+  
   private employee: Employee;
 
   constructor(
