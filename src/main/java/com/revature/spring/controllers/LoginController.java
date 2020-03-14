@@ -19,7 +19,6 @@ import com.revature.spring.services.EmployeeService;
 import com.revature.spring.services.LoginService;
 
 @RestController
-@RequestMapping(value="/login")
 @CrossOrigin(origins="http://localhost:4200")
 public class LoginController {
 	private Logger log = Logger.getLogger(LoginController.class);
@@ -29,7 +28,7 @@ public class LoginController {
 	@Autowired
 	EmployeeService employeeService;
 	
-	@GetMapping
+	@GetMapping(value="/login")
 	public ResponseEntity<Employee> login(HttpSession session) {
 		Employee employee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + employee);
@@ -39,9 +38,8 @@ public class LoginController {
 	}
 	
 	
-	@PostMapping
-	public ResponseEntity<Employee> login(@RequestParam("user") String username, 
-			@RequestParam("pass") String password, HttpSession session) {
+	@PostMapping(value="/login")
+	public ResponseEntity<Employee> login(String username, String password, HttpSession session) {
 		
 		Login login = loginService.getLogin(username, password);
 		
@@ -63,7 +61,7 @@ public class LoginController {
 		return ResponseEntity.ok(employee);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping(value="/login")
 	public ResponseEntity<Void> logout(HttpSession session) {
 		session.invalidate();
 		return ResponseEntity.noContent().build();
