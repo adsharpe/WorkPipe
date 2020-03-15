@@ -15,3 +15,17 @@
       </div>
     </div>
   </div>
+
+  <ng-template #logged>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <div *ngIf="loggedUser.employee">
+          <span id="welcome">Welcome {{loggedUser.employee.title}}!
+            {{loggedUser.employee.first + " " + loggedUser.employee.last}}</span>
+        </div>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </ng-template>
