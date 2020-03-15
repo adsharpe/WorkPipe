@@ -13,7 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
+import com.revature.hibernate.beans.Project;
+import com.revature.hibernate.beans.Employee;
+import com.revature.hibernate.beans.Text;
 @Entity
 @Table
 public class Communique {
@@ -25,33 +27,33 @@ public class Communique {
 	//I think this needs to be Eager all the way through?
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="sender_id")
-	private Integer senderId;
+	private Employee senderId;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="project_id")
-	private Integer projId;
+	private Project projId;
 	private Timestamp timestamp;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="text_id")
-	private Integer textId;
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="communique_type")
-	private Set<CommuniqueType> commTypes;
+	private Text textId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="communiquetype_id")
+	private Communique commTypes;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getSenderId() {
+	public Employee getSenderId() {
 		return senderId;
 	}
-	public void setSenderId(Integer senderId) {
+	public void setSenderId(Employee senderId) {
 		this.senderId = senderId;
 	}
-	public Integer getProjId() {
+	public Project getProjId() {
 		return projId;
 	}
-	public void setProjId(Integer projId) {
+	public void setProjId(Project projId) {
 		this.projId = projId;
 	}
 	public Timestamp getTimestamp() {
@@ -60,17 +62,17 @@ public class Communique {
 	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
-	public Integer getTextId() {
+	public Text getTextId() {
 		return textId;
 	}
-	public void setTextId(Integer textId) {
+	public void setTextId(Text textId) {
 		this.textId = textId;
 	}
 	
-	public Set<CommuniqueType> getCommTypes() {
+	public Communique getCommTypes() {
 		return commTypes;
 	}
-	public void setCommTypes(Set<CommuniqueType> commTypes) {
+	public void setCommTypes(Communique commTypes) {
 		this.commTypes = commTypes;
 	}
 	@Override
@@ -131,15 +133,15 @@ public class Communique {
 		return "Communique [id=" + id + ", senderId=" + senderId + ", projId=" + projId + ", timestamp=" + timestamp
 				+ ", textId=" + textId + ", commTypes=" + commTypes + "]";
 	}
-	public Communique(Integer id, Integer senderId, Integer projId, Timestamp timestamp, Integer textId,
-			Set<CommuniqueType> commType) {
+	public Communique(Integer id, Employee senderId, Project projId, Timestamp timestamp, Text textId,
+			Communique commTypes) {
 		super();
 		this.id = id;
 		this.senderId = senderId;
 		this.projId = projId;
 		this.timestamp = timestamp;
 		this.textId = textId;
-		this.commTypes = commType;
+		this.commTypes = commTypes;
 	}
 	public Communique() {
 		super();
