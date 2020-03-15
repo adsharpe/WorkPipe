@@ -10,8 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.revature.hibernate.beans.Employee;
 
 @Entity
 @Table
@@ -23,12 +26,9 @@ public class Project {
 	private String projectname;
 	
 	//curious about how Hibernate joins this to the employee table
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="Project_Employee",
-		joinColumns=@JoinColumn(name="project_id"),
-		inverseJoinColumns=@JoinColumn(name="teamlead_id"))
-	@Column(name="teamlead_id")
-	private Integer lead;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="teamlead_id")
+	private Employee lead;
 	private String startdate;
 	private String enddate;
 	public Integer getId() {
@@ -43,10 +43,10 @@ public class Project {
 	public void setProjectname(String projectname) {
 		this.projectname = projectname;
 	}
-	public Integer getLead() {
+	public Employee getLead() {
 		return lead;
 	}
-	public void setLead(Integer lead) {
+	public void setLead(Employee lead) {
 		this.lead = lead;
 	}
 	public String getStartdate() {
@@ -116,7 +116,7 @@ public class Project {
 	public Project() {
 		super();
 	}
-	public Project(Integer id, String projectname, Integer lead, String startdate, String enddate) {
+	public Project(Integer id, String projectname, Employee lead, String startdate, String enddate) {
 		super();
 		this.id = id;
 		this.projectname = projectname;

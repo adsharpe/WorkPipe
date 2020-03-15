@@ -14,6 +14,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.revature.hibernate.beans.Employee;
+import com.revature.hibernate.beans.Text;
+
 @Entity
 @Table(name="Task_Comment")
 public class TaskComment {
@@ -26,14 +29,14 @@ public class TaskComment {
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="task_id")
 	private Set<Task> tasks;
-	@OneToMany(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="employee_id")
-	private Integer empId;
+	private Employee empId;
 	//one text per comment?
 	//is this a one to one?
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="text_id")
-	private Integer textId;
+	private Text textId;
 	public Integer getId() {
 		return id;
 	}
@@ -47,16 +50,16 @@ public class TaskComment {
 	public void setTasks(Set<Task> tasks) {
 		this.tasks = tasks;
 	}
-	public Integer getEmpId() {
+	public Employee getEmpId() {
 		return empId;
 	}
-	public void setEmpId(Integer empId) {
+	public void setEmpId(Employee empId) {
 		this.empId = empId;
 	}
-	public Integer getTextId() {
+	public Text getTextId() {
 		return textId;
 	}
-	public void setTextId(Integer textId) {
+	public void setTextId(Text textId) {
 		this.textId = textId;
 	}
 	@Override
@@ -105,7 +108,7 @@ public class TaskComment {
 		return "TaskComment [id=" + id + ", tasks=" + tasks + ", empId=" + empId + ", textId=" + textId + "]";
 	}
 	
-	public TaskComment(Integer id, Set<Task> tasks, Integer empId, Integer textId) {
+	public TaskComment(Integer id, Set<Task> tasks, Employee empId, Text textId) {
 		super();
 		this.id = id;
 		this.tasks = tasks;

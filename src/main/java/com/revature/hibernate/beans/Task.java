@@ -10,6 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.revature.hibernate.beans.Text;
+import com.revature.hibernate.beans.Employee;
+import com.revature.hibernate.beans.Project;
+import com.revature.hibernate.beans.Status;
+
 @Entity
 @Table
 public class Task {
@@ -19,16 +24,16 @@ public class Task {
 	private Integer id;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="status_id")
-	private Integer statusId;
+	private Status statusId;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="employee_id")
-	private Integer empId;
+	private Employee empId;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="description_id")
-	private String descriptionId;
+	private Text descriptionId;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="project_id")
-	private String projId;
+	private Project projId;
 	// need to add the description_id variable
 	// then getters and setters for it, change the constructors,
 	// the toString method, and the hash code and equals()
@@ -38,28 +43,28 @@ public class Task {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getStatusId() {
+	public Status getStatusId() {
 		return statusId;
 	}
-	public void setStatusId(Integer statusId) {
+	public void setStatusId(Status statusId) {
 		this.statusId = statusId;
 	}
-	public Integer getEmpId() {
+	public Employee getEmpId() {
 		return empId;
 	}
-	public void setEmpId(Integer empId) {
+	public void setEmpId(Employee empId) {
 		this.empId = empId;
 	}
-	public String getDescriptionId() {
+	public Text getDescriptionId() {
 		return descriptionId;
 	}
-	public void setDescriptionId(String descriptionId) {
+	public void setDescriptionId(Text descriptionId) {
 		this.descriptionId = descriptionId;
 	}
-	public String getProjId() {
+	public Project getProjId() {
 		return projId;
 	}
-	public void setProjId(String projId) {
+	public void setProjId(Project projId) {
 		this.projId = projId;
 	}
 	@Override
@@ -117,7 +122,7 @@ public class Task {
 	public Task() {
 		super();
 	}
-	public Task(Integer id, Integer statusId, Integer empId, String descriptionId, String projId) {
+	public Task(Integer id, Status statusId, Employee empId, Text descriptionId, Project projId) {
 		super();
 		this.id = id;
 		this.statusId = statusId;
