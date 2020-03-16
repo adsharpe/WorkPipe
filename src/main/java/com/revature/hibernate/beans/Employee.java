@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -17,8 +18,10 @@ public class Employee extends Login{
 	@Column(name="lastname")
 	private String last;
 	private String title;
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="login_id")
+	//changed from ManyToOne to OneToOne
+	//@OneToOne(fetch = FetchType.EAGER)
+	//@JoinColumn(name="login_id")
+	@Column(name="login_id")
 	private Integer logId;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="supervisor_id")

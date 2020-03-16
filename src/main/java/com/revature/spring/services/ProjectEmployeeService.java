@@ -15,32 +15,32 @@ import com.revature.hibernate.beans.Project;
 @Transactional(readOnly=true)
 public class ProjectEmployeeService {
 	@Autowired
-	ProjectEmployeeDAO groupDAO;
+	ProjectEmployeeDAO ProjectEmployeeDAO;
 	
 	@Transactional(readOnly=false)
 	public ProjectEmployee addProjectEmployee(ProjectEmployee group) {
-		return groupDAO.addProjectEmployee(group);
+		return ProjectEmployeeDAO.addProjectEmployee(group);
 	}
 	
 	public ProjectEmployee getProjectEmployee(int groupId) {
-		return groupDAO.getProjectEmployee(groupId);
+		return ProjectEmployeeDAO.getProjectEmployee(groupId);
 	}
 	
 	public ProjectEmployee getProjectEmployeeByProject(Project project) {
-		return groupDAO.getProjectEmployeeByProject(project);
+		return ProjectEmployeeDAO.getProjectEmployeeByProject(project);
 	}
 	
 	public Set<ProjectEmployee> getProjectEmployeeByEmployee(Employee employee) {
-		return groupDAO.getProjectEmployeeByEmployee(employee);
+		return ProjectEmployeeDAO.getProjectEmployeeByEmployee(employee);
 	}
 
 	@Transactional(readOnly=false)
 	public void updateProjectEmployee(ProjectEmployee group) {
-		groupDAO.updateProjectEmployee(group);
+		ProjectEmployeeDAO.updateProjectEmployee(group);
 	}
 
 	@Transactional(readOnly=false)
 	public void deleteProjectEmployee(ProjectEmployee group) {
-		groupDAO.deleteProjectEmployee(group);
+		ProjectEmployeeDAO.deleteProjectEmployee(group);
 	}
 }

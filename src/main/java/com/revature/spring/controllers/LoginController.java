@@ -14,15 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.data.hibernate.EmployeeHibernate;
 import com.revature.hibernate.beans.Employee;
 import com.revature.hibernate.beans.Login;
 import com.revature.spring.services.EmployeeService;
 import com.revature.spring.services.LoginService;
 
+//moving cross origin to above the postmapping
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(value="/login")
 public class LoginController {
+//	public static void main(String[] args) {
+//		EmployeeService es = new EmployeeHibernate();
+//	}
 	private Logger log = Logger.getLogger(LoginController.class);
 	@Autowired
 	LoginService loginService;
@@ -39,9 +44,12 @@ public class LoginController {
 		return ResponseEntity.ok(employee);
 	}
 	
-	
-	@PostMapping//(value="/login")
-	public ResponseEntity<Employee> login(String username, String password, HttpSession session) {
+	//uncommenting (value="login")
+	//and changing value to path
+	@CrossOrigin(origins="http://localhost:4200")
+	@PostMapping(path="/login")
+	//change from login to getLogin because the DAO implmentation is called getLogin
+	public ResponseEntity<Employee> getLogin(String username, String password, HttpSession session) {
 		
 		Login login = loginService.getLogin(username, password);
 		
