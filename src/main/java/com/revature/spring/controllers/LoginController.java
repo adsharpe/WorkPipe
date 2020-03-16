@@ -30,6 +30,7 @@ public class LoginController {
 	@Autowired
 	EmployeeService employeeService;
 	
+
 	@GetMapping//(value="/login")
 	public ResponseEntity<Employee> login(HttpSession session) {
 		Employee employee = (Employee)session.getAttribute("currentUser");
@@ -40,19 +41,24 @@ public class LoginController {
 	}
 	
 	
+
 	@PostMapping//(value="/login")
-	public ResponseEntity<Employee> login(String username, String password, HttpSession session) {
+	public ResponseEntity<Employee> login(String user, String pass, HttpSession session) {
+		log.trace("Calling LoginController PostMapping");
+		log.trace("Username = " +user + " : password = " +pass);
+		Login login = loginService.getLogin(user, pass);
 		
-		Login login = loginService.getLogin(username, password);
-		
+		log.trace("Login = " + login);
 		
 		if(login == null) {
 			return ResponseEntity.status(401).build();
 		}
 		
-		Employee employee = new Employee(login.getId());
+		Employee employee =  (Employee) login;
 		
 		employee = employeeService.getEmployee(employee);
+		
+		log.trace("Employee = " + employee);
 		
 		if(employee == null) {
 			return ResponseEntity.status(401).build();
@@ -63,6 +69,7 @@ public class LoginController {
 		return ResponseEntity.ok(employee);
 	}
 	
+
 	@DeleteMapping//(value="/login")
 	public ResponseEntity<Void> logout(HttpSession session) {
 		session.invalidate();

@@ -92,3 +92,11 @@ CREATE sequence status_seq nocache;
 CREATE sequence alert_seq nocache;
 CREATE sequence projects_comment_seq nocache;
 CREATE sequence tasks_comment_seq nocache;
+
+-- Insertions
+--Insert into login(id,username, password)
+--values (1, 'Jon', 'pass');
+--
+--Insert into Employee(id,firstname, lastname, login_id, supervisor_id)
+--values (1,'Jonathan', 'Mendez', 1, 1);
+--commit;
