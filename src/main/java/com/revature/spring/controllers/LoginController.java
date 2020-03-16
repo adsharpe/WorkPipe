@@ -35,6 +35,7 @@ public class LoginController {
 	@Autowired
 	EmployeeService employeeService;
 	
+
 	@GetMapping//(value="/login")
 	public ResponseEntity<Employee> login(HttpSession session) {
 		Employee employee = (Employee)session.getAttribute("currentUser");
@@ -44,6 +45,7 @@ public class LoginController {
 		return ResponseEntity.ok(employee);
 	}
 	
+<<<<<<< HEAD
 	//uncommenting (value="login")
 	//and changing value to path
 	@CrossOrigin(origins="http://localhost:4200")
@@ -52,15 +54,27 @@ public class LoginController {
 	public ResponseEntity<Employee> getLogin(String username, String password, HttpSession session) {
 		
 		Login login = loginService.getLogin(username, password);
+=======
+	
+
+	@PostMapping//(value="/login")
+	public ResponseEntity<Employee> login(String user, String pass, HttpSession session) {
+		log.trace("Calling LoginController PostMapping");
+		log.trace("Username = " +user + " : password = " +pass);
+		Login login = loginService.getLogin(user, pass);
+>>>>>>> 558b785838ddb4af2f093efbb7b1667ce1fd8bd9
 		
+		log.trace("Login = " + login);
 		
 		if(login == null) {
 			return ResponseEntity.status(401).build();
 		}
 		
-		Employee employee = new Employee(login.getId());
+		Employee employee =  (Employee) login;
 		
 		employee = employeeService.getEmployee(employee);
+		
+		log.trace("Employee = " + employee);
 		
 		if(employee == null) {
 			return ResponseEntity.status(401).build();
@@ -71,6 +85,7 @@ public class LoginController {
 		return ResponseEntity.ok(employee);
 	}
 	
+
 	@DeleteMapping//(value="/login")
 	public ResponseEntity<Void> logout(HttpSession session) {
 		session.invalidate();

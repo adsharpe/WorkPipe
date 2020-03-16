@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "login")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Login {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login")
@@ -21,17 +21,17 @@ public class Login {
 	private String password;
 	
 	//constructor from superclass
-	public Login(Integer id) {
-		super();
-		this.id = id;
-	}
-	//constructor from fields
-	public Login(Integer id, String username, String password) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-	}
+//	public Login(Integer id) {
+//		super();
+//		this.id = id;
+//	}
+//	//constructor from fields
+//	public Login(Integer id, String username, String password) {
+//		super();
+//		this.id = id;
+//		this.username = username;
+//		this.password = password;
+//	}
 	//getters and setters from fields
 	public Integer getId() {
 		return id;

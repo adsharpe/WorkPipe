@@ -1,7 +1,7 @@
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="trello.png" class="card-img">
+        <img src="C:\Users\JONME\Student\WorkPipe\src\app\shared\login\trello.png" class="card-img">
       </div>
       <div class="col-md-8" style="background-color: cadetblue;">
         <div class="card-body">
@@ -10,8 +10,22 @@
             <input id="password" type="password" class="form-control mb-4"  [(ngModel)]="password" (keydown.enter)="login()" placeholder="Password" required/>
             <!-- Sign in button -->
             <button class="bg-indigo-500 hover:bg-indigo-600 text-black 
-                text-xl font-medium py-2 px-4 rounded"   (click)="login()" type="submit">Sign in</button>
+              text-xl font-medium py-2 px-4 rounded" (click)="login()" type="submit">Sign in</button>
         </div>
       </div>
     </div>
   </div>
+
+  <ng-template #logged>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <div *ngIf="loggedUser.employee">
+          <span id="welcome">Welcome {{loggedUser.employee.title}}!
+            {{loggedUser.employee.first + " " + loggedUser.employee.last}}</span>
+        </div>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </ng-template>
