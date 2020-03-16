@@ -8,20 +8,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.revature.hibernate.beans.Login;
 
 @Entity
-@Table(name="login")
-@PrimaryKeyJoinColumn(name="id")
+@Table(name="Employee")
+@PrimaryKeyJoinColumn(name="login_id")
+@JsonIgnoreProperties({"supervisor"})
 public class Employee extends Login{
 	@Column(name="firstname")
 	private String first;
 	@Column(name="lastname")
 	private String last;
 	private String title;
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="login_id")
-	private Login logId;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="supervisor_id")
 	private Employee supervisor;
@@ -43,36 +42,28 @@ public class Employee extends Login{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Login getLogId() {
-		return logId;
-	}
-	public void setLogId(Login logId) {
-		this.logId = logId;
-	}
 	public Employee getSupervisor() {
 		return supervisor;
 	}
 	public void setSupervisor(Employee supervisor) {
 		this.supervisor = supervisor;
 	}
-	public Employee(Integer id, String username, String pass, String first, String last, String title, Login logId, Employee supervisor) {
-		super(id, username, pass);
-		this.first = first;
-		this.last = last;
-		this.title = title;
-		this.logId = logId;
-		this.supervisor = supervisor;
-	}
-	public Employee(Integer id) {
-		super(id);
-	}
+//	public Employee(Integer id, String username, String pass, String first, String last, String title, Employee supervisor) {
+//		super(id, username, pass);
+//		this.first = first;
+//		this.last = last;
+//		this.title = title;
+//		this.supervisor = supervisor;
+//	}
+//	public Employee(Integer id) {
+//		super(id);
+//	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((first == null) ? 0 : first.hashCode());
 		result = prime * result + ((last == null) ? 0 : last.hashCode());
-		result = prime * result + ((logId == null) ? 0 : logId.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
@@ -95,11 +86,6 @@ public class Employee extends Login{
 				return false;
 		} else if (!last.equals(other.last))
 			return false;
-		if (logId == null) {
-			if (other.logId != null)
-				return false;
-		} else if (!logId.equals(other.logId))
-			return false;
 		if (title == null) {
 			if (other.title != null)
 				return false;
@@ -109,7 +95,7 @@ public class Employee extends Login{
 	}
 	@Override
 	public String toString() {
-		return "employee [first=" + first + ", last=" + last + ", title=" + title + ", logId=" + logId + "]";
+		return "employee [first=" + first + ", last=" + last + ", title=" + title + "]";
 	}
 
 

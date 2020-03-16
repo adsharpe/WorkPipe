@@ -1,5 +1,6 @@
 package com.revature.data.hibernate;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -14,6 +15,7 @@ import com.revature.utils.LogUtil;
 @Repository
 public class LoginHibernate implements LoginDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
+	private Logger log = Logger.getLogger(LoginHibernate.class);
 	@Override
 	public Login addUser(Login user) {
 		Session s = hu.getSession();
@@ -35,6 +37,7 @@ public class LoginHibernate implements LoginDAO {
 	@Override
 	public Login getLogin(String username, String password) {
 		Session s = hu.getSession();
+		log.trace("username: " + username +", password: " + password);
 		String query = "from Login l where l.username=:username and l.password=:password";
 		Query<Login> q = s.createQuery(query, Login.class);
 		q.setParameter("username", username);

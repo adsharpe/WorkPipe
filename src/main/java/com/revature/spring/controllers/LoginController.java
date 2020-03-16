@@ -48,14 +48,17 @@ public class LoginController {
 		log.trace("Username = " +user + " : password = " +pass);
 		Login login = loginService.getLogin(user, pass);
 		
+		log.trace("Login = " + login);
 		
 		if(login == null) {
 			return ResponseEntity.status(401).build();
 		}
 		
-		Employee employee = new Employee(login.getId());
+		Employee employee =  (Employee) login;
 		
 		employee = employeeService.getEmployee(employee);
+		
+		log.trace("Employee = " + employee);
 		
 		if(employee == null) {
 			return ResponseEntity.status(401).build();
