@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "login")
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Login {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login")

@@ -21,7 +21,7 @@
 		<mapping class="com.revature.hibernate.beans.Communique"/>
 		<mapping class="com.revature.hibernate.beans.CommuniqueType"/>
 		<mapping class="com.revature.hibernate.beans.Employee"/>
-		<mapping class="com.revature.hibernate.beans.Group"/>
+		<mapping class="com.revature.hibernate.beans.ProjectEmployee"/>
 		<mapping class="com.revature.hibernate.beans.Login"/>
 		<mapping class="com.revature.hibernate.beans.Project"/>
 		<mapping class="com.revature.hibernate.beans.ProjectComment"/>

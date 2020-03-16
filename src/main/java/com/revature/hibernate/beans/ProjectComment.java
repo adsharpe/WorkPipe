@@ -9,10 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.revature.hibernate.beans.Employee;
+import com.revature.hibernate.beans.Text;
 
 @Entity
 @Table(name="Project_Comment")
@@ -21,15 +25,15 @@ public class ProjectComment {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Project_Comment")
 	@SequenceGenerator(name="Project_Comment", sequenceName="Project_Comment_seq", allocationSize=1)
 	private Integer id;
-	@OneToMany(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="project_id")
-	private Set<Project> projects;
-	@OneToMany(fetch = FetchType.EAGER)
+	private Project projects;
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="employee_id")
-	private Integer empId;
+	private Employee empId;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="text_id")
-	private Integer textId;
+	private Text textId;
 	
 	public Integer getId() {
 		return id;
@@ -38,22 +42,22 @@ public class ProjectComment {
 		this.id = id;
 	}
 	
-	public Set<Project> getProjects() {
+	public Project getProjects() {
 		return projects;
 	}
-	public void setProjects(Set<Project> projects) {
+	public void setProjects(Project projects) {
 		this.projects = projects;
 	}
-	public Integer getEmpId() {
+	public Employee getEmpId() {
 		return empId;
 	}
-	public void setEmpId(Integer empId) {
+	public void setEmpId(Employee empId) {
 		this.empId = empId;
 	}
-	public Integer getTextId() {
+	public Text getTextId() {
 		return textId;
 	}
-	public void setTextId(Integer textId) {
+	public void setTextId(Text textId) {
 		this.textId = textId;
 	}
 	@Override
@@ -104,7 +108,7 @@ public class ProjectComment {
 	public ProjectComment() {
 		super();
 	}
-	public ProjectComment(Integer id, Set<Project> projects, Integer empId, Integer textId) {
+	public ProjectComment(Integer id, Project projects, Employee empId, Text textId) {
 		super();
 		this.id = id;
 		this.projects = projects;
