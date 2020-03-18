@@ -2,7 +2,6 @@ package com.revature.spring.controllers;
 
 import javax.servlet.http.HttpSession;
 
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +28,6 @@ public class LoginController {
 	@Autowired
 	EmployeeService employeeService;
 	
-
 	@GetMapping//(value="/login")
 	public ResponseEntity<Employee> login(HttpSession session) {
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
@@ -39,8 +37,6 @@ public class LoginController {
 		return ResponseEntity.ok(currentEmployee);
 	}
 	
-	
-
 	@PostMapping//(value="/login")
 	public ResponseEntity<Employee> login(String user, String pass, HttpSession session) {
 		log.trace("Calling LoginController PostMapping");
@@ -68,7 +64,6 @@ public class LoginController {
 		return ResponseEntity.ok(currentEmployee);
 	}
 	
-
 	@DeleteMapping//(value="/login")
 	public ResponseEntity<Void> logout(HttpSession session) {
 		session.invalidate();

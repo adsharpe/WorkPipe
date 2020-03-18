@@ -24,7 +24,6 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 	
-
 	@GetMapping
 	public ResponseEntity<Set<Employee>> getEmployees(HttpSession session) {
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
