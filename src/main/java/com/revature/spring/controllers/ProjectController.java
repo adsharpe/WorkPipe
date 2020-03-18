@@ -100,7 +100,7 @@ public class ProjectController {
 		if(employee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Creating task "/* + task.getTaskname()*/);
+		log.trace("Creating task " + task.getDescription());
 		
 		return ResponseEntity.ok(taskService.addTask(task));
 	}
