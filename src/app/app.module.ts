@@ -32,6 +32,7 @@ import { EventsComponent } from './projects/Events/events/events.component';
 import { FilesComponent } from './projects/Files/files/files.component';
 import { MessagesComponent } from './projects/Messages/messages/messages.component';
 import { TeamsComponent } from './projects/Teams/teams/teams.component';
+import { fileURLToPath } from 'url';
 import { BlankComponent } from './projects/Home/blank/blank.component';
 
 @NgModule({
