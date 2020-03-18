@@ -6,10 +6,23 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
-
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark coral">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-        <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i></a>
-        <a class="nav-link"  routerLink="/login">Login</a>
-    </div>
-  </nav>
+<ng-container *ngIf="!loggedUser; else logged">
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark coral">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <!-- <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i></a> -->
+            <input id="username" type="text" class="form-control mb-4" [(ngModel)]="username" placeholder="Username" style="width: 120px" required/>
+            
+            <input id="password" type="password" class="form-control mb-4" (keydown.enter)="login()" [(ngModel)]="password" style="width: 120px; margin-left: 10px;"  placeholder="Password" required/>
+            <a (click)="login()">Login</a>
+        </div>
+     </nav>
+</ng-container>
+<ng-template #logged>
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark coral">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i></a>
+            Welcome {{loggedUser.employee.first}}
+            <a (click)="logout()" routerLink="/logout">Logout</a>
+        </div>
+    </nav>
+</ng-template>
