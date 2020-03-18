@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.hibernate.beans.Employee;
@@ -33,11 +32,11 @@ public class LoginController {
 
 	@GetMapping//(value="/login")
 	public ResponseEntity<Employee> login(HttpSession session) {
-		Employee employee = (Employee)session.getAttribute("currentUser");
-		log.trace("Following User logged in: " + employee);
-		if(employee == null)
+		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
+		log.trace("Following User logged in: " + currentEmployee);
+		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
-		return ResponseEntity.ok(employee);
+		return ResponseEntity.ok(currentEmployee);
 	}
 	
 	
@@ -54,19 +53,19 @@ public class LoginController {
 			return ResponseEntity.status(401).build();
 		}
 		
-		Employee employee =  (Employee) login;
+		Employee currentEmployee =  (Employee) login;
 		
-		employee = employeeService.getEmployee(employee);
+		currentEmployee = employeeService.getEmployee(currentEmployee);
 		
-		log.trace("Employee = " + employee);
+		log.trace("Employee = " + currentEmployee);
 		
-		if(employee == null) {
+		if(currentEmployee == null) {
 			return ResponseEntity.status(401).build();
 		}
 		
-		session.setAttribute("currentUser", employee);
-		log.trace("Following User logged in: " + employee);
-		return ResponseEntity.ok(employee);
+		session.setAttribute("currentUser", currentEmployee);
+		log.trace("Following User logged in: " + currentEmployee);
+		return ResponseEntity.ok(currentEmployee);
 	}
 	
 

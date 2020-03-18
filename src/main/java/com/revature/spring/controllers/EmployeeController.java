@@ -27,9 +27,9 @@ public class EmployeeController {
 
 	@GetMapping
 	public ResponseEntity<Set<Employee>> getEmployees(HttpSession session) {
-		Employee employee = (Employee)session.getAttribute("currentUser");
-		log.trace("Following User logged in: " + employee);
-		if(employee == null)
+		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
+		log.trace("Following User logged in: " + currentEmployee);
+		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
 		log.trace("Getting all employees");
