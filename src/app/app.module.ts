@@ -12,7 +12,7 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './projects/tasks/tasks.component';
 import { NotificationsComponent } from './projects/notifications/notifications.component';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -33,6 +33,7 @@ import { FilesComponent } from './projects/Files/files/files.component';
 import { MessagesComponent } from './projects/Messages/messages/messages.component';
 import { TeamsComponent } from './projects/Teams/teams/teams.component';
 import { fileURLToPath } from 'url';
+import { ProjectFormComponent } from './projects/project-form/project-form.component';
 
 @NgModule({
   declarations: [
@@ -55,15 +56,16 @@ import { fileURLToPath } from 'url';
     EventsComponent,
     FilesComponent,
     MessagesComponent,
-    TeamsComponent
+    TeamsComponent,
+    ProjectFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatToolbarModule, 
-    MatCardModule, 
+    MatToolbarModule,
+    MatCardModule,
     MatMenuModule,
     MatGridListModule,
     MatIconModule,
