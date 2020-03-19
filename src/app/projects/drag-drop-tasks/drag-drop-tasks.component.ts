@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import {MatDialog} from '@angular/material/dialog';
 import {Task} from '../tasks/Beans/task';
+import { TaskService } from '../services/task.service'
 
 @Component({
   selector: 'app-drag-drop-tasks',
