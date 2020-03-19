@@ -12,7 +12,6 @@ export class UserService {
   private headers = new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',
     'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods':'POST'
   });
   
   private employee: Employee;
@@ -64,6 +63,9 @@ export class UserService {
     return this.employee;
   }
   isEmployee(): boolean {
-    return (this.employee !== undefined && this.employee !== null);
+    return (this.employee !== undefined && this.employee !== null || this.employee.title =="employee");
+  }
+  isSupervisor(): boolean {
+    return (this.employee !== undefined && this.employee !== null || this.employee.title =="supervisor");
   }
 }

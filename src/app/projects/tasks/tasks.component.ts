@@ -12,4 +12,7 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //add method to add new task
+  //add method to update task
+
 }
