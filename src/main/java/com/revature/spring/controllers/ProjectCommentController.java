@@ -17,33 +17,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.hibernate.beans.Employee;
-import com.revature.hibernate.beans.Project;
-import com.revature.spring.services.ProjectService;
-import com.revature.spring.services.TaskService;
+import com.revature.hibernate.beans.ProjectComment;
+import com.revature.spring.services.ProjectCommentService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping(value="/project")
-public class ProjectController {
-	private Logger log = Logger.getLogger(ProjectController.class);
+@RequestMapping(value="/projectcommentcontroller")
+public class ProjectCommentController {
+	private Logger log = Logger.getLogger(ProjectCommentController.class);
+	
 	@Autowired
-	ProjectService projectService;
+	ProjectCommentService projectCommentService;
 	
 	@PostMapping
-	public ResponseEntity<Project> createProject(Project project, HttpSession session)
+	public ResponseEntity<ProjectComment> createProjectComment(ProjectComment projectComment, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Creating project " + project.getProjectname());
+		log.trace("Creating project " + projectComment.toString());
 		
-		return ResponseEntity.ok(projectService.addProject(project));
+		return ResponseEntity.ok(projectCommentService.addProjectComment(projectComment));
 	}
 	
 	@GetMapping
-	public ResponseEntity<Set<Project>> getProjects(HttpSession session)
+	public ResponseEntity<Set<ProjectComment>> getProjectComments(HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
@@ -52,11 +52,11 @@ public class ProjectController {
 		
 		log.trace("Getting all projects");
 		
-		return ResponseEntity.ok(projectService.getProjects());
+		return ResponseEntity.ok(projectCommentService.getProjectComments());
 	}
 	
-	@GetMapping(value="{projectId}")
-	public ResponseEntity<Project> getProject(@PathVariable("projectId") int projectId, HttpSession session)
+	@GetMapping(value="{projectCommentId}")
+	public ResponseEntity<ProjectComment> getProjectComment(@PathVariable("projectCommentId") int projectCommentId, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
@@ -65,33 +65,33 @@ public class ProjectController {
 		
 		log.trace("Getting all projects");
 		
-		return ResponseEntity.ok(projectService.getProject(projectId));
+		return ResponseEntity.ok(projectCommentService.getProjectComment(projectCommentId));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> updateProject(Project project, HttpSession session)
+	public ResponseEntity<Void> updateProjectComment(ProjectComment projectComment, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating project " + project.getProjectname());
-		projectService.updateProject(project);
+		log.trace("Updating project " + projectComment.toString());
+		projectCommentService.updateProjectComment(projectComment);
 		
 		return ResponseEntity.status(200).build();
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Void> deleteProject(Project project, HttpSession session)
+	public ResponseEntity<Void> deleteProjectComment(ProjectComment projectComment, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating project " + project.getProjectname());
-		projectService.deleteProject(project);
+		log.trace("Updating project " + projectComment.toString());
+		projectCommentService.deleteProjectComment(projectComment);
 		
 		return ResponseEntity.status(200).build();
 	}
