@@ -24,16 +24,16 @@ public class Task {
 	private Integer id;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="status_id")
-	private Status statusId;
+	private Status status;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="employee_id")
-	private Employee empId;
+	private Employee employee;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="description_id")
-	private Text descriptionId;
+	private Text description;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="project_id")
-	private Project projId;
+	private Project project;
 	// need to add the description_id variable
 	// then getters and setters for it, change the constructors,
 	// the toString method, and the hash code and equals()
@@ -43,39 +43,39 @@ public class Task {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Status getStatusId() {
-		return statusId;
+	public Status getStatus() {
+		return status;
 	}
-	public void setStatusId(Status statusId) {
-		this.statusId = statusId;
+	public void setStatus(Status status) {
+		this.status = status;
 	}
-	public Employee getEmpId() {
-		return empId;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setEmpId(Employee empId) {
-		this.empId = empId;
+	public void setEmpId(Employee employee) {
+		this.employee = employee;
 	}
-	public Text getDescriptionId() {
-		return descriptionId;
+	public Text getDescription() {
+		return description;
 	}
-	public void setDescriptionId(Text descriptionId) {
-		this.descriptionId = descriptionId;
+	public void setDescription(Text description) {
+		this.description = description;
 	}
-	public Project getProjId() {
-		return projId;
+	public Project getProject() {
+		return project;
 	}
-	public void setProjId(Project projId) {
-		this.projId = projId;
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((descriptionId == null) ? 0 : descriptionId.hashCode());
-		result = prime * result + ((empId == null) ? 0 : empId.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((projId == null) ? 0 : projId.hashCode());
-		result = prime * result + ((statusId == null) ? 0 : statusId.hashCode());
+		result = prime * result + ((project == null) ? 0 : project.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
 	@Override
@@ -87,48 +87,48 @@ public class Task {
 		if (getClass() != obj.getClass())
 			return false;
 		Task other = (Task) obj;
-		if (descriptionId == null) {
-			if (other.descriptionId != null)
+		if (description == null) {
+			if (other.description != null)
 				return false;
-		} else if (!descriptionId.equals(other.descriptionId))
+		} else if (!description.equals(other.description))
 			return false;
-		if (empId == null) {
-			if (other.empId != null)
+		if (employee == null) {
+			if (other.employee != null)
 				return false;
-		} else if (!empId.equals(other.empId))
+		} else if (!employee.equals(other.employee))
 			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (projId == null) {
-			if (other.projId != null)
+		if (project == null) {
+			if (other.project != null)
 				return false;
-		} else if (!projId.equals(other.projId))
+		} else if (!project.equals(other.project))
 			return false;
-		if (statusId == null) {
-			if (other.statusId != null)
+		if (status == null) {
+			if (other.status != null)
 				return false;
-		} else if (!statusId.equals(other.statusId))
+		} else if (!status.equals(other.status))
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "task [id=" + id + ", statusId=" + statusId + ", empId=" + empId + ", descriptionId=" + descriptionId
-				+ ", projId=" + projId + "]";
+		return "Task [id=" + id + ", status=" + status + ", employee=" + employee + ", description=" + description
+				+ ", project=" + project + "]";
 	}
 	public Task() {
 		super();
 	}
-	public Task(Integer id, Status statusId, Employee empId, Text descriptionId, Project projId) {
+	public Task(Integer id, Status status, Employee employee, Text description, Project project) {
 		super();
 		this.id = id;
-		this.statusId = statusId;
-		this.empId = empId;
-		this.descriptionId = descriptionId;
-		this.projId = projId;
+		this.status = status;
+		this.employee = employee;
+		this.description = description;
+		this.project = project;
 	}
 	
 }
