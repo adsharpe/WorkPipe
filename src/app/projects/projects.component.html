@@ -1,8 +1,8 @@
 <app-nav-bar></app-nav-bar>
 <a routerLink="/tasks">Project info</a>
-<div class="container border" > <!--*ngIf="project"-->
+<div class="container border"  *ngFor="let projInfo of project" >
     <div class="col-sm border card">
-        <!-- <h4 class="border border-dark mx-auto">{{project.projectname}}</h4> -->
+        <h4 class="border border-dark mx-auto">{{projInfo.projectname}}</h4>
     </div>
     <div class="col-sm">
         <div class="row">
@@ -10,7 +10,7 @@
             <h5>Project Lead:</h5>
           </div>
           <div class="col">
-            <!-- <p>{{project.Lead}}</p> -->
+            <p>{{projInfo.Lead}}</p>
           </div>
         </div>
         <div class="row">
@@ -18,7 +18,7 @@
             <h5>Start Date:</h5>
           </div>
           <div class="col">
-            <!-- <p>{{project.startdate | date}}</p> -->
+            <p>{{projInfo.startdate | date}}</p>
           </div>
         </div>
         <div class="row">
@@ -26,7 +26,7 @@
             <h5>End Date:</h5>
           </div>
           <div class="col">
-            <!-- <p>{{project.enddate | date}}</p> -->
+            <p>{{projInfo.enddate | date}}</p>
           </div>
         </div>
     </div>

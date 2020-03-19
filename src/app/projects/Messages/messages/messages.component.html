@@ -1,2 +1,17 @@
 <app-sub-nav></app-sub-nav>
-<p>messages works!</p>
+<div class="container border" *ngFor="let t of text">
+    <div class = "row">
+        <div class="col-sm">
+            <div class="col">
+                <!-- <p><strong>{{employee.first + " " + employee.last}}</strong></p> --><P>Emp</P>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="col">
+                <p>{{t.text}}</p>
+            </div>
+        </div>
+    </div>
+</div>
