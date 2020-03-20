@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Currentuser } from '../classes/currentUser';
 import { UserService } from '../services/user.service';
+import { Employee } from '../classes/employee';
 
 @Component({
   selector: 'app-main-nav',
@@ -8,20 +9,21 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent implements OnInit {
-  public loggedUser: Currentuser;
+  public loggedUser: Employee;
   public username: string;
   public password: string;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    // this.userService.login(null,null).subscribe(
-    //   resp => {
-    //     this.loggedUser = resp;
-    //   },
-    //   error => {
-    //     this.loggedUser = null;
-    //   }
-    // );
+    this.userService.login(null,null).subscribe(
+      resp => {
+        this.loggedUser = resp;
+        console.log(this.loggedUser)
+      },
+      error => {
+        this.loggedUser = null;
+      }
+    );
   }
 
   login() {

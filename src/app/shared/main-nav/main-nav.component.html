@@ -18,7 +18,7 @@
                 <input id="username" type="text" class="form-control mb-4" [(ngModel)]="username" placeholder="Username" required/>
                 <input id="password" type="password" class="form-control mb-4"  [(ngModel)]="password" (keydown.enter)="login()" placeholder="Password" required/>
                 <!-- Sign in button -->
-                <button class="bg-indigo-500 hover:bg-indigo-600 text-black 
+                <button class="bg-indigo-500 hover:bg-indigo-600 text-black
                   text-xl font-medium py-2 px-4 rounded" (click)="login()" type="submit">Sign in</button>
             </div>
           </div>
@@ -29,7 +29,7 @@
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark coral">
         <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
             <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i></a>
-            <a>{{loggedUser.employee.first}}</a>
+            <a>{{loggedUser.first}}</a>
             <a (click)="logout()" routerLink="/logout">Logout</a>
         </div>
     </nav>

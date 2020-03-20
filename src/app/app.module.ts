@@ -77,10 +77,10 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
     MatNativeDateModule,
 
     RouterModule.forRoot([
-      {
-        path: "login",
-        component: LoginComponent
-      },
+      // {
+      //   path: "login",
+      //   component: LoginComponent
+      // },
       {
         path: "home",
         component: HomeComponent
