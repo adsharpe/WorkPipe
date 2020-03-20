@@ -9,10 +9,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-<<<<<<< HEAD
-=======
                 
->>>>>>> 933c8b0f20f2eb4248be9d75c6368947403f5fcd
         <property name="context-root" value="workpipe"/>
                 
         <property name="java-output-path" value="/WorkPipe/target/classes"/>
