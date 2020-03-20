@@ -9,7 +9,7 @@ import com.revature.hibernate.beans.CommuniqueType;
 
 public interface CommuniqueDAO {
 	// create
-	public Communique addCommuniqueType(Communique c);
+	public Communique addCommunique(Communique c);
 	// read
 	public Communique getCommunique(int i);
 	public Set<Communique> getCommuniqueByCommuniqueType(CommuniqueType ct);
