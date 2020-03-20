@@ -13,7 +13,6 @@ export class UserService {
     'Content-Type': 'application/x-www-form-urlencoded',
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Methods':['POST', 'GET', 'PUT', 'DELETE']
-    
   });
   
   private employee: Employee;
