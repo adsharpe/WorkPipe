@@ -1,3 +1,4 @@
+
 package com.revature.spring.controllers;
 
 import java.util.Set;
@@ -26,6 +27,7 @@ public class EmployeeController {
 	
 	@GetMapping
 	public ResponseEntity<Set<Employee>> getEmployees(HttpSession session) {
+		System.out.println(session.isNew());
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
