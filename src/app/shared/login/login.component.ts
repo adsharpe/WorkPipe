@@ -30,7 +30,9 @@ export class LoginComponent  implements OnInit{
     console.log(this.password);
     this.userService.login(this.username, this.password).subscribe(
       resp => {
-          this.loggedUser = resp;
+        // if(Currentuser)
+        console.log("wait a little bit");
+        this.loggedUser = resp;
       }
     );
   }

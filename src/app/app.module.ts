@@ -12,7 +12,7 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './projects/tasks/tasks.component';
 import { NotificationsComponent } from './projects/notifications/notifications.component';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -36,6 +36,7 @@ import { fileURLToPath } from 'url';
 import { BlankComponent } from './projects/Home/blank/blank.component';
 import { ProjectsService } from './projects/services/projects.service';
 import { TextService } from './shared/services/text.service';
+import { ProjectFormComponent } from './projects/project-form/project-form.component';
 
 @NgModule({
   declarations: [
@@ -58,15 +59,16 @@ import { TextService } from './shared/services/text.service';
     EventsComponent,
     FilesComponent,
     MessagesComponent,
-    TeamsComponent
+    TeamsComponent,
+    ProjectFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatToolbarModule, 
-    MatCardModule, 
+    MatToolbarModule,
+    MatCardModule,
     MatMenuModule,
     MatGridListModule,
     MatIconModule,
@@ -118,6 +120,11 @@ import { TextService } from './shared/services/text.service';
       {
         path: "logout",
         component: BlankComponent
+      },
+      //creating the link to the project-form component
+      {
+        path: "project-form",
+        component: ProjectFormComponent
       }
     ])
 
