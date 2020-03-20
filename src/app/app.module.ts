@@ -33,6 +33,9 @@ import { FilesComponent } from './projects/Files/files/files.component';
 import { MessagesComponent } from './projects/Messages/messages/messages.component';
 import { TeamsComponent } from './projects/Teams/teams/teams.component';
 import { fileURLToPath } from 'url';
+import { BlankComponent } from './projects/Home/blank/blank.component';
+import { ProjectsService } from './projects/services/projects.service';
+import { TextService } from './shared/services/text.service';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
 
 @NgModule({
@@ -114,6 +117,10 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
         path: "events",
         component: EventsComponent
       },
+      {
+        path: "logout",
+        component: BlankComponent
+      },
       //creating the link to the project-form component
       {
         path: "project-form",
@@ -122,7 +129,7 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
     ])
 
   ],
-  providers: [UserService, UrlService],
+  providers: [UserService, UrlService, ProjectsService, TextService],
   bootstrap: [AppComponent]
 })
 

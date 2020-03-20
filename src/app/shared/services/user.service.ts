@@ -11,8 +11,8 @@ export class UserService {
   private appUrl  = this.url.getUrl() + 'login';
   private headers = new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',
-    'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods':'POST'
+    // 'Access-Control-Allow-Origin':'*',
+    // 'Access-Control-Allow-Methods':'POST'
   });
   
   private employee: Employee;

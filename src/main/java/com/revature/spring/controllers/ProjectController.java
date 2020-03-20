@@ -23,7 +23,7 @@ import com.revature.spring.services.TaskService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping(value="/project")
+@RequestMapping(value="/projects")
 public class ProjectController {
 	private Logger log = Logger.getLogger(ProjectController.class);
 	@Autowired
@@ -46,7 +46,7 @@ public class ProjectController {
 	public ResponseEntity<Set<Project>> getProjects(HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
-		log.trace("Following User logged in: " + currentEmployee);
+		log.trace("Getting all projects for: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
