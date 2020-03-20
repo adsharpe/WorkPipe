@@ -31,6 +31,7 @@ export class LoginComponent  {
     this.userService.login(this.username, this.password).subscribe(
       resp => {
         // if(Currentuser)
+        console.log("wait a little bit");
         this.loggedUser = resp;
       }
     );

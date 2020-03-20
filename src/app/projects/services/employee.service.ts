@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/shared/classes/employee';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class EmployeeService {
     //what about the backend?
     console.log("employee service ts log");
 
-    return this.http.get<Employee[]>(this.url);
+    //return this.http.get<Employee[]>(this.url);
+
+    return this.http.get(this.url + '/employee', {withCredentials: true}).pipe(
+      map(resp => resp as Employee[])
+   );
   }
 }

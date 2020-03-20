@@ -16,7 +16,8 @@ export class ProjectFormComponent implements OnInit {
   ngOnInit(): void {
     //get the data from that call into the employee obejct
    this.employeeService.getEmployeeList().subscribe( val => {
-     this.employees;
+     //this.employees;
+     this.employees = val;
     });
   }
 
