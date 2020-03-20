@@ -15,6 +15,11 @@ export class EmployeeService {
   //make a new method to get the employees
   //create the observable we can subscribe to in the project-form component.ts file
   getEmployeeList(): Observable<Array<Employee>> {
+
+    //this logs, so we know we're getting to the service
+    //what about the backend?
+    console.log("employee service ts log");
+
     return this.http.get<Employee[]>(this.url);
   }
 }

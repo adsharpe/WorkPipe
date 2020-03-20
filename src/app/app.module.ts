@@ -113,6 +113,11 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
       {
         path: "events",
         component: EventsComponent
+      },
+      //creating the link to the project-form component
+      {
+        path: "project-form",
+        component: ProjectFormComponent
       }
     ])
 

@@ -1,5 +1,5 @@
 <!--<p>project-form works!</p>-->
-
+<app-nav-bar></app-nav-bar>
 <!--build the form for creating a project-->
 <div>
   <!--
@@ -11,16 +11,16 @@
     <!--first label/input is going to be where
     the supervisor names the project being created-->
     <label for = "projectName">Project Name: </label><br>
-    <input type = "text" name = "projectName" id = "projectName" value = "projectName"><br>
+    <input type = "text" name = "projectName" id = "projectName" value = "enter text here"><br>
     <!-- second label/input is the selection of a
     team leader from the list of employees in the db-->
    <label for = "teamLead">Project Leader: </label><br>
     <select name = "employees" id = "employees">
       <!--load the employees data from  the ts file-->
-      <option *ngFor = "let emp of employees; let i = index" [value] = "emp[i].id">
-        {{emp[i].name}}
+      <option *ngFor = "let emp of employees" [value] = "emp.id">
+        {{emp.first}}
       </option>
-    </select>
+    </select><br>
     <!--third label/input is the start date-->
     <label for="startDate"> Start Date: </label><br>
     <input type="datetime-local" id="startDate" name="startDate"><br>
