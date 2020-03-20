@@ -22,7 +22,7 @@ import com.revature.spring.services.TaskCommentService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping(value="/taskcommentcontroller")
+@RequestMapping(value="/taskcomment")
 public class TaskCommentController {
 	private Logger log = Logger.getLogger(TaskCommentController.class);
 	
@@ -50,7 +50,7 @@ public class TaskCommentController {
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Getting all tasks");
+		log.trace("Getting all task comments");
 		
 		return ResponseEntity.ok(taskCommentService.getTaskComments());
 	}
@@ -63,7 +63,7 @@ public class TaskCommentController {
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Getting all tasks");
+		log.trace("Getting task comment " + taskCommentId);
 		
 		return ResponseEntity.ok(taskCommentService.getTaskComment(taskCommentId));
 	}
@@ -76,7 +76,7 @@ public class TaskCommentController {
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating task " + taskComment.toString());
+		log.trace("Updating task comment " + taskComment.toString());
 		taskCommentService.updateTaskComment(taskComment);
 		
 		return ResponseEntity.status(200).build();
@@ -90,7 +90,7 @@ public class TaskCommentController {
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating task " + taskComment.toString());
+		log.trace("Deleting task comment" + taskComment.toString());
 		taskCommentService.deleteTaskComment(taskComment);
 		
 		return ResponseEntity.status(200).build();

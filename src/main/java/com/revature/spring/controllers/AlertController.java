@@ -16,82 +16,86 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.hibernate.beans.Communique;
+import com.revature.hibernate.beans.CommuniqueType;
 import com.revature.hibernate.beans.Employee;
-import com.revature.hibernate.beans.ProjectComment;
-import com.revature.spring.services.ProjectCommentService;
+import com.revature.spring.services.CommuniqueService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping(value="/projectcomment")
-public class ProjectCommentController {
-	private Logger log = Logger.getLogger(ProjectCommentController.class);
+@RequestMapping(value="/alert")
+public class AlertController {
+	private Logger log = Logger.getLogger(AlertController.class);
 	
 	@Autowired
-	ProjectCommentService projectCommentService;
+	CommuniqueService communiqueService;
 	
 	@PostMapping
-	public ResponseEntity<ProjectComment> createProjectComment(ProjectComment projectComment, HttpSession session)
+	public ResponseEntity<Communique> createAlert(Communique communique, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Creating project comment " + projectComment.toString());
+		log.trace("Creating communique " + communique.toString());
 		
-		return ResponseEntity.ok(projectCommentService.addProjectComment(projectComment));
+		return ResponseEntity.ok(communiqueService.addCommunique(communique));
 	}
 	
 	@GetMapping
-	public ResponseEntity<Set<ProjectComment>> getProjectComments(HttpSession session)
+	public ResponseEntity<Set<Communique>> getAlerts(HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Getting all project comments");
+		log.trace("Getting all alerts");
 		
-		return ResponseEntity.ok(projectCommentService.getProjectComments());
+		CommuniqueType communiqueType = new CommuniqueType();
+		communiqueType.setType("TYPE_ALERT");
+		
+		return ResponseEntity.ok(communiqueService.getCommuniqueByCommuniqueType(communiqueType));
 	}
 	
-	@GetMapping(value="{projectCommentId}")
-	public ResponseEntity<ProjectComment> getProjectComment(@PathVariable("projectCommentId") int projectCommentId, HttpSession session)
+	@GetMapping(value="{alertId}")
+	public ResponseEntity<Communique> getAlert(@PathVariable("alertId") int alertId, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Getting project comment " + projectCommentId);
+		log.trace("Getting alert " + alertId);
 		
-		return ResponseEntity.ok(projectCommentService.getProjectComment(projectCommentId));
+		return ResponseEntity.ok(communiqueService.getCommunique(alertId));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> updateProjectComment(ProjectComment projectComment, HttpSession session)
+	public ResponseEntity<Void> updateAlert(Communique communique, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating project comment " + projectComment.toString());
-		projectCommentService.updateProjectComment(projectComment);
+		log.trace("Updating alert " + communique.toString());
+		communiqueService.updateCommunique(communique);
 		
 		return ResponseEntity.status(200).build();
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Void> deleteProjectComment(ProjectComment projectComment, HttpSession session)
+	public ResponseEntity<Void> deleteAlert(Communique communique, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Deleting project comment " + projectComment.toString());
-		projectCommentService.deleteProjectComment(projectComment);
+		log.trace("Deleting alert " + communique.toString());
+		communiqueService.deleteCommunique(communique);
 		
 		return ResponseEntity.status(200).build();
 	}
