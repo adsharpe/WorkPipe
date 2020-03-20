@@ -12,8 +12,9 @@ import { UrlService } from '../../shared/url.service';
 export class TaskService {
   private appUrl = this.urlService.getUrl() + 'tasks';
   private headers = new HttpHeaders({ 
-    'Content-Type': 'application/json',
+    'Content-Type': ['application/json', 'application/x-www-form-urlencoded'],
     'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Methods':['POST', 'GET', 'PUT', 'DELETE']
    });
 
   constructor(
@@ -22,7 +23,7 @@ export class TaskService {
   ) { }
   
   getTasks(): Observable<Task[]>{
-    return this.http.get(this.appUrl, { withCredentials:true })
+    return this.http.get(this.appUrl, { withCredentials: true })
     .pipe(map(resp => resp as Task[]));
   }
   getTask(id: number): Observable<Task> {

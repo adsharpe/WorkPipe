@@ -3,7 +3,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import {MatDialog} from '@angular/material/dialog';
 import {Task} from '../tasks/Beans/task';
 import { TaskService } from '../services/task.service';
-import { UserSevice } from '../../shared/services/user.service';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-drag-drop-tasks',
@@ -17,7 +17,7 @@ export class DragDropTasksComponent implements OnInit {
   todo: Task[];
   constructor(
     private taskService: TaskService,
-    private userSevice: UserSevice
+    private userService: UserService
   ) {}
 
 
@@ -35,11 +35,13 @@ export class DragDropTasksComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    //complete task drag and drop
+    this.tasks = [];
     this .task = new Task();
     this.taskService.getTasks().subscribe(
       (t) => {
         this.tasks = t;
-        this.task
+        // this.task
       }
     )
 

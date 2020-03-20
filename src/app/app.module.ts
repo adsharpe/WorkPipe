@@ -11,6 +11,7 @@ import { ServicesComponent } from './shared/services/services.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './projects/tasks/tasks.component';
+import { TaskService } from './projects/services/task.service';
 import { NotificationsComponent } from './projects/notifications/notifications.component';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatCardModule } from '@angular/material/card';
@@ -115,7 +116,7 @@ import { fileURLToPath } from 'url';
     ])
 
   ],
-  providers: [UserService, UrlService],
+  providers: [UserService, UrlService, TaskService],
   bootstrap: [AppComponent]
 })
 
