@@ -34,6 +34,8 @@ import { MessagesComponent } from './projects/Messages/messages/messages.compone
 import { TeamsComponent } from './projects/Teams/teams/teams.component';
 import { fileURLToPath } from 'url';
 import { BlankComponent } from './projects/Home/blank/blank.component';
+import { ProjectsService } from './projects/services/projects.service';
+import { TextService } from './shared/services/text.service';
 
 @NgModule({
   declarations: [
@@ -120,7 +122,7 @@ import { BlankComponent } from './projects/Home/blank/blank.component';
     ])
 
   ],
-  providers: [UserService, UrlService],
+  providers: [UserService, UrlService, ProjectsService, TextService],
   bootstrap: [AppComponent]
 })
 

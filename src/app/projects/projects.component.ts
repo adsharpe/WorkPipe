@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from './beans/project';
+import { UserService } from '../shared/services/user.service';
+import { ProjectsService } from './services/projects.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,8 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  projects: Project[];
+  project: Project;
+
+  constructor(
+    private projectsService: ProjectsService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
+    this.project = new Project();
+    this.projectsService.getProjects().subscribe(
+      (p) =>{
+        this.projects = p;
+        this.projects.sort( (p1, p2) => p1.id - p2.id);
+      }
+    )
   }
 }
