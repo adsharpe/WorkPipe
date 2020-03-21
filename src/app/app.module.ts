@@ -78,10 +78,6 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
 
     RouterModule.forRoot([
       {
-        path: "login",
-        component: LoginComponent
-      },
-      {
         path: "home",
         component: HomeComponent
       },
@@ -93,7 +89,7 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
         path: "tasks",
         component: TasksComponent
       },
-      {
+      { 
         path: "discussions",
         component: DiscussionsComponent
       },

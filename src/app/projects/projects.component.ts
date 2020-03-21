@@ -27,4 +27,8 @@ export class ProjectsComponent implements OnInit {
       }
     )
   }
+
+  isEmployee(): boolean {
+    return this.userService.isEmployee();
+  }
 }
