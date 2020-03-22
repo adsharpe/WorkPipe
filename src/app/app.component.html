@@ -1,12 +1,7 @@
-<!-- Navbar -->
-<!-- <app-nav-bar></app-nav-bar> -->
-<!-- Toolbar -->
-<!-- <app-nav-bar></app-nav-bar>
-<app-sub-nav></app-sub-nav>
-<app-main-tool-bar></app-main-tool-bar> -->
-<!-- <app-toolbar></app-toolbar> -->
-<!-- <app-drag-drop-tasks></app-drag-drop-tasks> -->
-<app-main-nav></app-main-nav>
-<!-- <app-nav-bar></app-nav-bar>
-<app-sub-nav></app-sub-nav> -->
-<router-outlet></router-outlet>
+<ng-container *ngIf="!loggedUser; else logged">
+    <app-main-nav></app-main-nav>
+</ng-container>
+<ng-template #logged>
+    <router-outlet></router-outlet> 
+</ng-template>
+

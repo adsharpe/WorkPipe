@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -20,6 +21,7 @@ import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 @Repository
 public class TaskHibernate implements TaskDAO {
+	private static Logger log = Logger.getLogger(TaskHibernate.class);
 	private HibernateUtil hibernateUtil = HibernateUtil.getInstance();
 
 	@Override
@@ -70,7 +72,7 @@ public class TaskHibernate implements TaskDAO {
 			Set<Task> taskSet = new HashSet<Task>();
 			taskSet.addAll(taskList);
 		} catch(HibernateException ex) {
-			LogUtil.logException(ex, TextHibernate.class);
+			LogUtil.logException(ex, TaskHibernate.class);
 		} finally {
 			session.close();
 		}
@@ -80,8 +82,14 @@ public class TaskHibernate implements TaskDAO {
 
 	@Override
 	public Set<Task> getTasks() {
-		// TODO Auto-generated method stub
-		return null;
+		log.trace("Retrieving all tasks from database.");
+		Session session = hibernateUtil.getSession();
+		
+		String query = "FROM Task";
+		Query<Task> q = session.createQuery(query, Task.class);
+		List<Task> taskList = q.getResultList();
+		session.close();
+		return new HashSet<Task>(taskList);
 	}
 
 	@Override
