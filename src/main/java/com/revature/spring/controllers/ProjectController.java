@@ -51,7 +51,7 @@ public class ProjectController {
 			return ResponseEntity.status(401).build();
 		
 		log.trace("Getting all projects");
-		
+		log.trace("All projects: " + projectService.getProjects());
 		return ResponseEntity.ok(projectService.getProjects());
 	}
 	

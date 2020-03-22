@@ -178,7 +178,7 @@ Insert into Text(id, string)
 values (7, 'Do nothing');
     --Project Comment
 Insert into Text(id, string)
-values (8, 'Is there any more task me might have?');
+values (8, 'Is there any more task we might have?');
 Insert into Text(id, string)
 values (9, 'Not that I can think of.');
     --Task Comment

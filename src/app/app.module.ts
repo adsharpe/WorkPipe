@@ -38,6 +38,7 @@ import { BlankComponent } from './projects/Home/blank/blank.component';
 import { ProjectsService } from './projects/services/projects.service';
 import { TextService } from './shared/services/text.service';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
+import { CommentService } from './projects/services/comment.service';
 
 @NgModule({
   declarations: [
@@ -79,14 +80,6 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
 
     RouterModule.forRoot([
       {
-        path: "",
-        component: HomeComponent
-      },
-      {
-        path: "login",
-        component: LoginComponent
-      },
-      {
         path: "home",
         component: HomeComponent
       },
@@ -98,7 +91,7 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
         path: "tasks",
         component: TasksComponent
       },
-      {
+      { 
         path: "discussions",
         component: DiscussionsComponent
       },
@@ -134,7 +127,7 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
     ])
 
   ],
-  providers: [UserService, UrlService, ProjectsService, TextService, TaskService],
+  providers: [UserService, UrlService, ProjectsService, TextService,  TaskService,CommentService],
   bootstrap: [AppComponent]
 })
 
