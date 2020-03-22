@@ -1,7 +1,15 @@
 <app-nav-bar></app-nav-bar>
+<<<<<<< HEAD
 <div class="container border"  *ngFor="let projInfo of projects" style="background-color: cadetblue; 
 width: 300px; float: left; margin-left: 30px; border-radius: 10px;" > 
   <a routerLink="/tasks"> <h4>{{projInfo.projectname}}</h4></a>
+=======
+<a routerLink="/tasks">Project info</a>
+<div class="container border"  *ngFor="let projInfo of project" >
+    <div class="col-sm border card">
+        <h4 class="border border-dark mx-auto">{{projInfo.projectname}}</h4>
+    </div>
+>>>>>>> fe5bd3efa4f7f8e4ad2383a198e59934a89a8977
     <div class="col-sm">
         <div class="row">
           <div class="col">
