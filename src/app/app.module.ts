@@ -11,6 +11,7 @@ import { ServicesComponent } from './shared/services/services.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './projects/tasks/tasks.component';
+import { TaskService } from './projects/services/task.service';
 import { NotificationsComponent } from './projects/notifications/notifications.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -116,7 +117,7 @@ import { CommentService } from './projects/services/comment.service';
       },
       {
         path: "logout",
-        component: BlankComponent
+        component: HomeComponent
       },
       //creating the link to the project-form component
       {
@@ -126,7 +127,7 @@ import { CommentService } from './projects/services/comment.service';
     ])
 
   ],
-  providers: [UserService, UrlService, ProjectsService, TextService, CommentService],
+  providers: [UserService, UrlService, ProjectsService, TextService,  TaskService,CommentService],
   bootstrap: [AppComponent]
 })
 

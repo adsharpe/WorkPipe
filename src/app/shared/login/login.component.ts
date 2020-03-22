@@ -19,7 +19,7 @@ export class LoginComponent  implements OnInit{
     //   resp => {
     //     this.loggedUser = resp;
     //   },
-    //   error => {
+    //   error => { 
     //     this.loggedUser = null;
     //   }
     // );

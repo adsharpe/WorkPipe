@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { UrlService } from '../url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Employee } from '../classes/employee';
@@ -6,16 +6,19 @@ import { Currentuser } from '../classes/currentUser';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 @Injectable()
 export class UserService {
   private appUrl  = this.url.getUrl() + 'login';
   private headers = new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',
     'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods':'POST'
+    'Access-Control-Allow-Methods':['POST', 'GET', 'PUT', 'DELETE']
   });
-  
-  private employee: Employee;
+
+  public employee: Employee;
+
+  isLoggedIn = new EventEmitter();
 
   constructor(
     private url: UrlService,
@@ -61,7 +64,13 @@ export class UserService {
   getEmployee(): Employee {
     return this.employee;
   }
+  getLoggedInUser() {
+    this.isLoggedIn.emit(this.employee);
+  }
   isEmployee(): boolean {
+    return (this.employee !== undefined && this.employee !== null);
+  }
+  isSupervisor(): boolean {
     return (this.employee !== undefined && this.employee !== null);
   }
 }

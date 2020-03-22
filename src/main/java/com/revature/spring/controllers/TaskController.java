@@ -35,7 +35,7 @@ public class TaskController {
 //	@Autowired
 //	EmployeeService employeeService;
 	
-	@GetMapping //(value="/tasks")
+	@GetMapping// (value="/tasks")
 	public ResponseEntity<Set<Task>> getTasks(){
 		log.trace("retrieving all tasks: " +  taskService.getTasks());
 		return ResponseEntity.ok(taskService.getTasks());
