@@ -35,31 +35,38 @@ export class DragDropTasksComponent implements OnInit {
 
   ngOnInit(): void {
     //complete task drag and drop
+    this.employee = this.userService.getEmployee();
     
     this.todo = [];
+    this.done = [];
     // this.unassignedTask = new Task();
     
     this.taskService.getTasks().subscribe(
       (t) => {
-        this.todo = t;
-        console.log(t)
+        t.forEach( (task) => { 
+           console.log(task.status.statLevel)
+           if(task.status.statLevel === "Not Assigned"){
+            this.todo.push(task)
+            return
+           }
+           //
+           if(task.status.statLevel === "completed"){
+             //comeback and fix
+             return
+           }
+           console.log(this.employee)
+           if(this.employee.id === task.employee.id){
+            this.done.push(task)
+           }
+        });
 
-        
-        //Only returns ID
-        // for(let i = 0; i < t.length; i++){
-        //   var eachTask=[];
-        //   if(t[i].status.statLevel == "Not Assigned"){
-            
-        //   }
-        // }
-        
+        //assign all task with pending status to #todo
+        //assign users task to done/doing
+        //when task is tragged to users doing/done it changes the pending to assigned 
+        console.log(t)  
       }
     )
-    // this.employee = new Employee();
-    this.employee = this.userService.getEmployee();
-    
-    console.log(this.employee);
-    // console.log(this.loggedUser);
+
   }
 
   getEmployee(): Employee {
