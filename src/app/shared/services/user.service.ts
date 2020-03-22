@@ -46,9 +46,9 @@ export class UserService {
       return this.http.get(this.appUrl, {withCredentials: true}).pipe(
         map( resp => {
           const user: Employee = resp as Employee;
-         
+
             this.employee = user;
-          
+
           return user;
         })
       );

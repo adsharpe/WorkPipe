@@ -1,33 +1,43 @@
 <!--<p>project-form works!</p>-->
 <app-nav-bar></app-nav-bar>
 <!--build the form for creating a project-->
-<div>
+<div class="container">
   <!--
 
     Check to make sure form action is correct
 
   -->
   <form class="ProjectTable" action="/WorkPipe/ProjectForm" method="POST">
+    <h3>New Project</h3>
+    <h4>Fill out all fields and then submit.</h4>
     <!--first label/input is going to be where
     the supervisor names the project being created-->
-    <label for = "projectName">Project Name: </label><br>
-    <input type = "text" name = "projectName" id = "projectName" value = "enter text here"><br>
+    <fieldset>
+    <label for="projectName">Project Name: </label><br>
+    <input placeholder="ex: Cool Project Name" type="text" id="projectName" [(ngModel)]="projectName" name="projectName"><br>
+    </fieldset>
     <!-- second label/input is the selection of a
     team leader from the list of employees in the db-->
-   <label for = "teamLead">Project Leader: </label><br>
-    <select name = "employees" id = "employees">
+    <fieldset>
+    <label for="teamLead">Project Leader: </label><br>
+    <select id="employees" [(ngModel)]="teamLead" name="teamLead">
       <!--load the employees data from  the ts file-->
-      <option *ngFor = "let emp of employees" [value] = "emp.id">
+      <option *ngFor="let emp of employees"  [value] = "emp.id">
         {{emp.first}}
       </option>
     </select><br>
+    </fieldset>
     <!--third label/input is the start date-->
+    <fieldset>
     <label for="startDate"> Start Date: </label><br>
-    <input type="datetime-local" id="startDate" name="startDate"><br>
+    <input type="datetime-local" id="startDate" [(ngModel)]="startdate" name="startdate"><br>
+    </fieldset>
     <!--fourth label/input is the end date-->
+    <fieldset>
     <label for="endDate"> End Date: </label><br>
-		<input type="datetime-local" id="endDate" name="endDate"><br>
+    <input type="datetime-local" id="endDate" [(ngModel)]="enddate" name="enddate"><br>
+    </fieldset>
     <!--Lastly, include the submit button-->
-    <button class="btn" type="submit">Create Project!</button>
+    <button class="btn" (click)="submitForm()" type="submit">Create Project!</button>
   </form>
 </div>
