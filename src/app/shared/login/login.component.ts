@@ -25,7 +25,8 @@ export class LoginComponent  implements OnInit{
       resp => {
         // if(Currentuser)
         console.log("wait a little bit");
-        this.loggedUser = resp;
+        //changing  the below line from this.loggedUser to this.loggedUser.employee
+        this.loggedUser.employee = resp;
       }
     );
   }
