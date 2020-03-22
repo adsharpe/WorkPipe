@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { UrlService } from '../url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Employee } from '../classes/employee';
 import { Currentuser } from '../classes/currentUser';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 
 @Injectable()
 export class UserService {
@@ -14,15 +15,17 @@ export class UserService {
     'Access-Control-Allow-Origin':'*',
     'Access-Control-Allow-Methods':['POST', 'GET', 'PUT', 'DELETE']
   });
-  
-  private employee: Employee;
+
+  public employee: Employee;
+
+  isLoggedIn = new EventEmitter();
 
   constructor(
     private url: UrlService,
     private http: HttpClient
   ) { }
 
-  login(username: string, password: string): Observable<Currentuser> {
+  login(username: string, password: string): Observable<Employee> {
     if (username && password) {
       // we are attempting to log in
       const body = `user=${username}&pass=${password}`;
@@ -31,9 +34,9 @@ export class UserService {
         withCredentials: true
       }).pipe(
         map(resp => {
-          const user: Currentuser = resp as Currentuser;
+          const user: Employee = resp as Employee;
           if (user) {
-            this.employee = user.employee;
+            this.employee = user;
           }
           return user;
         })
@@ -42,10 +45,10 @@ export class UserService {
       // checking to see if we're logged in
       return this.http.get(this.appUrl, {withCredentials: true}).pipe(
         map( resp => {
-          const user: Currentuser = resp as Currentuser;
-          if (user) {
-            this.employee = user.employee;
-          }
+          const user: Employee = resp as Employee;
+         
+            this.employee = user;
+          
           return user;
         })
       );
@@ -63,10 +66,13 @@ export class UserService {
   getEmployee(): Employee {
     return this.employee;
   }
+  getLoggedInUser() {
+    this.isLoggedIn.emit(this.employee);
+  }
   isEmployee(): boolean {
-    return (this.employee !== undefined && this.employee !== null || this.employee.title =="employee");
+    return (this.employee !== undefined && this.employee !== null);
   }
   isSupervisor(): boolean {
-    return (this.employee !== undefined && this.employee !== null || this.employee.title =="supervisor");
+    return (this.employee !== undefined && this.employee !== null);
   }
 }

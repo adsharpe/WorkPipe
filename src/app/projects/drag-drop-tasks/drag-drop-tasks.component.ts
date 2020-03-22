@@ -4,6 +4,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {Task} from '../tasks/Beans/task';
 import { TaskService } from '../services/task.service';
 import { UserService } from '../../shared/services/user.service';
+import { Employee } from '../../shared/classes/employee';
+import { Currentuser } from '../../shared/classes/currentUser'
 
 @Component({
   selector: 'app-drag-drop-tasks',
@@ -12,50 +14,58 @@ import { UserService } from '../../shared/services/user.service';
 })
 
 export class DragDropTasksComponent implements OnInit {
-  task: Task;
-  tasks: Task[];
-  todo: Task[];
+  
+  employee: Employee;
+  public loggedUser: Currentuser;
+  //Swap out for tasks
+  // tasks: Task[];
+  
   constructor(
     private taskService: TaskService,
     private userService: UserService
   ) {}
 
+  unassignedTask: Task[];
+  todo: Task[];
+  
+  //add task assigned to user
+  done : Task[];
 
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower'
-  ];
-
-  review = [
-    'Check e-mail',
-    'Walk dog',
-    'Go home',
-    'Fall asleep'
-  ];
+  review: Task[];
 
   ngOnInit(): void {
     //complete task drag and drop
-    this.tasks = [];
-    this .task = new Task();
+    
+    this.todo = [];
+    // this.unassignedTask = new Task();
+    
     this.taskService.getTasks().subscribe(
       (t) => {
-        this.tasks = t;
-        // this.task
+        this.todo = t;
+        console.log(t)
+
+        
+        //Only returns ID
+        // for(let i = 0; i < t.length; i++){
+        //   var eachTask=[];
+        //   if(t[i].status.statLevel == "Not Assigned"){
+            
+        //   }
+        // }
+        
       }
     )
-
-
-
-    this.todo = [];
-    let t = new Task();
-    t.id = 1;
-    this.todo.push(t);
-    t = new Task();
-    t.id = 2;
-    this.todo.push(t);
+    // this.employee = new Employee();
+    this.employee = this.userService.getEmployee();
+    
+    console.log(this.employee);
+    // console.log(this.loggedUser);
   }
 
+  getEmployee(): Employee {
+    return this.employee;
+  }
+  //Drag and Drop functionality
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -67,8 +77,3 @@ export class DragDropTasksComponent implements OnInit {
     }
   }
 }
-// @Component({
-//   selector: 'dialog-content-example-dialog',
-//   templateUrl: 'dialog-content-example-dialog.html',
-// })                                                                                                                                                                                                                                                        
-// export class DialogContentExampleDialog {}

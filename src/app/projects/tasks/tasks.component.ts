@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Task} from '../tasks/Beans/task';
+import { Project} from '../../projects/beans/project'
+import { Employee } from '../../shared/classes/employee'
 import { TaskService } from '../services/task.service';
+import { ProjectsService } from '../services/projects.service';
 import { UserService } from '../../shared/services/user.service';
+
 
 @Component({
   selector: 'app-tasks',
@@ -9,11 +13,14 @@ import { UserService } from '../../shared/services/user.service';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
+  projects: Project[];
   tasks: Task[];
   task: Task;
+  currUser: Employee;
   constructor(
+    private userService: UserService,
     private taskService: TaskService,
-    private userService: UserService
+    private projectsService: ProjectsService
   ) { }
 
   ngOnInit(): void {
@@ -23,10 +30,18 @@ export class TasksComponent implements OnInit {
         this.tasks = t;
       }
     )
+      this.projectsService.getProjects().subscribe(
+        (p) => {
+          this.projects = p;
+        }
+      )
+      // this.currUser = this.userService.getEmployee()
+      console.log(this.userService.isEmployee());
+      
   }
 
-  isEmployee(): boolean {
-    return this.userService.isEmployee();
+  getUser(): Employee {
+    return this.userService.getEmployee();
   }
   isSupervisor(): boolean {
     return this.userService.isSupervisor();             

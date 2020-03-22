@@ -79,6 +79,10 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
 
     RouterModule.forRoot([
       {
+        path: "",
+        component: HomeComponent
+      },
+      {
         path: "login",
         component: LoginComponent
       },
@@ -120,7 +124,7 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
       },
       {
         path: "logout",
-        component: BlankComponent
+        component: HomeComponent
       },
       //creating the link to the project-form component
       {
