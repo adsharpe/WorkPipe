@@ -63,7 +63,7 @@ public class ProjectController {
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Getting all projects");
+		log.trace("Getting project " + projectId);
 		
 		return ResponseEntity.ok(projectService.getProject(projectId));
 	}
