@@ -18,7 +18,6 @@ export class MainNavComponent implements OnInit {
     this.userService.login(null,null).subscribe(
       resp => {
         this.loggedUser = resp;
-        console.log(this.loggedUser)
       },
       error => {
         this.loggedUser = null;

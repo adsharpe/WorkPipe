@@ -1,14 +1,8 @@
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<!-- Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
+
 <ng-container *ngIf="!loggedUser; else logged">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
+  <div class="container ">
+    <div class="card mb-3 d-flex justify-content-center " >
+        <div class="row no-gutters ">
           <div class="col-md-4">
             <img alt="Welcome!" src="C:/Users/Stephen/GitRepos/WorkPipe/src/app/shared/login/trello.png" class="card-img">
           </div>
@@ -24,13 +18,15 @@
           </div>
         </div>
       </div>
+    </div>
 </ng-container>
 <ng-template #logged>
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark coral">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark coral ">
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent-333">
             <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i></a>
             <a>{{loggedUser.first}}</a>
-            <a (click)="logout()" routerLink="/logout">Logout</a>
+            <a (click)="logout()" routerLink="/logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
     </nav>
+    <router-outlet></router-outlet>
 </ng-template>

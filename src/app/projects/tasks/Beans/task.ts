@@ -1,7 +1,8 @@
 export class Task {
     id: number;
-    status: number;
+    status: {};
     empId: number;
     descriptionId: number;
     projId: number;
+    statLevel: string
 }

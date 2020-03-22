@@ -11,6 +11,7 @@ import { ServicesComponent } from './shared/services/services.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './projects/tasks/tasks.component';
+import { TaskService } from './projects/services/task.service';
 import { NotificationsComponent } from './projects/notifications/notifications.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -77,10 +78,14 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
     MatNativeDateModule,
 
     RouterModule.forRoot([
-      // {
-      //   path: "login",
-      //   component: LoginComponent
-      // },
+      {
+        path: "",
+        component: HomeComponent
+      },
+      {
+        path: "login",
+        component: LoginComponent
+      },
       {
         path: "home",
         component: HomeComponent
@@ -119,7 +124,7 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
       },
       {
         path: "logout",
-        component: BlankComponent
+        component: HomeComponent
       },
       //creating the link to the project-form component
       {
@@ -129,7 +134,7 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
     ])
 
   ],
-  providers: [UserService, UrlService, ProjectsService, TextService],
+  providers: [UserService, UrlService, ProjectsService, TextService, TaskService],
   bootstrap: [AppComponent]
 })
 
