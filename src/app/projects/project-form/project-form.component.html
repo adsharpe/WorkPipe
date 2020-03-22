@@ -1,6 +1,7 @@
 <!--<p>project-form works!</p>-->
 <app-nav-bar></app-nav-bar>
 <!--build the form for creating a project-->
+<ng-container *ngIf="employee.title === 'Supervisor'; else denied">
 <div class="container">
   <!--
 
@@ -23,7 +24,7 @@
     <select id="employees" [(ngModel)]="teamLead" name="teamLead">
       <!--load the employees data from  the ts file-->
       <option *ngFor="let emp of employees"  [value] = "emp.id">
-        {{emp.first}}
+        {{emp.id}}
       </option>
     </select><br>
     </fieldset>
@@ -41,3 +42,8 @@
     <button class="btn" (click)="submitForm()" type="submit">Create Project!</button>
   </form>
 </div>
+</ng-container>
+<ng-template #denied>
+<h1 class="display-1">You do not have access to this feature. Please contact your supervisor.</h1>
+</ng-template>
+
