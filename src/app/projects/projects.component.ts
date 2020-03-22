@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from './beans/project';
 import { UserService } from '../shared/services/user.service';
 import { ProjectsService } from './services/projects.service';
+import { Employee } from '../shared/classes/employee';
 
 @Component({
   selector: 'app-projects',
@@ -9,7 +10,7 @@ import { ProjectsService } from './services/projects.service';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-
+  public loggedUser: Employee;
   projects: Project[];
   project: Project;
 

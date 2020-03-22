@@ -37,6 +37,7 @@ import { BlankComponent } from './projects/Home/blank/blank.component';
 import { ProjectsService } from './projects/services/projects.service';
 import { TextService } from './shared/services/text.service';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
+import { CommentService } from './projects/services/comment.service';
 
 @NgModule({
   declarations: [
@@ -125,7 +126,7 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
     ])
 
   ],
-  providers: [UserService, UrlService, ProjectsService, TextService],
+  providers: [UserService, UrlService, ProjectsService, TextService, CommentService],
   bootstrap: [AppComponent]
 })
 

@@ -22,7 +22,7 @@ export class UserService {
     private http: HttpClient
   ) { }
 
-  login(username: string, password: string): Observable<Currentuser> {
+  login(username: string, password: string): Observable<Employee> {
     if (username && password) {
       // we are attempting to log in
       const body = `user=${username}&pass=${password}`;
@@ -31,9 +31,9 @@ export class UserService {
         withCredentials: true
       }).pipe(
         map(resp => {
-          const user: Currentuser = resp as Currentuser;
+          const user: Employee = resp as Employee;
           if (user) {
-            this.employee = user.employee;
+            this.employee = user;
           }
           return user;
         })
@@ -42,10 +42,8 @@ export class UserService {
       // checking to see if we're logged in
       return this.http.get(this.appUrl, {withCredentials: true}).pipe(
         map( resp => {
-          const user: Currentuser = resp as Currentuser;
-          if (user) {
-            this.employee = user.employee;
-          }
+          const user: Employee = resp as Employee;
+            this.employee = user;
           return user;
         })
       );

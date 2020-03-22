@@ -22,7 +22,7 @@ import com.revature.spring.services.ProjectCommentService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping(value="/projectcomment")
+@RequestMapping(value="/messages")//ProjectComments
 public class ProjectCommentController {
 	private Logger log = Logger.getLogger(ProjectCommentController.class);
 	
@@ -51,7 +51,7 @@ public class ProjectCommentController {
 			return ResponseEntity.status(401).build();
 		
 		log.trace("Getting all project comments");
-		
+		log.trace("All comments: " + projectCommentService.getProjectComments());
 		return ResponseEntity.ok(projectCommentService.getProjectComments());
 	}
 	
