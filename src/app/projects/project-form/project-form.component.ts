@@ -42,8 +42,8 @@ export class ProjectFormComponent implements OnInit {
 
     console.log(this.project.lead);
 
-    this.project.projectName=this.projectName;
-    console.log(this.project.projectName); // this is working fine
+    this.project.projectname=this.projectName;
+    console.log(this.project.projectname); // this is working fine
 
     // //this.project.startdate is a date
     // //this.startdate is a string

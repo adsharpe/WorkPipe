@@ -30,16 +30,16 @@ public class ProjectController {
 	ProjectService projectService;
 	
 	@PostMapping
-	public ResponseEntity<Project> createProject(@RequestParam("project") Project project, HttpSession session)
+	public ResponseEntity<Project> createProject( Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
-		if(currentEmployee == null)
+		if(currentEmployee == null) {
 			return ResponseEntity.status(401).build();
-		
+		}
 		log.trace("Creating project " + project.toString());
-		
-		return ResponseEntity.ok(projectService.addProject(project));
+		return ResponseEntity.status(201).body(projectService.addProject(project));
+//		return ResponseEntity.ok(projectService.addProject(project));
 	}
 	
 	@GetMapping

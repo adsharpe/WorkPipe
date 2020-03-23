@@ -14,7 +14,7 @@ export class ProjectFormService {
   private headers = new HttpHeaders({
     'Content-Type': 'application/json', //x-www-form-urlencoded',
     'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods':'POST'
+    'Access-Control-Allow-Methods':['POST','GET','PUT','DELETE']
   });
 
   constructor(private url: UrlService, private http: HttpClient) { }
@@ -23,14 +23,10 @@ export class ProjectFormService {
 
     console.log("creating a project...");
 
-    const body = `projectName=${project.projectName}&lead=${project.lead}&startdate=${project.startdate}&enddate=${project.enddate}`;
-     console.log("this is body" +body)
+    // const body = `projectName=${project.projectName}&lead=${project.lead}&startdate=${project.startdate}&enddate=${project.enddate}`;
+    const body = JSON.stringify(project);
+    console.log("this is body" +body)
      console.log("this is project" +project)
-    return this.http.post(this.appUrl, body, {
-      headers: this.headers,
-      withCredentials: true
-      }).pipe(
-        map(resp => resp as Project)
-      );
+    return this.http.post(this.appUrl, body, { headers: this.headers, withCredentials: true}).pipe(map(resp => resp as Project));
   }
 }
