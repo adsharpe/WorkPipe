@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { UrlService } from 'src/app/shared/url.service';
+import { UrlService } from '../../shared/url.service';
 import { Observable } from 'rxjs';
 import { Project } from '../beans/project';
 import { map } from 'rxjs/operators';
