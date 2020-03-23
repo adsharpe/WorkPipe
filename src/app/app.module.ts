@@ -38,6 +38,7 @@ import { BlankComponent } from './projects/Home/blank/blank.component';
 import { ProjectsService } from './projects/services/projects.service';
 import { TextService } from './shared/services/text.service';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
+import { WorkersComponent } from './projects/workers/workers.component';
 import { CommentService } from './projects/services/comment.service';
 
 @NgModule({
@@ -62,7 +63,8 @@ import { CommentService } from './projects/services/comment.service';
     FilesComponent,
     MessagesComponent,
     TeamsComponent,
-    ProjectFormComponent
+    ProjectFormComponent,
+    WorkersComponent
   ],
   imports: [
     BrowserModule,
@@ -123,11 +125,15 @@ import { CommentService } from './projects/services/comment.service';
       {
         path: "project-form",
         component: ProjectFormComponent
+      },
+      {
+        path: "workers",
+        component: WorkersComponent
       }
     ])
 
   ],
-  providers: [UserService, UrlService, ProjectsService, TextService,  TaskService,CommentService],
+  providers: [UserService, UrlService, ProjectsService, TextService,  TaskService, CommentService],
   bootstrap: [AppComponent]
 })
 
