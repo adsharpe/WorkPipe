@@ -2,8 +2,8 @@ import { Component, OnInit} from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Text } from 'src/app/shared/classes/text';
 import { TextService } from 'src/app/shared/services/text.service';
-import { CommentService } from '../services/comment.service';
-import { ProjectComment } from '../beans/project-comment';
+import { CommentService } from '../../services/comment.service';
+import { ProjectComment } from '../../beans/project-comment';
 
 @Component({
   selector: 'app-messages',

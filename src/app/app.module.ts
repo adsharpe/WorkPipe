@@ -39,6 +39,7 @@ import { ProjectsService } from './projects/services/projects.service';
 import { TextService } from './shared/services/text.service';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
 import { WorkersComponent } from './projects/workers/workers.component';
+import { CommentService } from './projects/services/comment.service';
 
 @NgModule({
   declarations: [
@@ -81,14 +82,6 @@ import { WorkersComponent } from './projects/workers/workers.component';
 
     RouterModule.forRoot([
       {
-        path: "",
-        component: HomeComponent
-      },
-      {
-        path: "login",
-        component: LoginComponent
-      },
-      {
         path: "home",
         component: HomeComponent
       },
@@ -100,7 +93,7 @@ import { WorkersComponent } from './projects/workers/workers.component';
         path: "tasks",
         component: TasksComponent
       },
-      {
+      { 
         path: "discussions",
         component: DiscussionsComponent
       },
@@ -140,7 +133,7 @@ import { WorkersComponent } from './projects/workers/workers.component';
     ])
 
   ],
-  providers: [UserService, UrlService, ProjectsService, TextService, TaskService],
+  providers: [UserService, UrlService, ProjectsService, TextService,  TaskService, CommentService],
   bootstrap: [AppComponent]
 })
 

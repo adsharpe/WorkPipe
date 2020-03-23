@@ -33,7 +33,7 @@ export class LoginComponent  implements OnInit{
       resp => {
         // if(Currentuser)
         console.log("wait a little bit");
-        this.loggedUser = resp;
+       // this.loggedUser = resp;
       }
     );
   }

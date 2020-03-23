@@ -9,16 +9,32 @@
                 <option *ngFor="let project of projects" [value] = "project.id">{{project.projectName}}</option>
             </select>
         </fieldset>
-        <p>Dropdown for Team Lead</p>
         <fieldset>
             <label for="teamLead">Team Lead:</label><br>
             <select id="employees" [(ngModel)]="leadName" name="leadName">
                 <option *ngFor="let employee of employees" [value] = "employee.id">{{employee.first}} {{employee.last}}</option>
             </select>
         </fieldset>
-        <p>Listbox for Available Workers/Employees</p>
-        <p>Listbox for Workers/Employees In Project</p>
-        <p>Arrow buttons for moving between Listboxes</p>
+        <div class="list-container">
+            <ul class="list-box">
+                Available
+                <li *ngFor="let item of availableWorkers" [class.item-selected]="item.selected" (click)="toggleSelection(item, 1)">
+                    {{item.first}} {{item.last}}
+                </li>
+            </ul>
+            <div class="buttons-container">
+                <button kendoButton [icon]="'arrow-60-right'" (click)="moveSelected('right')"></button>
+                <button kendoButton [icon]="'arrow-double-60-right'" (click)="moveAll('right')"></button>
+                <button kendoButton [icon]="'arrow-60-left'" (click)="moveSelected('left')"></button>
+                <button kendoButton [icon]="'arrow-double-60-left'" (click)="moveAll('left')"></button>
+            </div>
+            <ul class="list-box">
+                In Project
+                <li *ngFor="let item of allocatedWorkers" [class.item-selected]="item.selected" (click)="toggleSelection(item, 2)">
+                    {{item.first}} {{item.last}}
+                </li>
+            </ul>
+        </div>
         <button class="btn" (click)="submitForm()" type="submit">Add Worker(s)</button>
     </form>
 </div>

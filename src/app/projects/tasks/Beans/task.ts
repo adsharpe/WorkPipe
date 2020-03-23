@@ -1,8 +1,13 @@
+import { Employee } from 'src/app/shared/classes/employee';
+
 export class Task {
     id: number;
-    status: {};
-    empId: number;
-    descriptionId: number;
+    status: Status;
+    employee: Employee;
+    description: Text;
     projId: number;
-    statLevel: string
+}
+export class Status {
+    id: number;
+    statLevel: string;
 }
