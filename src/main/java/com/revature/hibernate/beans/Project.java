@@ -21,7 +21,7 @@ import com.revature.hibernate.beans.Employee;
 public class Project {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Project")
-	@SequenceGenerator(name="Project", sequenceName="Project_seq", allocationSize=1)
+	@SequenceGenerator(name="Project", sequenceName="Projects_seq", allocationSize=1)
 	private Integer id;
 	private String projectname;
 	
