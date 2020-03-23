@@ -33,7 +33,7 @@ export class ProjectFormComponent implements OnInit {
   submitForm(): void {
     //this.project.lead is a number
     //this.lead.id is a string
-    this.project.lead=Number(this.teamLead.id);
+    this.project.lead=this.teamLead;
     this.project.projectName=this.projectName;
     //this.project.startdate is a date
     //this.startdate is a string

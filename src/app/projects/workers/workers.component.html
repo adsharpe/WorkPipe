@@ -1,0 +1,24 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <form class="add-workers" action="/WorkPipe/ProjectForm" method="POST">
+        <h3>Add Workers to Project</h3>
+        <h4>Fill out all fields and then submit.</h4>
+        <fieldset>
+            <label for="projectName">Project Name:</label><br>
+            <select id="projects" [(ngModel)]="projectName" name="projectName">
+                <option *ngFor="let project of projects" [value] = "project.id">{{project.projectName}}</option>
+            </select>
+        </fieldset>
+        <p>Dropdown for Team Lead</p>
+        <fieldset>
+            <label for="teamLead">Team Lead:</label><br>
+            <select id="employees" [(ngModel)]="leadName" name="leadName">
+                <option *ngFor="let employee of employees" [value] = "employee.id">{{employee.first}} {{employee.last}}</option>
+            </select>
+        </fieldset>
+        <p>Listbox for Available Workers/Employees</p>
+        <p>Listbox for Workers/Employees In Project</p>
+        <p>Arrow buttons for moving between Listboxes</p>
+        <button class="btn" (click)="submitForm()" type="submit">Add Worker(s)</button>
+    </form>
+</div>
