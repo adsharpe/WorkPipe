@@ -21,7 +21,7 @@
     team leader from the list of employees in the db-->
     <fieldset>
     <label for="teamLead">Project Leader: </label><br>
-    <select id="employees" [(ngModel)]="teamLead" name="teamLead">
+    <select id="employees" (change)="updateTeamLead($event.target.value)" name="teamLead">
       <!--load the employees data from  the ts file-->
       <option *ngFor="let emp of employees"  [value] = "emp.id">
         {{emp.first}}
@@ -31,12 +31,12 @@
     <!--third label/input is the start date-->
     <fieldset>
     <label for="startDate"> Start Date: </label><br>
-    <input type="datetime-local" id="startDate" [(ngModel)]="startdate" name="startdate"><br>
+    <input type="date" id="startDate" [(ngModel)]="startdate" name="startdate"><br>
     </fieldset>
     <!--fourth label/input is the end date-->
     <fieldset>
     <label for="endDate"> End Date: </label><br>
-    <input type="datetime-local" id="endDate" [(ngModel)]="enddate" name="enddate"><br>
+    <input type="date" id="endDate" [(ngModel)]="enddate" name="enddate"><br>
     </fieldset>
     <!--Lastly, include the submit button-->
     <button class="btn" (click)="submitForm()" type="submit">Create Project!</button>

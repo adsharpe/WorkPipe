@@ -68,8 +68,8 @@ CREATE TABLE project (
     id           NUMBER(20) NOT NULL,
     projectname  VARCHAR2(30) NOT NULL,
     teamlead_id  NUMBER(20),
-    startdate    VARCHAR2(20),
-    enddate      VARCHAR2(20)
+    startdate    VARCHAR2(50),
+    enddate      VARCHAR2(50)
 );
 
 ALTER TABLE project ADD CONSTRAINT project_pk PRIMARY KEY ( id );

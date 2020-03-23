@@ -37,10 +37,10 @@ public class Project {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getProjectname() {
+	public String getProjectName() {
 		return projectName;
 	}
-	public void setProjectname(String projectName) {
+	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
 	public Employee getLead() {
