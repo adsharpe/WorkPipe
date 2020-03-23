@@ -35,7 +35,7 @@ public class ProjectController {
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
-		if(currentEmployee == null)
+		if(currentEmployee == null) {
 			return ResponseEntity.status(401).build();
 		
 		log.trace("Creating project " + project);

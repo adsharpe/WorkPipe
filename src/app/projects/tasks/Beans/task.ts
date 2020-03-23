@@ -1,4 +1,5 @@
 import { Employee } from 'src/app/shared/classes/employee';
+import { Text } from '../../../shared/classes/text'
 
 export class Task {
     id: number;

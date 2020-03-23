@@ -14,7 +14,7 @@ export class ProjectFormService {
   private headers = new HttpHeaders({
     'Content-Type': 'application/json', //x-www-form-urlencoded',
     'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods':'POST'
+    'Access-Control-Allow-Methods':['POST','GET','PUT','DELETE']
   });
 
   constructor(private url: UrlService, private http: HttpClient) { }
