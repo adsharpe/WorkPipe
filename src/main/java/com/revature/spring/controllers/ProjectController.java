@@ -30,7 +30,7 @@ public class ProjectController {
 	ProjectService projectService;
 	
 	@PostMapping
-	public ResponseEntity<Project> createProject(Project project, HttpSession session)
+	public ResponseEntity<Project> createProject(@RequestParam("project") Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
@@ -69,7 +69,7 @@ public class ProjectController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> updateProject(Project project, HttpSession session)
+	public ResponseEntity<Void> updateProject(@RequestParam("project") Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
