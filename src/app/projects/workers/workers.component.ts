@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { ProjectsService } from '../services/projects.service';
+import { StaffingService } from '../services/staffing.service';
 import { Employee } from '../../shared/classes/employee';
 import { Project } from '../beans/project';
 
@@ -9,7 +10,7 @@ import { Project } from '../beans/project';
   templateUrl: './workers.component.html',
   styleUrls: ['./workers.component.css']
 })
-export class WorkersComponent implements OnInit {
+export class WorkersComponent implements OnInit, OnChanges {
   public projectName: string;
   public leadName: string;
   public project: Project;
@@ -20,7 +21,7 @@ export class WorkersComponent implements OnInit {
   allocatedWorkers = new Array<Employee>();
   projects = new Array<Project>();
 
-  constructor(private employeeService: EmployeeService, private projectsService: ProjectsService) { }
+  constructor(private employeeService: EmployeeService, private projectsService: ProjectsService, private staffingService: StaffingService) { }
 
   ngOnInit(): void {
     //get the data from that call into the employee obejct
@@ -40,6 +41,23 @@ export class WorkersComponent implements OnInit {
               console.log("Projects[0].startdate: " + val[0].startdate);
               console.log("Projects[0].enddate: " + val[0].enddate);
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("Changes:");
+
+    for (let propName in changes) {
+      let chng = changes[propName];
+      let cur  = JSON.stringify(chng.currentValue);
+      let prev = JSON.stringify(chng.previousValue);
+      console.log(propName + ': currentValue=' + cur + ', ' + 'previousValue=' + prev);
+    }
+    console.log("Selected Project" + this.project.projectName);
+    //get the data from that call into the employee obejct
+   /*this.staffingService.getProjectEmployeeByProject().subscribe( val => {
+              this.employees = val;
+              this.allocatedWorkers = val;
+    });*/
   }
 
   toggleSelection(item) {

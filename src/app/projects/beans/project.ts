@@ -1,4 +1,4 @@
-import { Employee } from 'src/app/shared/classes/employee';
+import { Employee } from '../../shared/classes/employee';
 
 export class Project {
   //user bean has id as a string

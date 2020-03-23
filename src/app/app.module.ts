@@ -40,6 +40,11 @@ import { TextService } from './shared/services/text.service';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
 import { WorkersComponent } from './projects/workers/workers.component';
 import { CommentService } from './projects/services/comment.service';
+import { StaffingService } from './projects/services/staffing.service';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -130,10 +135,14 @@ import { CommentService } from './projects/services/comment.service';
         path: "workers",
         component: WorkersComponent
       }
-    ])
+    ]),
+
+    ButtonsModule,
+
+    BrowserAnimationsModule
 
   ],
-  providers: [UserService, UrlService, ProjectsService, TextService,  TaskService, CommentService],
+  providers: [UserService, UrlService, ProjectsService, TextService,  TaskService, CommentService, StaffingService],
   bootstrap: [AppComponent]
 })
 
