@@ -26,6 +26,7 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.employee = this.userService.getEmployee();
+    
     this.task = new Task();
     this.taskService.getTasks().subscribe(
       (t) => {
