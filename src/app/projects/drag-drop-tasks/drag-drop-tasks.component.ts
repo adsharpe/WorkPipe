@@ -25,12 +25,9 @@ export class DragDropTasksComponent implements OnInit {
     private userService: UserService
   ) {}
 
-  unassignedTask: Task[];
+  //Drag-and-Drop
   todo: Task[];
-  
-  //add task assigned to user
   done : Task[];
-
   review: Task[];
 
   ngOnInit(): void {
@@ -43,7 +40,7 @@ export class DragDropTasksComponent implements OnInit {
     
     this.taskService.getTasks().subscribe(
       (t) => {
-        t.forEach( (task) => { 
+        t.forEach( (task) => {
            console.log(task.status.statLevel)
            if(task.status.statLevel === "Not Assigned"){
             this.todo.push(task)
@@ -54,7 +51,6 @@ export class DragDropTasksComponent implements OnInit {
              //comeback and fix
              return
            }
-           console.log(this.employee)
            if(this.employee.id === task.employee.id){
             this.done.push(task)
            }
@@ -63,7 +59,7 @@ export class DragDropTasksComponent implements OnInit {
         //assign all task with pending status to #todo
         //assign users task to done/doing
         //when task is tragged to users doing/done it changes the pending to assigned 
-        console.log(t)  
+        // console.log(t)  
       }
     )
 

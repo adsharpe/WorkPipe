@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.hibernate.beans.Employee;
 import com.revature.hibernate.beans.Project;
 import com.revature.spring.services.ProjectService;
-import com.revature.spring.services.TaskService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
@@ -30,14 +30,14 @@ public class ProjectController {
 	ProjectService projectService;
 	
 	@PostMapping
-	public ResponseEntity<Project> createProject(Project project, HttpSession session)
+	public ResponseEntity<Project> createProject(@RequestParam("project") Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Creating project " + project.getProjectname());
+		log.trace("Creating project " + project.toString());
 		
 		return ResponseEntity.ok(projectService.addProject(project));
 	}
@@ -69,28 +69,28 @@ public class ProjectController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> updateProject(Project project, HttpSession session)
+	public ResponseEntity<Void> updateProject(@RequestParam("project") Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating project " + project.getProjectname());
+		log.trace("Updating project " + project.toString());
 		projectService.updateProject(project);
 		
 		return ResponseEntity.status(200).build();
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Void> deleteProject(Project project, HttpSession session)
+	public ResponseEntity<Void> deleteProject(@RequestParam("project") Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating project " + project.getProjectname());
+		log.trace("Updating project " + project.toString());
 		projectService.deleteProject(project);
 		
 		return ResponseEntity.status(200).build();
