@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { ProjectsComponent } from '../projects.component';
 import { TextService } from 'src/app/shared/services/text.service';
 import { Text } from '@angular/compiler/src/i18n/i18n_ast';
+import { Project } from '../beans/project';
 
 @Injectable()
 export class CommentService {
@@ -25,11 +26,12 @@ export class CommentService {
      ));
   }
 
-  submitProjectMessage(text: Text): Observable<Text>{
+  submitProjectMessage(text: ProjectComment): Observable<ProjectComment>{
     const body = JSON.stringify(text);
+    console.log(body);
       return this.http.post(this.projectCommentUrl, body,
         { headers: this.headers, withCredentials: true }).pipe(
-        map( resp => resp as Text )
+        map( resp => resp as ProjectComment )
       );
   }
 }

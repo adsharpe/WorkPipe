@@ -23,7 +23,7 @@ import com.revature.hibernate.beans.Text;
 public class ProjectComment {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Project_Comment")
-	@SequenceGenerator(name="Project_Comment", sequenceName="Project_Comment_seq", allocationSize=1)
+	@SequenceGenerator(name="Project_Comment", sequenceName="Projects_Comment_seq", allocationSize=1)
 	private Integer id;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="project_id")

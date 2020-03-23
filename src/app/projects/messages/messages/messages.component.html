@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-sm">
             <div class="col">
-                <p><strong>{{comment.empId.first}}</strong> : {{comment.textId.textstring}}</p>
+                <p><strong>{{comment.employee.first}}</strong> : {{comment.textId.textstring}}</p>
             </div>
         </div>
     </div>
 </div>
 <div>
-    <input id="userComment" type="text" class="form-control mb-4"  [(ngModel)]="userComment" 
+    <input id="userComment" type="text" class="form-control mb-4"  [(ngModel)]="projectComment.text.text" 
     (keydown.enter)="submit()" placeholder="Comment" maxlength="255"/>
 </div>

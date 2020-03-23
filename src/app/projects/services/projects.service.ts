@@ -10,6 +10,8 @@ export class ProjectsService {
   private appUrl = this.urlService.getUrl() + "projects";
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
+  public project: Project;
+
   constructor(
     private http: HttpClient,
     private urlService: UrlService
@@ -20,5 +22,9 @@ export class ProjectsService {
      .pipe(map(
        resp => resp as Project[]
      ));
+  }
+
+  getProject(): Project{
+    return this.project;
   }
 }

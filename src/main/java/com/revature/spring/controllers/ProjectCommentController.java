@@ -32,6 +32,7 @@ public class ProjectCommentController {
 	@PostMapping
 	public ResponseEntity<ProjectComment> createProjectComment(ProjectComment projectComment, HttpSession session)
 	{
+		log.trace("submitting a comment");
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)

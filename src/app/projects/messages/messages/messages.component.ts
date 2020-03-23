@@ -4,6 +4,7 @@ import { Text } from 'src/app/shared/classes/text';
 import { TextService } from 'src/app/shared/services/text.service';
 import { CommentService } from '../../services/comment.service';
 import { ProjectComment } from '../../beans/project-comment';
+import { Project } from '../../beans/project';
 
 @Component({
   selector: 'app-messages',
@@ -11,6 +12,7 @@ import { ProjectComment } from '../../beans/project-comment';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
+  project: Project;
   comments: ProjectComment[];
   comment: ProjectComment;
   public userComment: string;
@@ -30,14 +32,15 @@ export class MessagesComponent implements OnInit {
   }
 
 
-  // submit(){
-  //   this.commentService.submitProjectMessage(this.comment).subscribe(
-  //     resp => {
-  //       this.comment = new Text();
-  //       this.
-  //     }
-  //   )
-  // }
+  submit(){
+    console.log(this.project)
+    this.commentService.submitProjectMessage(this.comment).subscribe(
+      resp => {
+        this.comment = new ProjectComment();
+        this.comments.push(resp);
+      }
+    )
+  }
 
   isEmployee(): boolean {
     return this.userService.isEmployee();
