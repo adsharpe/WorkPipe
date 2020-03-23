@@ -37,20 +37,24 @@ export class ProjectFormComponent implements OnInit {
     //this.project.lead is a number
     //this.lead.id is a string
     console.log(this.employee);
-    // this.project.lead.id=this.teamLead.id;
-    // console.log(this.teamLead.id);
-    // console.log(this.project.lead.id);
+    console.log(this.teamLead);
+    this.project.lead=this.teamLead;
 
-    // this.project.projectName=this.projectName;
-    // console.log(this.project.projectName); // this is working fine
+    console.log(this.project.lead);
+
+    this.project.projectName=this.projectName;
+    console.log(this.project.projectName); // this is working fine
 
     // //this.project.startdate is a date
     // //this.startdate is a string
-    // this.project.startdate=new Date(this.startdate);
-    // console.log(this.project.startdate)
-    // this.project.enddate=new Date(this.enddate);
-    // this.projectFormService.createProject(this.project).subscribe( val => {
-
-    // })
+    this.project.startdate=new Date(this.startdate);
+    console.log(this.project.startdate);
+    this.project.enddate=new Date(this.enddate);
+    console.log(this.project.enddate);
+    this.projectFormService.createProject(this.project).subscribe( resp => {
+      //this.project = new Project();
+      resp=this.project;
+      console.log(resp);
+    })
   }
 }
