@@ -20,13 +20,18 @@ export class ProjectFormService {
   constructor(private url: UrlService, private http: HttpClient) { }
 
   createProject(project): Observable<Project> {
-
+    console.log("project is " +project);
     console.log("creating a project...");
 
-    // const body = `projectName=${project.projectName}&lead=${project.lead}&startdate=${project.startdate}&enddate=${project.enddate}`;
+    //const body = `projectName=${project.projectName}&lead=${project.lead}&startdate=${project.startdate}&enddate=${project.enddate}`;
+    console.log(project.projectName);
     const body = JSON.stringify(project);
-    console.log("this is body" +body)
-     console.log("this is project" +project)
-    return this.http.post(this.appUrl, body, { headers: this.headers, withCredentials: true}).pipe(map(resp => resp as Project));
+     //console.log("this is body" +body)
+    return this.http.post(this.appUrl, body, {
+      headers: this.headers,
+      withCredentials: true
+      }).pipe(
+        map(resp => resp as Project)
+      );
   }
 }

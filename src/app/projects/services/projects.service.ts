@@ -17,23 +17,17 @@ export class ProjectsService {
 
   createProject(project : Project) : Observable<Project> {
     return this.http.post(this.appUrl, project, { withCredentials: true})
-     .pipe(map(
-       resp => resp as Project
-     ));
+     .pipe(map(resp => resp as Project));
   }
 
   getProjects() : Observable<Project[]>{
     return this.http.get(this.appUrl, { withCredentials: true})
-     .pipe(map(
-       resp => resp as Project[]
-     ));
+     .pipe(map(resp => resp as Project[]));
   }
 
   getProject(projectID : Number): Observable<Project>{
     return this.http.get(this.appUrl + '/' + projectID,  { withCredentials: true})
-     .pipe(map(
-       resp => resp as Project
-     ));
+     .pipe(map(resp => resp as Project));
   }
 
   updateProject(project : Project) {

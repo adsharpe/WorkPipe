@@ -44,19 +44,20 @@ public class ProjectEmployeeHibernate implements ProjectEmployeeDAO {
 			return projectEmployee;
 		}
 		@Override
-		public ProjectEmployee getProjectEmployeeByProject(Project project) {
-			ProjectEmployee projectEmployee;
+		public Set<ProjectEmployee> getProjectEmployeesByProject(Project project) {
 			Session s = hu.getSession();
 			//first projId might actually be column name "project_id"
 			String query = "from Project_Employee where projId=:projId";
 			Query<ProjectEmployee> q = s.createQuery(query, ProjectEmployee.class);
 			q.setParameter("projId", project.getId());
-			projectEmployee = q.uniqueResult();
+			Set<ProjectEmployee> groupSet = new HashSet<ProjectEmployee>();
+			List<ProjectEmployee> groupList = q.getResultList();
+			groupSet.addAll(groupList);
 			s.close();
-			return projectEmployee;
+			return groupSet;
 		}
 		@Override
-		public Set<ProjectEmployee> getProjectEmployeeByEmployee(Employee emp) {
+		public Set<ProjectEmployee> getProjectEmployeesByEmployee(Employee emp) {
 			Session s = hu.getSession();
 			String query = "from Project_Employee p where :employee = some elements(p.employees)";
 			Query<ProjectEmployee> q = s.createQuery(query, ProjectEmployee.class);
