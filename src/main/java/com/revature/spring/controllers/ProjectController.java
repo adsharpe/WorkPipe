@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,16 +31,17 @@ public class ProjectController {
 	ProjectService projectService;
 	
 	@PostMapping
-	public ResponseEntity<Project> createProject(@RequestParam("project") Project project, HttpSession session)
+	public ResponseEntity<Project> createProject(@RequestBody Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Creating project " + project.toString());
+		log.trace("Creating project " + project);
 		
-		return ResponseEntity.ok(projectService.addProject(project));
+		//return ResponseEntity.ok(projectService.addProject(project));
+		return ResponseEntity.status(201).body(projectService.addProject(project));
 	}
 	
 	@GetMapping
@@ -69,7 +71,7 @@ public class ProjectController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> updateProject(@RequestParam("project") Project project, HttpSession session)
+	public ResponseEntity<Void> updateProject(Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
@@ -83,7 +85,7 @@ public class ProjectController {
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Void> deleteProject(@RequestParam("project") Project project, HttpSession session)
+	public ResponseEntity<Void> deleteProject(Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
