@@ -18,29 +18,29 @@ public class ProjectEmployeeService {
 	ProjectEmployeeDAO groupDAO;
 	
 	@Transactional(readOnly=false)
-	public ProjectEmployee addProjectEmployee(ProjectEmployee group) {
-		return groupDAO.addProjectEmployee(group);
+	public ProjectEmployee addProjectEmployee(ProjectEmployee projectEmployee) {
+		return groupDAO.addProjectEmployee(projectEmployee);
 	}
 	
-	public ProjectEmployee getProjectEmployee(int groupId) {
-		return groupDAO.getProjectEmployee(groupId);
+	public ProjectEmployee getProjectEmployee(int projectEmployeeId) {
+		return groupDAO.getProjectEmployee(projectEmployeeId);
 	}
 	
-	public ProjectEmployee getProjectEmployeeByProject(Project project) {
-		return groupDAO.getProjectEmployeeByProject(project);
+	public Set<ProjectEmployee> getProjectEmployeesByProject(Project project) {
+		return groupDAO.getProjectEmployeesByProject(project);
 	}
 	
-	public Set<ProjectEmployee> getProjectEmployeeByEmployee(Employee employee) {
-		return groupDAO.getProjectEmployeeByEmployee(employee);
+	public Set<ProjectEmployee> getProjectEmployeesByEmployee(Employee employee) {
+		return groupDAO.getProjectEmployeesByEmployee(employee);
 	}
 
 	@Transactional(readOnly=false)
-	public void updateProjectEmployee(ProjectEmployee group) {
-		groupDAO.updateProjectEmployee(group);
+	public void updateProjectEmployee(ProjectEmployee projectEmployee) {
+		groupDAO.updateProjectEmployee(projectEmployee);
 	}
 
 	@Transactional(readOnly=false)
-	public void deleteProjectEmployee(ProjectEmployee group) {
-		groupDAO.deleteProjectEmployee(group);
+	public void deleteProjectEmployee(ProjectEmployee projectEmployee) {
+		groupDAO.deleteProjectEmployee(projectEmployee);
 	}
 }

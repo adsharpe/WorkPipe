@@ -13,95 +13,84 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.hibernate.beans.Employee;
 import com.revature.hibernate.beans.Project;
-import com.revature.spring.services.ProjectService;
+import com.revature.hibernate.beans.ProjectEmployee;
+import com.revature.spring.services.ProjectEmployeeService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping(value="/projects")
-public class ProjectController {
+@RequestMapping(value="/staffing")
+public class StaffController {
 	private Logger log = Logger.getLogger(ProjectController.class);
 	@Autowired
-	ProjectService projectService;
+	ProjectEmployeeService projectEmployeeService;
 	
 	@PostMapping
-<<<<<<< HEAD
-	public ResponseEntity<Project> createProject( Project project, HttpSession session)
-=======
-	public ResponseEntity<Project> createProject(@RequestBody Project project, HttpSession session)
->>>>>>> e4886ea0866607d94b7393fa6a753e83e54a45f1
+	public ResponseEntity<ProjectEmployee> addProjectEmployee(ProjectEmployee projectEmployee, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Creating project " + project);
+		log.trace("Creating project employee employee " + projectEmployee.toString());
 		
-		//return ResponseEntity.ok(projectService.addProject(project));
-		return ResponseEntity.status(201).body(projectService.addProject(project));
+		return ResponseEntity.ok(projectEmployeeService.addProjectEmployee(projectEmployee));
 	}
 	
 	@GetMapping
-	public ResponseEntity<Set<Project>> getProjects(HttpSession session)
-	{
-		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
-		log.trace("Getting all projects for: " + currentEmployee);
-		if(currentEmployee == null)
-			return ResponseEntity.status(401).build();
-		
-		log.trace("Getting all projects");
-		log.trace("All projects: " + projectService.getProjects());
-		return ResponseEntity.ok(projectService.getProjects());
-	}
-	
-	@GetMapping(value="{projectId}")
-	public ResponseEntity<Project> getProject(@PathVariable("projectId") int projectId, HttpSession session)
+	public ResponseEntity<Set<ProjectEmployee>> getProjectEmployeeByProject(Project project, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Getting project " + projectId);
+		log.trace("Getting project employees for " + project.toString());
+		return ResponseEntity.ok(projectEmployeeService.getProjectEmployeesByProject(project));
+	}
+	
+	@GetMapping(value="{projectEmployeeId}")
+	public ResponseEntity<ProjectEmployee> getProjectEmployee(@PathVariable("projectEmployeeId") int projectEmployeeId, HttpSession session)
+	{
+		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
+		log.trace("Following User logged in: " + currentEmployee);
+		if(currentEmployee == null)
+			return ResponseEntity.status(401).build();
 		
-		return ResponseEntity.ok(projectService.getProject(projectId));
+		log.trace("Getting project employee " + projectEmployeeId);
+		
+		return ResponseEntity.ok(projectEmployeeService.getProjectEmployee(projectEmployeeId));
 	}
 	
 	@PutMapping
-<<<<<<< HEAD
-	public ResponseEntity<Void> updateProject( Project project, HttpSession session)
-=======
-	public ResponseEntity<Void> updateProject(Project project, HttpSession session)
->>>>>>> e4886ea0866607d94b7393fa6a753e83e54a45f1
+	public ResponseEntity<Void> updateProjectEmployee(ProjectEmployee projectEmployee, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating project " + project.toString());
-		projectService.updateProject(project);
+		log.trace("Updating project employee " + projectEmployee.toString());
+		projectEmployeeService.updateProjectEmployee(projectEmployee);
 		
 		return ResponseEntity.status(200).build();
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Void> deleteProject(Project project, HttpSession session)
+	public ResponseEntity<Void> deleteProjectEmployee(ProjectEmployee projectEmployee, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Updating project " + project.toString());
-		projectService.deleteProject(project);
+		log.trace("Updating project employee " + projectEmployee.toString());
+		projectEmployeeService.deleteProjectEmployee(projectEmployee);
 		
 		return ResponseEntity.status(200).build();
 	}

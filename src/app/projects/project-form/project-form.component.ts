@@ -33,6 +33,11 @@ export class ProjectFormComponent implements OnInit {
      this.employee=this.userService.getEmployee();
     });
   }
+  updateTeamLead(id: string) {
+    console.log(id);
+    this.teamLead = this.employees.find((emp) => emp.id == id);
+    console.log(this.project.lead);
+  }
   submitForm(): void {
     //this.project.lead is a number
     //this.lead.id is a string
@@ -50,12 +55,15 @@ export class ProjectFormComponent implements OnInit {
     // //this.startdate is a string
     this.project.startdate=new Date(this.startdate);
     console.log(this.project.startdate);
+
     this.project.enddate=new Date(this.enddate);
     console.log(this.project.enddate);
+    console.log("this.project 1 is " +JSON.stringify(this.project));
     this.projectFormService.createProject(this.project).subscribe( resp => {
       //this.project = new Project();
       resp=this.project;
-      console.log(resp);
+      console.log("this.project 2 is " +this.project);
+      console.log("this is resp "+resp);
     })
   }
 }
