@@ -4,10 +4,10 @@ export class Task {
     id: number;
     status: Status;
     employee: Employee;
-    descriptionId: number;
+    description: Text;
     projId: number;
 }
 export class Status {
-    id: number
-    statLevel: string
+    id: number;
+    statLevel: string;
 }
