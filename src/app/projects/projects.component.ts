@@ -23,6 +23,7 @@ export class ProjectsComponent implements OnInit {
     this.project = new Project();
     this.projectsService.getProjects().subscribe(
       (p) =>{
+
         this.projects = p;
         this.projects.sort( (p1, p2) => p1.id - p2.id);
       }

@@ -40,6 +40,7 @@ export class ProjectFormComponent implements OnInit {
     console.log(this.teamLead);
     this.project.lead=this.teamLead;
 
+
     console.log(this.project.lead);
 
     this.project.projectName=this.projectName;

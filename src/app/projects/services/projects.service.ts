@@ -31,11 +31,6 @@ export class ProjectsService {
      ));
   }
 
-<<<<<<< HEAD
-  getProject(): Project{
-    return this.project;
-  }
-=======
   getProject(projectID : Number): Observable<Project>{
     return this.http.get(this.appUrl + '/' + projectID,  { withCredentials: true})
      .pipe(map(
@@ -55,5 +50,4 @@ export class ProjectsService {
     return this.http.delete(this.appUrl, { withCredentials: true});
   }
    */
->>>>>>> 8e7857827017e482d01d3ab31277e4f5e75aee82
 }

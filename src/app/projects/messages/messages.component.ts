@@ -4,11 +4,8 @@ import { Text } from 'src/app/shared/classes/text';
 import { TextService } from 'src/app/shared/services/text.service';
 import { CommentService } from '../services/comment.service';
 import { ProjectComment } from '../beans/project-comment';
-<<<<<<< HEAD
 import { Project } from '../beans/project';
 import { ProjectsService } from '../services/projects.service';
-=======
->>>>>>> 8e7857827017e482d01d3ab31277e4f5e75aee82
 
 @Component({
   selector: 'app-messages',
