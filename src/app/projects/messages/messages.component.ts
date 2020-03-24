@@ -20,7 +20,6 @@ export class MessagesComponent implements OnInit {
   public userComment: string;
 
   newComment = new ProjectComment();
-
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -51,7 +50,8 @@ export class MessagesComponent implements OnInit {
   submit(){
     console.log(this.userComment);
     this.newComment.text.text = this.userComment;
-    console.log(this.newComment.text.text);
+    this.newComment.projId.id = +this.route.snapshot.paramMap.get('id');
+    console.log(this.newComment);
     this.commentService.submitProjectMessage(this.newComment).subscribe(
       resp => {
         resp = this.newComment;
