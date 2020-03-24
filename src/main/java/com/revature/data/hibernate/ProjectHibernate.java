@@ -19,12 +19,12 @@ import com.revature.utils.LogUtil;
 public class ProjectHibernate implements ProjectDAO{
 	private HibernateUtil hu = HibernateUtil.getInstance();
 		@Override
-		public Project addProject(Project p) {
+		public Project addProject(Project project) {
 			Session s = hu.getSession();
 			Transaction tx = null;
 			try {
 				tx = s.beginTransaction();
-				s.save(p);
+				s.save(project);
 				tx.commit();
 			} catch(Exception e) {
 				if (tx != null) {
@@ -34,7 +34,7 @@ public class ProjectHibernate implements ProjectDAO{
 			} finally {
 				s.close();
 			}
-			return p;
+			return project;
 		}
 		@Override
 		public Project getProject(int i) {

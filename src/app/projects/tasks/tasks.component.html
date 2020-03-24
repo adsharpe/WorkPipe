@@ -21,12 +21,15 @@
             </div>
             <div class="modal-body">
               <form>
+                <input type="text"[(ngModel)]="task.status" [value] = "2" name="status" hidden>
+                <input type="text"[(ngModel)]="employee.id" [value] = "employee.id" name="status" hidden>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">project: </label>
-                  <input type="text" class="form-control" id="recipient-name">
+                  <input class="form-control" placeholder="ex: Cool Project Name" type="text" id="projectname" [(ngModel)]="projects[0].projectname" name="projectname" 
+                  [value]="projects[0].id" disabled><br>
                 </div>
                 <div class="form-group">
-                  <label for="task-text" class="col-form-label">Description:</label>
+                  <label for="task-text" class="col-form-label" [(ngModel)]="task.description">Description:</label>
                   <textarea class="form-control" id="">
                   </textarea>
                 </div>
