@@ -1,16 +1,17 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { ProjectsService } from '../services/projects.service';
 import { StaffingService } from '../services/staffing.service';
 import { Employee } from '../../shared/classes/employee';
 import { Project } from '../beans/project';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 @Component({
   selector: 'app-workers',
   templateUrl: './workers.component.html',
   styleUrls: ['./workers.component.css']
 })
-export class WorkersComponent implements OnInit, OnChanges {
+export class WorkersComponent implements OnInit {
   public projectName: string;
   public leadName: string;
   public project: Project;
@@ -43,23 +44,6 @@ export class WorkersComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("Changes:");
-
-    for (let propName in changes) {
-      let chng = changes[propName];
-      let cur  = JSON.stringify(chng.currentValue);
-      let prev = JSON.stringify(chng.previousValue);
-      console.log(propName + ': currentValue=' + cur + ', ' + 'previousValue=' + prev);
-    }
-    console.log("Selected Project" + this.project.projectname);
-    //get the data from that call into the employee obejct
-   /*this.staffingService.getProjectEmployeeByProject().subscribe( val => {
-              this.employees = val;
-              this.allocatedWorkers = val;
-    });*/
-  }
-
   toggleSelection(item) {
     item.selected = !item.selected;
   }
@@ -72,19 +56,19 @@ export class WorkersComponent implements OnInit, OnChanges {
   moveSelected(direction) {
     if (direction === 'left') {
       this.allocatedWorkers.forEach(item => {
-        if (item.selected) {
-          this.availableWorkers.push(item);
-        }
+        // if (item.selected) {
+        //   this.availableWorkers.push(item);
+        // }
       });
-      this.allocatedWorkers = this.allocatedWorkers.filter(i => !i.selected);
+      // this.allocatedWorkers = this.allocatedWorkers.filter(i => !i.selected);
       this.availableWorkers.forEach(i => this.unselect(i));
     } else {
       this.availableWorkers.forEach(item => {
-        if (item.selected) {
-          this.allocatedWorkers.push(item);
-        }
+        // if (item.selected) {
+        //   this.allocatedWorkers.push(item);
+        // }
       });
-      this.availableWorkers = this.availableWorkers.filter(i => !i.selected);
+      // this.availableWorkers = this.availableWorkers.filter(i => !i.selected);
       this.allocatedWorkers.forEach(i => this.unselect(i));
     }
   }

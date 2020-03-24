@@ -6,7 +6,7 @@
         <fieldset>
             <label for="projectName">Project Name:</label><br>
             <select id="projects" [(ngModel)]="projectName" name="projectName">
-                <option *ngFor="let project of projects" [value] = "project.id">{{project.projectName}}</option>
+                <option *ngFor="let project of projects" [value] = "project.id">{{project.projectname}}</option>
             </select>
         </fieldset>
         <fieldset>

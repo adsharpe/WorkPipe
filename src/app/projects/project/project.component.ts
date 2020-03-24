@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
-import { TaskService } from '../../services/task.service';
-import { ProjectsService } from '../../services/projects.service';
-import { Project } from '../../beans/project';
+import { TaskService } from '../services/task.service';
+import { ProjectsService } from '../services/projects.service';
+import { Project } from '../beans/project';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-files',
-  templateUrl: './files.component.html',
-  styleUrls: ['./files.component.css']
+  selector: 'app-project',
+  templateUrl: './project.component.html',
+  styleUrls: ['./project.component.css']
 })
-export class FilesComponent implements OnInit {
+export class ProjectComponent implements OnInit {
+  
   project: Project;
+
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -21,10 +23,11 @@ export class FilesComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
     this.projectsService.getProject(id).subscribe(
       (p) => {
         this.project = p;
-        console.log(p);
+        console.log("this is current project id: "+p);
       }
     )
   }

@@ -25,19 +25,19 @@
                 <!--<input type="text"[(ngModel)]="employee.id" [value] = "employee.id" name="status" hidden>-->
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">project: </label>
-                  <input class="form-control" placeholder="ex: Cool Project Name" type="text" id="projectname" [(ngModel)]="projects[0].projectname" name="projectname"
+                  <input class="form-control" placeholder="ex: Cool Project Name" type="text" id="projectname" [(ngModel)]="projects[0].projectName" name="projectname"
                   [value]="projects[0].id"><br>
                 </div>
                 <div class="form-group">
-                  <label for="task-text" class="col-form-label" [(ngModel)]="task.description">Description:</label>
-                  <textarea class="form-control" id="">
+                  <label for="task-text" class="col-form-label">Description:</label>
+                  <textarea class="form-control" [(ngModel)]="description" id="description" name="description">
                   </textarea>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
             </div>
           </div>
         </div>
