@@ -13,11 +13,13 @@ import { ProjectsService } from '../services/projects.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  project: Project;
-  projects: Project[];
   comments: ProjectComment[];
   comment: ProjectComment;
+
   public userComment: string;
+
+  newComment = new ProjectComment();
+
   constructor(
     private userService: UserService,
     private commentService: CommentService,
@@ -25,13 +27,6 @@ export class MessagesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  this.projectService.getProjects().subscribe(
-    (p) => {
-      this.projects = p;
-      this.project = this.projects[0];
-      console.log(this.project)
-    }
-  )
    this.comment = new ProjectComment();
    this.commentService.getProjectMessages().subscribe(
      (c) => {
@@ -44,11 +39,12 @@ export class MessagesComponent implements OnInit {
 
 
   submit(){
-    this.commentService.submitProjectMessage(this.comment).subscribe(
+    console.log(this.userComment);
+    this.newComment.text.text = this.userComment;
+    console.log(this.newComment.text.text);
+    this.commentService.submitProjectMessage(this.newComment).subscribe(
       resp => {
-        this.project;
-        this.comment = new ProjectComment();
-        this.comments.push(resp);
+        resp = this.newComment;
       }
     )
   }

@@ -26,8 +26,9 @@ export class CommentService {
      ));
   }
 
-  submitProjectMessage(text: ProjectComment): Observable<ProjectComment>{
-    const body = JSON.stringify(text);
+  submitProjectMessage(projectComment): Observable<ProjectComment>{
+    console.log("The user comment is: " + projectComment)
+    const body = JSON.stringify(projectComment);
     console.log(body);
       return this.http.post(this.projectCommentUrl, body,
         { headers: this.headers, withCredentials: true }).pipe(
