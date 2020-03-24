@@ -37,7 +37,7 @@ export class TasksComponent implements OnInit {
     this.task = new Task();
     this.employee = this.userService.getEmployee();
 
-
+    this.task.project = new Project();
     this.taskService.getTasks().subscribe(
       (t) => {
         this.tasks = t;
@@ -72,11 +72,11 @@ export class TasksComponent implements OnInit {
 
 //this method add and updates task, by checking if submited task has ID
   submit(): void {
-    this.task.projId = +this.route.snapshot.paramMap.get('id');
-    console.log("this.task.projId is " +this.task.projId)
-    this.text.text = this.description
+    this.task.project.id = +this.route.snapshot.paramMap.get('id');
+    console.log("this.task.project.id is " +this.task.project.id)
+    this.text.textstring = this.description
     console.log(this.description+" is description");
-    console.log(this.text.text);
+    console.log(this.text.textstring);
     this.task.description = this.text
     console.log("this.task.description. is " +JSON.stringify(this.task.description));
     // let id = 1;
