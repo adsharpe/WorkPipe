@@ -52,7 +52,7 @@ export class WorkersComponent implements OnInit, OnChanges {
       let prev = JSON.stringify(chng.previousValue);
       console.log(propName + ': currentValue=' + cur + ', ' + 'previousValue=' + prev);
     }
-    console.log("Selected Project" + this.project.projectName);
+    console.log("Selected Project" + this.project.projectname);
     //get the data from that call into the employee obejct
    /*this.staffingService.getProjectEmployeeByProject().subscribe( val => {
               this.employees = val;
