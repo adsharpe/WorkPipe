@@ -31,17 +31,13 @@ public class ProjectController {
 	ProjectService projectService;
 	
 	@PostMapping
-<<<<<<< HEAD
-	public ResponseEntity<Project> createProject( Project project, HttpSession session)
-=======
 	public ResponseEntity<Project> createProject(@RequestBody Project project, HttpSession session)
->>>>>>> e4886ea0866607d94b7393fa6a753e83e54a45f1
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null) {
 			return ResponseEntity.status(401).build();
-		
+		}
 		log.trace("Creating project " + project);
 		
 		//return ResponseEntity.ok(projectService.addProject(project));
@@ -75,11 +71,7 @@ public class ProjectController {
 	}
 	
 	@PutMapping
-<<<<<<< HEAD
-	public ResponseEntity<Void> updateProject( Project project, HttpSession session)
-=======
 	public ResponseEntity<Void> updateProject(Project project, HttpSession session)
->>>>>>> e4886ea0866607d94b7393fa6a753e83e54a45f1
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);

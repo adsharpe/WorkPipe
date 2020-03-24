@@ -4,6 +4,7 @@ import { ProjectsService } from '../services/projects.service';
 import { StaffingService } from '../services/staffing.service';
 import { Employee } from '../../shared/classes/employee';
 import { Project } from '../beans/project';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 @Component({
   selector: 'app-workers',
@@ -34,7 +35,7 @@ export class WorkersComponent implements OnInit {
    this.projectsService.getProjects().subscribe( val => {
               this.projects = val;
               console.log("Projects[0].id: " + val[0].id);
-              console.log("Projects[0].projectName: " + val[0].projectname);
+              console.log("Projects[0].projectName: " + val[0].projectName);
               console.log("Projects[0].lead.first: " + val[0].lead.first);
               console.log("Projects[0].lead.last: " + val[0].lead.last);
               console.log("Projects[0].lead.title: " + val[0].lead.title);
@@ -42,7 +43,7 @@ export class WorkersComponent implements OnInit {
               console.log("Projects[0].enddate: " + val[0].enddate);
     });
   }
-  
+
   toggleSelection(item) {
     item.selected = !item.selected;
   }

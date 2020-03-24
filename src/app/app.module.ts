@@ -104,7 +104,7 @@ import { ProjectComponent } from './projects/project/project.component';
         path: "tasks/:id",
         component: TasksComponent
       },
-      { 
+      {
         path: "discussions/:id",
         component: DiscussionsComponent
       },
@@ -136,11 +136,11 @@ import { ProjectComponent } from './projects/project/project.component';
       {
         path: "project-form",
         component: ProjectFormComponent
-      },
-      {
-        path: "workers",
-        component: WorkersComponent
-      }
+      } //,
+      // {
+      //   path: "workers",
+      //   component: WorkersComponent
+      // }
     ]),
 
     ButtonsModule,
