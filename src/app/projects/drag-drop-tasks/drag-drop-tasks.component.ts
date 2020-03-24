@@ -6,7 +6,9 @@ import { TaskService } from '../services/task.service';
 import { UserService } from '../../shared/services/user.service';
 import { Employee } from '../../shared/classes/employee';
 import { Currentuser } from '../../shared/classes/currentUser'
-
+import { ProjectsService } from '../services/projects.service';
+import { Project } from '../beans/project';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-drag-drop-tasks',
   templateUrl: './drag-drop-tasks.component.html',
@@ -14,7 +16,7 @@ import { Currentuser } from '../../shared/classes/currentUser'
 })
 
 export class DragDropTasksComponent implements OnInit {
-  
+  project: Project;
   employee: Employee;
   public loggedUser: Currentuser;
   //Swap out for tasks
@@ -22,7 +24,9 @@ export class DragDropTasksComponent implements OnInit {
   
   constructor(
     private taskService: TaskService,
-    private userService: UserService
+    private userService: UserService,
+    private projectsService: ProjectsService,
+    private route: ActivatedRoute,
   ) {}
 
   //Drag-and-Drop
@@ -33,7 +37,8 @@ export class DragDropTasksComponent implements OnInit {
   ngOnInit(): void {
     //complete task drag and drop
     this.employee = this.userService.getEmployee();
-    
+    console.log("this is the employee id: "+this.employee.id)
+    this.project
     this.todo = [];
     this.done = [];
     // this.unassignedTask = new Task();
@@ -41,19 +46,22 @@ export class DragDropTasksComponent implements OnInit {
     this.taskService.getTasks().subscribe(
       (t) => {
         t.forEach( (task) => {
-           console.log(task.status.statLevel)
-           if(task.status.statLevel === "Not Assigned"){
-            this.todo.push(task)
-            return
-           }
-           //
-           if(task.status.statLevel === "completed"){
-             //comeback and fix
-             return
-           }
-           if(this.employee.id === task.employee.id){
-            this.done.push(task)
-           }
+          if(task.projId === this.project.id){
+            if(task.status.statLevel === "Not Assigned" ){
+              this.todo.push(task)
+              return
+             }
+             //
+             if(task.status.statLevel === "completed"){
+               //comeback and fix
+               return
+             }
+             if(task.employee.id === this.employee.id){
+              this.done.push(task)
+              return
+             }
+          }
+
         });
 
         //assign all task with pending status to #todo
@@ -62,7 +70,14 @@ export class DragDropTasksComponent implements OnInit {
         // console.log(t)  
       }
     )
-
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    this.projectsService.getProject(id).subscribe(
+      (p) => {
+        this.project = p;
+        console.log("this is current project id: "+ this.project.id);
+      }
+    )
   }
 
   getEmployee(): Employee {
@@ -77,6 +92,8 @@ export class DragDropTasksComponent implements OnInit {
           event.container.data,
           event.previousIndex,
           event.currentIndex);
+          console.log(event.item.data);
+          // this.taskService.updateTask();
     }
   }
 }

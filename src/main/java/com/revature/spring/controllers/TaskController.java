@@ -41,8 +41,15 @@ public class TaskController {
 		return ResponseEntity.ok(taskService.getTasks());
 	}
 	
-	@PostMapping(value="/tasks")
-	public ResponseEntity<Task> addTask(@RequestBody Task task){
+	@PostMapping //(value="/tasks")
+	public ResponseEntity<Task> addTask(@RequestBody Task task, HttpSession session){
+		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
+		log.trace("Following User logged in: " + currentEmployee);
+		if(currentEmployee == null) {
+			return ResponseEntity.status(401).build();
+		}
+		
+		log.trace("creating new task here ..." + task);
 		return ResponseEntity.status(201).body(taskService.addTask(task));
 	}
 	
