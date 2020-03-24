@@ -64,7 +64,7 @@ public class ProjectCommentController {
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Getting project comment by id" + projectCommentId);
+		log.trace("Getting project comment by id " + projectCommentId);
 		
 		return ResponseEntity.ok(projectCommentService.getProjectComment(projectCommentId));
 	}

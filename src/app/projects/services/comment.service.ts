@@ -28,7 +28,8 @@ export class CommentService {
 
   getProjectMessagesbyID(id: number){
     const url: string = this.projectCommentUrl + '/' + id;
-    return this.http.get(this.projectCommentUrl, {withCredentials: true}
+    console.log("The url is : " + url)
+    return this.http.get(url, {withCredentials: true}
       ).pipe(map(
       resp => resp as ProjectComment[]
     ));

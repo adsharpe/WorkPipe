@@ -74,9 +74,9 @@ export class TasksComponent implements OnInit {
   submit(): void {
     this.task.projId = +this.route.snapshot.paramMap.get('id');
     console.log("this.task.projId is " +this.task.projId)
-    this.text.text = this.description
+    this.text.textstring = this.description
     console.log(this.description+" is description");
-    console.log(this.text.text);
+    console.log(this.text.textstring);
     this.task.description = this.text
     console.log("this.task.description. is " +JSON.stringify(this.task.description));
     // let id = 1;

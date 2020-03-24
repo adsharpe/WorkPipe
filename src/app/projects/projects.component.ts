@@ -25,7 +25,7 @@ export class ProjectsComponent implements OnInit {
       (p) =>{
 
         this.projects = p;
-        // this.projects.sort( (p1, p2) => p1.id - p2.id);
+        this.projects.sort( (p1, p2) => p1.id - p2.id);
         console.log(p);
       }
     )

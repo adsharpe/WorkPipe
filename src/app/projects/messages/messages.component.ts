@@ -50,7 +50,7 @@ export class MessagesComponent implements OnInit {
    )
 
    this.comment = new ProjectComment();
-   this.commentService.getProjectMessagesbyID(id).subscribe(
+   this.commentService.getProjectMessages().subscribe(
      (c) => {
        this.comments = c;
        this.comments.sort( (c1, c2) => c1.id - c2.id);
@@ -63,10 +63,10 @@ export class MessagesComponent implements OnInit {
   submit(){
     console.log(this.loggedUser);
     console.log(this.userComment);
-    this.text.text = this.userComment;
-    this.newComment.text = this.text;
+    this.text.textstring = this.userComment;
+    this.newComment.textId = this.text;
     this.project.id = +this.route.snapshot.paramMap.get('id');;
-    this.newComment.projId = this.project;
+    this.newComment.projects = this.project;
     this.newComment.empId = this.loggedUser;
     console.log("New Comment info: " + this.newComment);
     this.commentService.submitProjectMessage(this.newComment).subscribe(

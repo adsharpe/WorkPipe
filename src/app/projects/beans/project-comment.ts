@@ -3,7 +3,7 @@ import { Employee } from 'src/app/shared/classes/employee';
 import { Text } from 'src/app/shared/classes/text';
 export class ProjectComment {
     id: number;
-    projId: Project;
+    projects: Project;
     empId: Employee;
-    text: Text;
+    textId: Text;
 }
