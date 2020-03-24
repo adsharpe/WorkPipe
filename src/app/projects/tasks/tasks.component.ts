@@ -38,7 +38,7 @@ export class TasksComponent implements OnInit {
     this.project = new Project();
     this.employee = this.userService.getEmployee();
 
-
+    this.task.project = new Project();
     this.taskService.getTasks().subscribe(
       (t) => {
         this.tasks = t;
