@@ -26,6 +26,14 @@ export class CommentService {
      ));
   }
 
+  getProjectMessagesbyID(id: number){
+    const url: string = this.projectCommentUrl + '/' + id;
+    return this.http.get(this.projectCommentUrl, {withCredentials: true}
+      ).pipe(map(
+      resp => resp as ProjectComment[]
+    ));
+  }
+
   submitProjectMessage(projectComment): Observable<ProjectComment>{
     console.log("The user comment is: " + JSON.stringify(projectComment))
     const body = JSON.stringify(projectComment);

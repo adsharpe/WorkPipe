@@ -32,15 +32,6 @@ export class MessagesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   this.comment = new ProjectComment();
-   this.commentService.getProjectMessages().subscribe(
-     (c) => {
-       this.comments = c;
-       this.comments.sort( (c1, c2) => c1.id - c2.id);
-       console.log(this.comments);
-     }
-   )
-
    this.userService.login(null,null).subscribe(
     resp => {
       this.loggedUser = resp;
@@ -55,6 +46,15 @@ export class MessagesComponent implements OnInit {
      (p) => {
        this.project = p;
        console.log(p);
+     }
+   )
+
+   this.comment = new ProjectComment();
+   this.commentService.getProjectMessagesbyID(id).subscribe(
+     (c) => {
+       this.comments = c;
+       this.comments.sort( (c1, c2) => c1.id - c2.id);
+       console.log(this.comments);
      }
    )
   }
