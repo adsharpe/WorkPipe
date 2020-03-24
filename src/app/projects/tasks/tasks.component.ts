@@ -35,6 +35,7 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.task = new Task();
+    this.project = new Project();
     this.employee = this.userService.getEmployee();
 
 
@@ -72,8 +73,8 @@ export class TasksComponent implements OnInit {
 
 //this method add and updates task, by checking if submited task has ID
   submit(): void {
-    this.task.projId = +this.route.snapshot.paramMap.get('id');
-    console.log("this.task.projId is " +this.task.projId)
+    this.task.project.id = +this.route.snapshot.paramMap.get('id');
+    console.log("this.task.project.id is " +this.task.project.id)
     this.text.textstring = this.description
     console.log(this.description+" is description");
     console.log(this.text.textstring);
