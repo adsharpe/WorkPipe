@@ -7,6 +7,7 @@ import { ProjectComment } from '../beans/project-comment';
 import { ProjectsService } from '../services/projects.service';
 import { Project } from '../beans/project';
 import { ActivatedRoute } from '@angular/router';
+import { Employee } from 'src/app/shared/classes/employee';
 
 @Component({
   selector: 'app-messages',
@@ -16,7 +17,9 @@ import { ActivatedRoute } from '@angular/router';
 export class MessagesComponent implements OnInit {
   comments: ProjectComment[];
   comment: ProjectComment;
-  project: Project;
+  project = new Project();
+  text = new Text();
+  loggedUser: Employee;
   public userComment: string;
 
   newComment = new ProjectComment();
@@ -37,6 +40,16 @@ export class MessagesComponent implements OnInit {
        console.log(this.comments);
      }
    )
+
+   this.userService.login(null,null).subscribe(
+    resp => {
+      this.loggedUser = resp;
+    },
+    error => {
+      this.loggedUser = null;
+    }
+  );
+
    const id = +this.route.snapshot.paramMap.get('id');
    this.projectsService.getProject(id).subscribe(
      (p) => {
@@ -48,10 +61,14 @@ export class MessagesComponent implements OnInit {
 
 
   submit(){
+    console.log(this.loggedUser);
     console.log(this.userComment);
-    this.newComment.text.text = this.userComment;
-    this.newComment.projId.id = +this.route.snapshot.paramMap.get('id');
-    console.log(this.newComment);
+    this.text.text = this.userComment;
+    this.newComment.text = this.text;
+    this.project.id = +this.route.snapshot.paramMap.get('id');;
+    this.newComment.projId = this.project;
+    this.newComment.empId = this.loggedUser;
+    console.log("New Comment info: " + this.newComment);
     this.commentService.submitProjectMessage(this.newComment).subscribe(
       resp => {
         resp = this.newComment;
