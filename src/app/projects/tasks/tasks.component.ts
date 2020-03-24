@@ -5,6 +5,7 @@ import { Employee } from '../../shared/classes/employee'
 import { TaskService } from '../services/task.service';
 import { ProjectsService } from '../services/projects.service';
 import { UserService } from '../../shared/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class TasksComponent implements OnInit {
   task: Task;
   employee: Employee;
   constructor(
+    private route: ActivatedRoute,
     private userService: UserService,
     private taskService: TaskService,
     private projectsService: ProjectsService
@@ -34,11 +36,18 @@ export class TasksComponent implements OnInit {
         console.log(t)
       }
     )
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.projectsService.getProject(id).subscribe(
+      (p) => {
+        this.project = p;
+        console.log(p);
+      }
+    )
       this.projectsService.getProjects().subscribe(
         (p) => {
           //may need to change to forEach, refer to task-drag-and-drop
           this.projects = p;
-          console.log(this.projects[0].id)
+          // console.log(this.projects.id)
         }
       )
       // this.currUser = this.userService.getEmployee()

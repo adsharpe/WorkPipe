@@ -43,6 +43,7 @@ import { CommentService } from './projects/services/comment.service';
 import { StaffingService } from './projects/services/staffing.service';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectComponent } from './projects/project/project.component';
 
 
 
@@ -69,7 +70,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MessagesComponent,
     TeamsComponent,
     ProjectFormComponent,
-    WorkersComponent
+    WorkersComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -91,15 +93,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         component: HomeComponent
       },
       {
+        path: "project/:id",
+        component: ProjectComponent
+      },
+      {
         path: "projects",
         component: ProjectsComponent
       },
       {
-        path: "tasks",
+        path: "tasks/:id",
         component: TasksComponent
       },
       { 
-        path: "discussions",
+        path: "discussions/:id",
         component: DiscussionsComponent
       },
       {
@@ -107,19 +113,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         component: TeamsComponent
       },
       {
-        path: "messages",
+        path: "messages/:id",
         component: MessagesComponent
       },
       {
-        path: "files",
+        path: "files/:id",
         component: FilesComponent
       },
       {
-        path: "activities",
+        path: "activities/:id",
         component: ActivitiesComponent
       },
       {
-        path: "events",
+        path: "events/:id",
         component: EventsComponent
       },
       {
