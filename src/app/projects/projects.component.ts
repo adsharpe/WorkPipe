@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { Project } from './beans/project';
 import { UserService } from '../shared/services/user.service';
 import { ProjectsService } from './services/projects.service';
@@ -16,9 +16,16 @@ export class ProjectsComponent implements OnInit {
 
   constructor(
     private projectsService: ProjectsService,
-    private userService: UserService
+    private userService: UserService,
+    private el: ElementRef,
+    private renderer:Renderer2,
   ) { }
-
+  ngAfterViewInit(){
+    //find steps to add imgages to file/folder
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundImage', "url(' http://www.astmedicalbilling.org/wp-content/uploads/2019/07/undraw_group_chat_trans-1024x700-1.png')");
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'background-repeat', 'no-repeat');
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'background-position', 'center');
+  }
   ngOnInit(): void {
     this.project = new Project();
     this.projectsService.getProjects().subscribe(

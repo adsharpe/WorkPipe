@@ -46,7 +46,7 @@ export class DragDropTasksComponent implements OnInit {
     this.taskService.getTasks().subscribe(
       (t) => {
         t.forEach( (task) => {
-          if(task.projId === this.project.id){
+          if(task.project.id === this.project.id){
             if(task.status.statLevel === "Not Assigned" ){
               this.todo.push(task)
               return

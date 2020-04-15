@@ -41,6 +41,11 @@ export class TaskService {
         map(resp => resp as Task)
       );
   }
+  updateTask(task: Task): Observable<Task>{
+    const url = this.appUrl + '/' + task.id;
+    const body = JSON.stringify(task);
+    return this.http.put(url, body, {headers: this.headers, withCredentials: true}).pipe(map(resp => resp as Task))
+  }
   // updateTask(task: Task): Observable<Task>{
   //   const body = JSON.stringify(task);
   //   if(!task.id){
