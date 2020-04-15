@@ -28,12 +28,12 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit(): void {
    this.comment = new ProjectComment();
-   this.commentService.getProjectMessages().subscribe(
-     (c) => {
-       this.comments = c;
-       console.log(this.comments);
-     }
-   )
+  // // this.commentService.getProjectMessages().subscribe(
+  //    (c) => {
+  //      this.comments = c;
+  //      console.log(this.comments);
+  //    }
+  //  )
    const id = +this.route.snapshot.paramMap.get('id');
    this.projectsService.getProject(id).subscribe(
      (p) => {

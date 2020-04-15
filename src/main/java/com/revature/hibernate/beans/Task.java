@@ -1,5 +1,6 @@
 package com.revature.hibernate.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -7,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,7 +23,7 @@ import com.revature.hibernate.beans.Status;
 public class Task {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="task")
-	@SequenceGenerator(name="task", sequenceName="task_seq", allocationSize=1)
+	@SequenceGenerator(name="task", sequenceName="tasks_seq", allocationSize=1)
 	private Integer id;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="status_id")
@@ -28,7 +31,7 @@ public class Task {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="employee_id")
 	private Employee employee;
-	@ManyToOne(fetch=FetchType.EAGER)
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="description_id")
 	private Text description;
 	@ManyToOne(fetch=FetchType.EAGER)

@@ -38,7 +38,7 @@ import { BlankComponent } from './projects/Home/blank/blank.component';
 import { ProjectsService } from './projects/services/projects.service';
 import { TextService } from './shared/services/text.service';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
-import { WorkersComponent } from './projects/workers/workers.component';
+// import { WorkersComponent } from './projects/workers/workers.component';
 import { CommentService } from './projects/services/comment.service';
 import { StaffingService } from './projects/services/staffing.service';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
@@ -70,7 +70,7 @@ import { ProjectComponent } from './projects/project/project.component';
     MessagesComponent,
     TeamsComponent,
     ProjectFormComponent,
-    WorkersComponent,
+    // WorkersComponent,
     ProjectComponent
   ],
   imports: [
@@ -104,7 +104,7 @@ import { ProjectComponent } from './projects/project/project.component';
         path: "tasks/:id",
         component: TasksComponent
       },
-      { 
+      {
         path: "discussions/:id",
         component: DiscussionsComponent
       },
@@ -136,11 +136,11 @@ import { ProjectComponent } from './projects/project/project.component';
       {
         path: "project-form",
         component: ProjectFormComponent
-      },
-      {
-        path: "workers",
-        component: WorkersComponent
-      }
+      } //,
+      // {
+      //   path: "workers",
+      //   component: WorkersComponent
+      // }
     ]),
 
     ButtonsModule,

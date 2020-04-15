@@ -37,7 +37,7 @@ public class ProjectController {
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null) {
 			return ResponseEntity.status(401).build();
-		
+		}
 		log.trace("Creating project " + project);
 		
 		//return ResponseEntity.ok(projectService.addProject(project));
