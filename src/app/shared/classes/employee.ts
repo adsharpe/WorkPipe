@@ -7,4 +7,5 @@ export class Employee extends User {
     title: string;
     tasks: Task[];
     supervisor: Employee;
+    selected: boolean;
 }

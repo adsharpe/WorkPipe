@@ -1,9 +1,13 @@
 package com.revature.hibernate.beans;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -24,6 +28,7 @@ public class Employee extends Login{
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="supervisor_id")
 	private Employee supervisor;
+	
 	public String getFirst() {
 		return first;
 	}
@@ -48,25 +53,16 @@ public class Employee extends Login{
 	public void setSupervisor(Employee supervisor) {
 		this.supervisor = supervisor;
 	}
-//	public Employee(Integer id, String username, String pass, String first, String last, String title, Employee supervisor) {
-//		super(id, username, pass);
-//		this.first = first;
-//		this.last = last;
-//		this.title = title;
-//		this.supervisor = supervisor;
-//	}
-//	public Employee(Integer id) {
-//		super(id);
-//	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((first == null) ? 0 : first.hashCode());
-		result = prime * result + ((last == null) ? 0 : last.hashCode());
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		return result;
-	}
+@Override
+public int hashCode() {
+	final int prime = 31;
+	int result = super.hashCode();
+	result = prime * result + ((first == null) ? 0 : first.hashCode());
+	result = prime * result + ((last == null) ? 0 : last.hashCode());
+	result = prime * result + ((title == null) ? 0 : title.hashCode());
+	return result;
+}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -86,6 +82,11 @@ public class Employee extends Login{
 				return false;
 		} else if (!last.equals(other.last))
 			return false;
+		if (supervisor == null) {
+			if (other.supervisor != null)
+				return false;
+		} else if (!supervisor.equals(other.supervisor))
+			return false;
 		if (title == null) {
 			if (other.title != null)
 				return false;
@@ -95,7 +96,7 @@ public class Employee extends Login{
 	}
 	@Override
 	public String toString() {
-		return "employee [first=" + first + ", last=" + last + ", title=" + title + "]";
+		return "Employee [first=" + first + ", last=" + last + ", title=" + title + "]";
 	}
 
 

@@ -8,6 +8,12 @@
     overflow: auto;
 }
 
+.list-title  {
+    background-color: lightblue;
+    width: 100%;
+    text-align: center;
+}
+
 .item-selected {
     background-color: lightgray;
 }

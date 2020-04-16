@@ -5,19 +5,19 @@
         <h4>Fill out all fields and then submit.</h4>
         <fieldset>
             <label for="projectName">Project Name:</label><br>
-            <select id="projects" [(ngModel)]="projectName" name="projectName">
+            <select id="projects" [(ngModel)]="projectName" name="projectName" (change)="projectChange($event)">
                 <option *ngFor="let project of projects" [value] = "project.id">{{project.projectName}}</option>
             </select>
         </fieldset>
         <fieldset>
             <label for="teamLead">Team Lead:</label><br>
-            <select id="employees" [(ngModel)]="leadName" name="leadName">
+            <select id="employees" [(ngModel)]="leadName" name="leadName" (change)="employeeChange($event)">
                 <option *ngFor="let employee of employees" [value] = "employee.id">{{employee.first}} {{employee.last}}</option>
             </select>
         </fieldset>
         <div class="list-container">
             <ul class="list-box">
-                Available
+                <a class="list-title">Available</a>
                 <li *ngFor="let item of availableWorkers" [class.item-selected]="item.selected" (click)="toggleSelection(item, 1)">
                     {{item.first}} {{item.last}}
                 </li>
@@ -29,7 +29,7 @@
                 <button kendoButton [icon]="'arrow-double-60-left'" (click)="moveAll('left')"></button>
             </div>
             <ul class="list-box">
-                In Project
+                <a class="list-title">In Project</a>
                 <li *ngFor="let item of allocatedWorkers" [class.item-selected]="item.selected" (click)="toggleSelection(item, 2)">
                     {{item.first}} {{item.last}}
                 </li>

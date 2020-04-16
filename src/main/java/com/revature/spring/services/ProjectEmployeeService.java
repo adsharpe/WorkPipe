@@ -26,6 +26,10 @@ public class ProjectEmployeeService {
 		return groupDAO.getProjectEmployee(projectEmployeeId);
 	}
 	
+	public Set<ProjectEmployee> getProjectEmployees() {
+		return groupDAO.getProjectEmployees();
+	}
+	
 	public Set<ProjectEmployee> getProjectEmployeesByProject(Project project) {
 		return groupDAO.getProjectEmployeesByProject(project);
 	}

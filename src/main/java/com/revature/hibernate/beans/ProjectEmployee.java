@@ -1,38 +1,33 @@
 package com.revature.hibernate.beans;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="Project_Employee")
 public class ProjectEmployee {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Group")
-	@SequenceGenerator(name="Group", sequenceName="Group_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ProjectEmployee")
+	@SequenceGenerator(name="ProjectEmployee", sequenceName="ProjectEmployee_seq", allocationSize=1)
 	private Integer id;
 	
 	//I think this is how we make a JoinTable with Hibernate
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="Group_Employee",
-		joinColumns=@JoinColumn(name="group_id"),
-		inverseJoinColumns=@JoinColumn(name="employee_id"))
-	//changing bean
-	private Set<Employee> employees;
+	@ManyToMany
+	@JoinColumn(name="employee_id")
+	private Employee employee;
 	
-	@OneToMany
+	@ManyToMany
 	@JoinColumn(name="project_id")
-	private Set<Project> projects;
+	private Project project;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -40,32 +35,32 @@ public class ProjectEmployee {
 		this.id = id;
 	}
 
-	public Set<Employee> getEmployees() {
-		return employees;
+	public Employee getEmployees() {
+		return employee;
 	}
-	public void setEmployees(Set<Employee> employees) {
-		this.employees = employees;
+	public void setEmployees(Employee employee) {
+		this.employee = employee;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((employees == null) ? 0 : employees.hashCode());
+		result = prime * result + ((employee == null) ? 0 : employee.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((projects == null) ? 0 : projects.hashCode());
+		result = prime * result + ((project == null) ? 0 : project.hashCode());
 		return result;
 	}
-	public Set<Project> getProjects() {
-		return projects;
+	public Project getProjects() {
+		return project;
 	}
-	public void setProjects(Set<Project> projects) {
-		this.projects = projects;
+	public void setProjects(Project project) {
+		this.project = project;
 	}
-	public ProjectEmployee(Integer id, Set<Employee> employees, Set<Project> projects) {
+	public ProjectEmployee(Integer id, Employee employee, Project project) {
 		super();
 		this.id = id;
-		this.employees = employees;
-		this.projects = projects;
+		this.employee = employee;
+		this.project = project;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -76,26 +71,26 @@ public class ProjectEmployee {
 		if (getClass() != obj.getClass())
 			return false;
 		ProjectEmployee other = (ProjectEmployee) obj;
-		if (employees == null) {
-			if (other.employees != null)
+		if (employee == null) {
+			if (other.employee != null)
 				return false;
-		} else if (!employees.equals(other.employees))
+		} else if (!employee.equals(other.employee))
 			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (projects == null) {
-			if (other.projects != null)
+		if (project == null) {
+			if (other.project != null)
 				return false;
-		} else if (!projects.equals(other.projects))
+		} else if (!project.equals(other.project))
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Group [id=" + id + ", employees=" + employees + ", projects=" + projects + "]";
+		return "Group [id=" + id + ", employee=" + employee + ", project=" + project + "]";
 	}
 	public ProjectEmployee() {
 		super();

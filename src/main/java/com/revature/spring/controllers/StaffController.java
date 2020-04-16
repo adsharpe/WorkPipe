@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.hibernate.beans.Employee;
@@ -25,12 +27,12 @@ import com.revature.spring.services.ProjectEmployeeService;
 @CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(value="/staffing")
 public class StaffController {
-	private Logger log = Logger.getLogger(ProjectController.class);
+	private Logger log = Logger.getLogger(StaffController.class);
 	@Autowired
 	ProjectEmployeeService projectEmployeeService;
 	
 	@PostMapping
-	public ResponseEntity<ProjectEmployee> addProjectEmployee(ProjectEmployee projectEmployee, HttpSession session)
+	public ResponseEntity<ProjectEmployee> addProjectEmployee(@RequestBody ProjectEmployee projectEmployee, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
@@ -43,15 +45,15 @@ public class StaffController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<Set<ProjectEmployee>> getProjectEmployeeByProject(Project project, HttpSession session)
+	public ResponseEntity<Set<ProjectEmployee>> getProjectEmployees(HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
 		if(currentEmployee == null)
 			return ResponseEntity.status(401).build();
 		
-		log.trace("Getting project employees for " + project.toString());
-		return ResponseEntity.ok(projectEmployeeService.getProjectEmployeesByProject(project));
+		log.trace("Getting all project employees");
+		return ResponseEntity.ok(projectEmployeeService.getProjectEmployees());
 	}
 	
 	@GetMapping(value="{projectEmployeeId}")
@@ -68,7 +70,7 @@ public class StaffController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> updateProjectEmployee(ProjectEmployee projectEmployee, HttpSession session)
+	public ResponseEntity<Void> updateProjectEmployee(@RequestBody ProjectEmployee projectEmployee, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
@@ -82,7 +84,7 @@ public class StaffController {
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Void> deleteProjectEmployee(ProjectEmployee projectEmployee, HttpSession session)
+	public ResponseEntity<Void> deleteProjectEmployee(@RequestBody ProjectEmployee projectEmployee, HttpSession session)
 	{
 		Employee currentEmployee = (Employee)session.getAttribute("currentUser");
 		log.trace("Following User logged in: " + currentEmployee);
