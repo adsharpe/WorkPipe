@@ -34,12 +34,12 @@ export class MessagesComponent implements OnInit {
 
   submit(){
     console.log(this.project)
-    this.commentService.submitProjectMessage(this.comment).subscribe(
-      resp => {
-        this.comment = new ProjectComment();
-        this.comments.push(resp);
-      }
-    )
+    // this.commentService.submitProjectMessage(this.comment).subscribe(
+    //   resp => {
+    //     this.comment = new ProjectComment();
+    //     this.comments.push(resp);
+    //   }
+    // )
   }
 
   isEmployee(): boolean {

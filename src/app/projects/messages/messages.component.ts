@@ -8,6 +8,8 @@ import { ProjectsService } from '../services/projects.service';
 import { Project } from '../beans/project';
 import { ActivatedRoute } from '@angular/router';
 import { Employee } from 'src/app/shared/classes/employee';
+import { ProjectsComponent } from '../projects.component';
+import { ProjectComponent } from '../project/project.component';
 
 @Component({
   selector: 'app-messages',
@@ -15,12 +17,12 @@ import { Employee } from 'src/app/shared/classes/employee';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  comments: ProjectComment[];
-  comment: ProjectComment;
-  project = new Project();
-  text = new Text();
-  loggedUser: Employee;
+  public comments: ProjectComment[];
+  public comment: ProjectComment;
+  public project: Project;
+  public employee: Employee;
   public userComment: string;
+  text = new Text();
 
   newComment = new ProjectComment();
   constructor(
@@ -32,15 +34,11 @@ export class MessagesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   this.userService.login(null,null).subscribe(
-    resp => {
-      this.loggedUser = resp;
-    },
-    error => {
-      this.loggedUser = null;
-    }
-  );
-
+    this.project = new Project();
+    this.comment = new ProjectComment();
+    this.employee = this.userService.getEmployee();
+    this.comment.projects = new Project();
+    
    const id = +this.route.snapshot.paramMap.get('id');
    this.projectsService.getProject(id).subscribe(
      (p) => {
@@ -60,24 +58,20 @@ export class MessagesComponent implements OnInit {
   }
 
 
-  submit(){
-    console.log(this.loggedUser);
-    console.log(this.userComment);
-    this.text.textstring = this.userComment;
-    this.newComment.textId = this.text;
-    this.project.id = +this.route.snapshot.paramMap.get('id');;
-    this.newComment.projects = this.project;
-    this.newComment.empId = this.loggedUser;
-    console.log("New Comment info: " + this.newComment);
-    this.commentService.submitProjectMessage(this.newComment).subscribe(
+  submit(): void{
+    this.project.id = +this.route.snapshot.paramMap.get('id');
+    console.log("This project id is " + this.project.id);
+    this.comment.projects.id = this.project.id;
+
+    this.comment.empId.id = this.employee.id;
+
+    this.text.textstring = this.userComment
+    this.comment.textId = this.text; 
+    console.log("New Comment info: " + JSON.stringify(this.comment));
+    this.commentService.submitProjectMessage(this.comment).subscribe(
       resp => {
-        resp = this.newComment;
+        resp = this.comment;
       }
     )
   }
-
-  isEmployee(): boolean {
-    return this.userService.isEmployee();
-  }
-
 }

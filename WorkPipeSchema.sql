@@ -199,4 +199,13 @@ values(1, 3, 2, 10);
 Insert into Task_Comment(id, task_id, employee_id, text_id)
 values(2, 3, 3, 11);
 
+
+Delete From Project Where
+projectname = 'test3';
+Delete From Project Where
+id = 8;
+Delete From Project Where
+id = 12;
+Delete From Project Where
+id = 13;
 commit;
