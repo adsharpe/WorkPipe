@@ -1,2 +1,51 @@
 <app-nav-bar></app-nav-bar>
 <router-outlet></router-outlet>
+<ng-container *ngIf="this.employee.title === 'Supervisor'; else user">
+    <h3 class="text-center">Pending Assinnments/Awaiting Approval</h3>
+    <div class="row ">
+        <div class="card mb-5" *ngFor="let item of waitingApproval">
+            <div class="card-header"  style="background-color: rgba(95, 158, 160, .75); 
+            width: 300px; float: left; margin-left: 30px;  border-radius: 10px;">
+                {{item.status.statLevel}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{item.status.statLevel}}</h5>
+              <p class="card-text">{{item.description.textstring}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="card mb-5" *ngFor="let item of notAssigned" style="background-color: rgba(95, 158, 160, .75); 
+        width: 300px; float: left; margin-left: 30px;  border-radius: 10px;">
+            <div class="card-header">
+                {{item.status.statLevel}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{item.status.statLevel}}</h5>
+              <p class="card-text">{{item.description.textstring}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+    </div>
+    </div>
+</ng-container>
+<ng-template #user>
+
+    <h3 class="text-center">My Tasks</h3>
+    <div class="row">
+        <div class="card mb-5" *ngFor="let item of employeeTasks" style="background-color: rgba(95, 158, 160, .25); 
+        width: 300px; float: left; margin-left: 30px;  border-radius: 10px;">
+            <div class="card-header">
+                {{item.status.statLevel}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{item.status.statLevel}}</h5>
+              <p class="card-text">{{item.description.textstring}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+    </div>
+    </div>
+
+    
+</ng-template>
+

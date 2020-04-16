@@ -106,14 +106,14 @@ Insert into login(id,username, password)
 values (5, 'Richard', 'pass');
 
 -- Initilization Employee
-Insert into Employee(id,firstname, lastname, login_id, supervisor_id)
-values (1,'Jonathan', 'Mendez', 1, 5);
+Insert into Employee(id,firstname, lastname, login_id, supervisor_id, title)
+values (1,'Jonathan', 'Mendez', 1, 5, 'employee');
 Insert into Employee(id,firstname, lastname, login_id, title,supervisor_id)
 values (2,'Covals', 'Douze', 2, 'Team Lead',5);
-Insert into Employee(id,firstname, lastname, login_id, supervisor_id)
-values (3,'Apollo', 'D. Sharpe', 3, 5);
-Insert into Employee(id,firstname, lastname, login_id, supervisor_id)
-values (4,'Stephen', 'Wingbermuehle', 4, 5);
+Insert into Employee(id,firstname, lastname, login_id, supervisor_id,title)
+values (3,'Apollo', 'D. Sharpe', 3, 5, 'employee');
+Insert into Employee(id,firstname, lastname, login_id, supervisor_id, title)
+values (4,'Stephen', 'Wingbermuehle', 4, 5, 'employee');
 Insert into Employee(id,firstname, lastname, login_id, title,supervisor_id)
 values (5,'Richard', 'Orr', 5, 'Supervisor',5);
 

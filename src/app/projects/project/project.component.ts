@@ -4,6 +4,7 @@ import { TaskService } from '../services/task.service';
 import { ProjectsService } from '../services/projects.service';
 import { Project } from '../beans/project';
 import { ActivatedRoute } from '@angular/router';
+import { Employee } from 'src/app/shared/classes/employee';
 
 @Component({
   selector: 'app-project',
@@ -13,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProjectComponent implements OnInit {
   
   project: Project;
-
+  employee: Employee;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -22,6 +23,7 @@ export class ProjectComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.employee = this.userService.getEmployee();
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.projectsService.getProject(id).subscribe(
@@ -31,5 +33,4 @@ export class ProjectComponent implements OnInit {
       }
     )
   }
-
 }
