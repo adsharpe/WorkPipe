@@ -40,13 +40,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
         t.forEach( (task) => {
           if(task.status.statLevel === "Waiting Approval"){
             this.waitingApproval.push(task)
-            console.log("waiting approval"+task)
+            console.log("waiting approval"+task.project.id)
             return
            }
 
            if(task.status.statLevel === "Not Assigned"){
             this.notAssigned.push(task)
-            console.log("not assigned"+task)
+            console.log("not assigned"+task.project.id)
             return
            }
            if(task.employee.id === this.employee.id){

@@ -1,51 +1,48 @@
 <app-nav-bar></app-nav-bar>
 <router-outlet></router-outlet>
 <ng-container *ngIf="this.employee.title === 'Supervisor'; else user">
-    <h3 class="text-center">Pending Assinnments/Awaiting Approval</h3>
+    <h3 class="" >Pending Assinnments/Awaiting Approval</h3>
     <div class="row ">
         <div class="card mb-5" *ngFor="let item of waitingApproval">
-            <div class="card-header"  style="background-color: rgba(95, 158, 160, .75); 
-            width: 300px; float: left; margin-left: 30px;  border-radius: 10px;">
-                {{item.status.statLevel}}
+            <div class="card-header "  style="background-color: rgba(95, 158, 160, 0.85); 
+            width: 250px; float: left; margin-left: 30px;  border-radius: 10px; color: rgba(41, 242, 233)">
+                <p class="" style="color: rgba(41, 242, 233)">Task ID: {{item.id}}</p>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">{{item.status.statLevel}}</h5>
-              <p class="card-text">{{item.description.textstring}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card-body text-center">
+              <h5 class="card-text" style="color: rgba(41, 242, 233)">{{item.status.statLevel}}</h5>
+              <h4 class="card-title" style="color: rgba(41, 242, 233)">{{item.description.textstring}}</h4>
+              <a href="/project/{{item.project.id}}" class="btn btn-outline-info text-center" style="color: rgba(41, 242, 233)">Project Details</a>
             </div>
     </div>
     </div>
     <div class="row">
-        <div class="card mb-5" *ngFor="let item of notAssigned" style="background-color: rgba(95, 158, 160, .75); 
-        width: 300px; float: left; margin-left: 30px;  border-radius: 10px;">
+        <div class="card mb-5" *ngFor="let item of notAssigned" style="background-color: rgba(58, 74, 74, 0.85); 
+        width: 250px; float: left; margin-left: 30px;  border-radius: 10px;">
             <div class="card-header">
-                {{item.status.statLevel}}
+                <p class="" style="color: rgba(41, 242, 233)">Task ID: {{item.id}}</p>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">{{item.status.statLevel}}</h5>
-              <p class="card-text">{{item.description.textstring}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card-body text-center">
+              <h5 class="card-text" style="color: rgba(41, 242, 233)">{{item.status.statLevel}}</h5>
+              <h4 class="card-title" style="color: rgba(41, 242, 233)">{{item.description.textstring}}</h4>
+              <a href="/project/{{item.project.id}}" class="btn btn-outline-info text-center" style="color: rgba(41, 242, 233)">Prpjoct Details</a>
             </div>
     </div>
     </div>
 </ng-container>
 <ng-template #user>
-
     <h3 class="text-center">My Tasks</h3>
     <div class="row">
-        <div class="card mb-5" *ngFor="let item of employeeTasks" style="background-color: rgba(95, 158, 160, .25); 
-        width: 300px; float: left; margin-left: 30px;  border-radius: 10px;">
+        <div class="card mb-5" *ngFor="let item of employeeTasks" style="background-color: rgba(58, 74, 74, 0.85); 
+        width: 250px; float: left; margin-left: 30px;  border-radius: 10px;">
             <div class="card-header">
-                {{item.status.statLevel}}
+                <p class="" style="color: rgba(41, 242, 233)">Task ID: {{item.id}}</p>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">{{item.status.statLevel}}</h5>
-              <p class="card-text">{{item.description.textstring}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card-body text-center">
+              <h5 class="card-text" style="color: rgba(41, 242, 233)">{{item.status.statLevel}}</h5>
+              <h4 class="card-title" style="color: rgba(41, 242, 233)">{{item.description.textstring}}</h4>
+              <a href="/project/{{item.project.id}}" class="btn btn-outline-info text-center" >Prpjoct Details</a>
             </div>
     </div>
     </div>
-
-    
 </ng-template>
 
