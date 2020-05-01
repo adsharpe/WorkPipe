@@ -40,9 +40,37 @@
             <div class="card-body text-center">
               <h5 class="card-text" style="color: rgba(41, 242, 233)">{{item.status.statLevel}}</h5>
               <h4 class="card-title" style="color: rgba(41, 242, 233)">{{item.description.textstring}}</h4>
-              <a href="/project/{{item.project.id}}" class="btn btn-outline-info text-center" >Prpjoct Details</a>
+              <!-- <a href="/project/{{item.project.id}}" class="btn btn-outline-info text-center" >Prpjoct Details</a> -->
+              <button type="button" class="btn btn-outline-info text-center" data-toggle="modal" [attr.data-target]="'#task-'+item.id">
+                Details
+              </button>
             </div>
+             <!-- Modal -->
+    <div class="modal fade" [id]="'task-'+item.id" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" [cdkDragData]="item" cdkDrag>
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title text-muted" id="exampleModalCenterTitle"><span>ID: </span>{{item.id}}</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <h2 class="modal-title" id="exampleModalCenterTitle">
+            {{item.description.textstring}}</h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Modal -->
     </div>
     </div>
+   
 </ng-template>
 
