@@ -12,3 +12,7 @@
     text-decoration: none;
     font-size: 17px
   }
+
+  .navbar a:hover{
+    color: rgb(20, 88, 90) !important;
+  }

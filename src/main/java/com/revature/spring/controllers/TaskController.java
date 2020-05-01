@@ -55,6 +55,7 @@ public class TaskController {
 	
 	@GetMapping(value="{taskId}")
 	public ResponseEntity<Task> getTask(@PathVariable("taskId") int taskId){
+		log.trace("task by employee");
 		Task task = taskService.getTask(taskId);
 		if(task != null) {
 			return ResponseEntity.ok(task);

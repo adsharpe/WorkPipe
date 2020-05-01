@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, OnInit, Input } from '@angular/core';
-=======
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
->>>>>>> 9e47312019715592e2e5ea4ef54aeb3d966bf1b2
 import { Project } from './beans/project';
 import { UserService } from '../shared/services/user.service';
 import { ProjectsService } from './services/projects.service';

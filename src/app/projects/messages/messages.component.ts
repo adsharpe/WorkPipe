@@ -47,12 +47,17 @@ export class MessagesComponent implements OnInit {
      }
    )
 
+   //Displays comments only related to project id
    this.comment = new ProjectComment();
    this.commentService.getProjectMessages().subscribe(
      (c) => {
-       this.comments = c;
+       c.forEach( (comment) => {
+         if(comment.projects.id == +this.route.snapshot.paramMap.get('id')){
+           this.comments = c;
+         }
+       })
+       //Sort comments by desc order (lastest -> most recent)
        this.comments.sort( (c1, c2) => c1.id - c2.id);
-       console.log(this.comments);
      }
    )
   }

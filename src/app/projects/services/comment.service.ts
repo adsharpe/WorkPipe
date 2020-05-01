@@ -4,6 +4,7 @@ import { UrlService } from 'src/app/shared/url.service';
 import { ProjectComment } from '../beans/project-comment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Project } from '../beans/project';
 
 @Injectable()
 export class CommentService {
@@ -22,10 +23,10 @@ export class CommentService {
      ));
   }
 
-  getProjectMessagesbyID(id: number){
-    const url: string = this.appUrl + '/' + id;
-    console.log("The url is : " + url)
-    return this.http.get(url, {withCredentials: true}
+
+
+  getProjectMessagesbyID(id:number){
+    return this.http.get(this.appUrl + '/' + id, {withCredentials: true}
       ).pipe(map(
       resp => resp as ProjectComment[]
     ));
