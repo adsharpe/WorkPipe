@@ -12,9 +12,11 @@ export class MainNavComponent implements OnInit {
   public loggedUser: Employee;
   public username: string;
   public password: string;
+  public notClicked = true;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.notClicked = true;
     this.userService.login(null,null).subscribe(
       resp => {
         this.loggedUser = resp;
@@ -26,6 +28,7 @@ export class MainNavComponent implements OnInit {
   }
 
   login() {
+    this.notClicked = false;
     console.log("Calling the login method");
     console.log(this.username);
     console.log(this.password);

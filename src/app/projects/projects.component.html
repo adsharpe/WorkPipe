@@ -1,25 +1,42 @@
 <app-nav-bar></app-nav-bar>
-<div class="container border"  *ngFor="let projInfo of projects" style="background-color: rgba(95, 158, 160, .75); 
-width: 300px; float: left; margin-left: 30px; margin-bottom: 30px; border-radius: 10px;" > 
-  <a routerLink="/project/{{projInfo.id}}"> <h4>{{projInfo.projectName}}</h4></a>
-    <div class="col-sm">
-        <div class="row">
-          <div class="col">
-            <h5>Project Lead</h5>
-            <p>{{projInfo.lead.first}}</p>
+      <ng-container *ngIf="this.employee.title === 'Supervisor'; else user">
+        <div class="container-fluid">
+          <div class="row mt-5">
+            <div class="card mb-5" *ngFor="let projInfo of projects" style="background-color: rgba(58, 74, 74, 0.85); 
+            width: 250px; float: left; margin-left: 30px;  border-radius: 10px;">
+                <div class="card-header "  >
+                    <p class="" style="color: rgba(41, 242, 233)">Project ID: {{projInfo.id}}</p>
+                </div>
+                <a href="/project/{{projInfo.id}}">
+                <div class="card-body text-center">
+                  <a routerLink="/project/{{projInfo.id}}" style="color: rgba(41, 242, 233)"> <h4>{{projInfo.projectName}}</h4></a>
+                  <h1 class="card-text" style="color: rgba(41, 242, 233)">Project Lead: {{projInfo.lead.first}}</h1>
+                  <h1 class="card-text" style="color: rgba(41, 242, 233)">Project Start Date: {{projInfo.startdate | date}}</h1>
+                  <a href="/project/{{projInfo.id}}" class="btn btn-outline-info text-center" style="color: rgba(41, 242, 233)">Project Details</a>
+                </div>
+              </a>
+          </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <h5>Start Date</h5>
-            <p>{{projInfo.startdate | date}}</p>
-          </div>
+      </ng-container>
+<ng-template #user>
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="card mb-5" *ngFor="let projInfo of projects" style="background-color: rgba(58, 74, 74, 0.85); 
+    width: 250px; float: left; margin-left: 30px;  border-radius: 10px;">
+        <div class="card-header "  >
+            <p class="" style="color: rgba(41, 242, 233)">Project ID: {{projInfo.id}}</p>
         </div>
-        <div class="row">
-          <div class="col">
-            <h5>End Date</h5>
-            <p>{{projInfo.enddate | date}}</p>
-          </div>
+        <a href="/project/{{projInfo.id}}">
+        <div class="card-body text-center">
+          <a routerLink="/project/{{projInfo.id}}" style="color: rgba(41, 242, 233)"> <h4>{{projInfo.projectName}}</h4></a>
+          <h1 class="card-text" style="color: rgba(41, 242, 233)">Project Lead: {{projInfo.lead.first}}</h1>
+          <h1 class="card-text" style="color: rgba(41, 242, 233)">Project Start Date: {{projInfo.startdate | date}}</h1>
+          <a href="/project/{{projInfo.id}}" class="btn btn-outline-info text-center" style="color: rgba(41, 242, 233)">Project Details</a>
         </div>
-    </div>
+      </a>
+  </div>
+  </div>
 </div>
+</ng-template>
+

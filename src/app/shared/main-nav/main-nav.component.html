@@ -9,10 +9,27 @@
           <div class="col-md-4 d-flex align-items-center" style="background-color: cadetblue;">
             <div class="card-body">
                 <h2 class="h4 mb-4 display-3 text-center text-light">Login</h2>
+                
+              <!-- Sign in -->
+              <ng-container *ngIf = "notClicked; else clicked">
                 <input id="username" type="text" class="form-control mb-4" [(ngModel)]="username" placeholder="Username" required/>
-                <input id="password" type="password" class="form-control mb-4"  [(ngModel)]="password" (keydown.enter)="login()" placeholder="Password" required/>
+                <input id="password" type="password" class="form-control mb-4" [(ngModel)]="password" (keydown.enter)="login()" placeholder="Password" required />
                 <!-- Sign in button -->
                 <button class="btn btn-outline-light btn-lg btn-block" (click)="login()" type="submit">Sign in</button>
+              </ng-container>
+              <!-- Sign in button clicked -->
+              <ng-template #clicked>
+                <input id="username" type="text" class="form-control mb-4" [(ngModel)]="username" placeholder="Username" required disabled/>
+                <input id="password" type="password" class="form-control mb-4"  [(ngModel)]="password" placeholder="Password" required disabled/>
+                <button class="btn btn-outline-light btn-lg btn-block" (click)="login()" type="submit" disabled><div class="wrap">
+                  <div class="loading">
+                    <div class="bounceball"></div>
+                    <div class="text"></div>
+                  </div>
+                </div>
+                  Signing in...
+                </button>
+              </ng-template>
             </div>
           </div>
         </div>

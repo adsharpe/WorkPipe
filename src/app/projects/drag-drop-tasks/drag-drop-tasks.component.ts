@@ -42,7 +42,6 @@ export class DragDropTasksComponent implements OnInit {
     this.todo = [];
     this.done = [];
     // this.unassignedTask = new Task();
-    
     this.taskService.getTasks().subscribe(
       (t) => {
         t.forEach( (task) => {
@@ -61,7 +60,6 @@ export class DragDropTasksComponent implements OnInit {
               return
              }
           }
-
         });
 
         //assign all task with pending status to #todo
@@ -92,8 +90,11 @@ export class DragDropTasksComponent implements OnInit {
           event.container.data,
           event.previousIndex,
           event.currentIndex);
-          console.log(event.item.data);
-          // this.taskService.updateTask();
+          // console.log('this is the updated task: '+event.item.data.description)
+          let updatedTask = new Task;
+          updatedTask = event.item.data;
+          updatedTask.employee = this.employee
+          this.taskService.updateTask(updatedTask);
     }
   }
 }
