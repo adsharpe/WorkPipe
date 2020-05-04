@@ -23,8 +23,9 @@ export class MessagesComponent implements OnInit {
   public employee: Employee;
   public userComment: string;
   text = new Text();
+  public newComment: ProjectComment;
 
-  newComment = new ProjectComment();
+  
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -37,7 +38,9 @@ export class MessagesComponent implements OnInit {
     this.project = new Project();
     this.comment = new ProjectComment();
     this.employee = this.userService.getEmployee();
-    this.comment.projects = new Project();
+    this.newComment = new ProjectComment();
+    this.newComment.projects = new Project();
+    this.newComment.empId = new Employee();
     
    const id = +this.route.snapshot.paramMap.get('id');
    this.projectsService.getProject(id).subscribe(
@@ -64,16 +67,16 @@ export class MessagesComponent implements OnInit {
 
 
   submit(): void{
-    this.project.id = +this.route.snapshot.paramMap.get('id');
+   // this.comment.projects.id = +this.route.snapshot.paramMap.get('id');
     console.log("This project id is " + this.project.id);
-    this.comment.projects.id = this.project.id;
+    this.newComment.projects.id = this.project.id;
 
-    this.comment.empId.id = this.employee.id;
+    this.newComment.empId.id = this.employee.id;
 
-    this.text.textstring = this.userComment
-    this.comment.textId = this.text; 
-    console.log("New Comment info: " + JSON.stringify(this.comment));
-    this.commentService.submitProjectMessage(this.comment).subscribe(
+    this.text.textstring = this.userComment;
+    this.newComment.textId = this.text; 
+    console.log("New Comment info: " + JSON.stringify(this.newComment));
+    this.commentService.submitProjectMessage(this.newComment).subscribe(
       resp => {
         resp = this.comment;
       }
