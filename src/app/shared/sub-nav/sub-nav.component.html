@@ -1,25 +1,30 @@
 
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark coral">
-    <div class="collapse navbar-collapse text-center" id="navbarSupportedContent-333">
-      <ul class="navbar-nav mr-auto">
+<div *ngIf="project" >
+<nav class="mb-1 mt-5 mr-5 ml-5 navbar navbar-expand-lg navbar-dark coral" >
+    <div class="collapse navbar-collapse text-center d-flex justify-content-center" id="navbarSupportedContent-333">
+      <ul class="navbar-nav d-flex justify-content-center text-center">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/tasks"><i class="fas fa-clipboard-list"></i></a>
+          <a class="nav-link" routerLink="/project/{{project.id}}"><i class="fas fa-clipboard-list"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/discussions"><i class="fas fa-comments"></i></a>
+          <a class="nav-link" routerLink="/tasks/{{project.id}}"><i class="fas fa-clipboard-check"></i></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/messages"><i class="fas fa-comment"></i></a>
-         </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/events"><i class="fas fa-calendar-week"></i></a>
-        </li>
-        <li class="nav-item"> 
-            <a class="nav-link" routerLink="/files"><i class="far fa-file"></i></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/activities"><i class="fas fa-chart-line"></i></a>
-        </li> 
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/discussions/{{project.id}}"><i class="fas fa-comments"></i></a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/messages/{{project.id}}"><i class="fas fa-comment"></i></a>
+         </li> -->
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/events/{{project.id}}"><i class="fas fa-calendar-week"></i></a>
+        </li> -->
+        <!-- <li class="nav-item"> 
+            <a class="nav-link" routerLink="/files/{{project.id}}"><i class="far fa-file"></i></a>
+        </li> -->
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/activities/{{project.id}}"><i class="fas fa-chart-line"></i></a>
+        </li>  -->
     </ul>
     </div>
   </nav>
+</div>

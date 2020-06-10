@@ -68,8 +68,8 @@ CREATE TABLE project (
     id           NUMBER(20) NOT NULL,
     projectname  VARCHAR2(30) NOT NULL,
     teamlead_id  NUMBER(20),
-    startdate    VARCHAR2(20),
-    enddate      VARCHAR2(20)
+    startdate    VARCHAR2(50),
+    enddate      VARCHAR2(50)
 );
 
 ALTER TABLE project ADD CONSTRAINT project_pk PRIMARY KEY ( id );
@@ -202,8 +202,8 @@ ALTER TABLE task
 
 
 
--- Oracle SQL Developer Data Modeler Summary Report: 
--- 
+-- Oracle SQL Developer Data Modeler Summary Report:
+--
 -- CREATE TABLE                            11
 -- CREATE INDEX                             0
 -- ALTER TABLE                             30
@@ -232,15 +232,15 @@ ALTER TABLE task
 -- CREATE SYNONYM                           0
 -- CREATE TABLESPACE                        0
 -- CREATE USER                              0
--- 
+--
 -- DROP TABLESPACE                          0
 -- DROP DATABASE                            0
--- 
+--
 -- REDACTION POLICY                         0
--- 
+--
 -- ORDS DROP SCHEMA                         0
 -- ORDS ENABLE SCHEMA                       0
 -- ORDS ENABLE OBJECT                       0
--- 
+--
 -- ERRORS                                   0
 -- WARNINGS                                 0

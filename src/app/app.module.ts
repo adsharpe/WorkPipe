@@ -11,8 +11,9 @@ import { ServicesComponent } from './shared/services/services.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TasksComponent } from './projects/tasks/tasks.component';
+import { TaskService } from './projects/services/task.service';
 import { NotificationsComponent } from './projects/notifications/notifications.component';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -30,9 +31,21 @@ import { ActivitiesComponent } from './projects/Activities/activities/activities
 import { DiscussionsComponent } from './projects/Discussions/discussions/discussions.component';
 import { EventsComponent } from './projects/Events/events/events.component';
 import { FilesComponent } from './projects/Files/files/files.component';
-import { MessagesComponent } from './projects/Messages/messages/messages.component';
+import { MessagesComponent } from './projects/messages/messages.component';
 import { TeamsComponent } from './projects/Teams/teams/teams.component';
 import { fileURLToPath } from 'url';
+import { BlankComponent } from './projects/Home/blank/blank.component';
+import { ProjectsService } from './projects/services/projects.service';
+import { TextService } from './shared/services/text.service';
+import { ProjectFormComponent } from './projects/project-form/project-form.component';
+// import { WorkersComponent } from './projects/workers/workers.component';
+import { CommentService } from './projects/services/comment.service';
+import { StaffingService } from './projects/services/staffing.service';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectComponent } from './projects/project/project.component';
+
+
 
 @NgModule({
   declarations: [
@@ -55,15 +68,18 @@ import { fileURLToPath } from 'url';
     EventsComponent,
     FilesComponent,
     MessagesComponent,
-    TeamsComponent
+    TeamsComponent,
+    ProjectFormComponent,
+    // WorkersComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatToolbarModule, 
-    MatCardModule, 
+    MatToolbarModule,
+    MatCardModule,
     MatMenuModule,
     MatGridListModule,
     MatIconModule,
@@ -73,23 +89,23 @@ import { fileURLToPath } from 'url';
 
     RouterModule.forRoot([
       {
-        path: "login",
-        component: LoginComponent
-      },
-      {
         path: "home",
         component: HomeComponent
+      },
+      {
+        path: "project/:id",
+        component: ProjectComponent
       },
       {
         path: "projects",
         component: ProjectsComponent
       },
       {
-        path: "tasks",
+        path: "tasks/:id",
         component: TasksComponent
       },
       {
-        path: "discussions",
+        path: "discussions/:id",
         component: DiscussionsComponent
       },
       {
@@ -97,25 +113,42 @@ import { fileURLToPath } from 'url';
         component: TeamsComponent
       },
       {
-        path: "messages",
+        path: "messages/:id",
         component: MessagesComponent
       },
       {
-        path: "files",
+        path: "files/:id",
         component: FilesComponent
       },
       {
-        path: "activities",
+        path: "activities/:id",
         component: ActivitiesComponent
       },
       {
-        path: "events",
+        path: "events/:id",
         component: EventsComponent
-      }
-    ])
+      },
+      {
+        path: "logout",
+        component: HomeComponent
+      },
+      //creating the link to the project-form component
+      {
+        path: "project-form",
+        component: ProjectFormComponent
+      } //,
+      // {
+      //   path: "workers",
+      //   component: WorkersComponent
+      // }
+    ]),
+
+    ButtonsModule,
+
+    BrowserAnimationsModule
 
   ],
-  providers: [UserService, UrlService],
+  providers: [UserService, UrlService, ProjectsService, TextService,  TaskService, CommentService, StaffingService],
   bootstrap: [AppComponent]
 })
 

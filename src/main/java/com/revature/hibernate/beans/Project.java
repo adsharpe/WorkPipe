@@ -21,9 +21,9 @@ import com.revature.hibernate.beans.Employee;
 public class Project {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Project")
-	@SequenceGenerator(name="Project", sequenceName="Project_seq", allocationSize=1)
+	@SequenceGenerator(name="Project", sequenceName="Projects_seq", allocationSize=1)
 	private Integer id;
-	private String projectname;
+	private String projectName;
 	
 	//curious about how Hibernate joins this to the employee table
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -37,11 +37,11 @@ public class Project {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getProjectname() {
-		return projectname;
+	public String getProjectName() {
+		return projectName;
 	}
-	public void setProjectname(String projectname) {
-		this.projectname = projectname;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 	public Employee getLead() {
 		return lead;
@@ -68,7 +68,7 @@ public class Project {
 		result = prime * result + ((enddate == null) ? 0 : enddate.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((lead == null) ? 0 : lead.hashCode());
-		result = prime * result + ((projectname == null) ? 0 : projectname.hashCode());
+		result = prime * result + ((projectName == null) ? 0 : projectName.hashCode());
 		result = prime * result + ((startdate == null) ? 0 : startdate.hashCode());
 		return result;
 	}
@@ -96,10 +96,10 @@ public class Project {
 				return false;
 		} else if (!lead.equals(other.lead))
 			return false;
-		if (projectname == null) {
-			if (other.projectname != null)
+		if (projectName == null) {
+			if (other.projectName != null)
 				return false;
-		} else if (!projectname.equals(other.projectname))
+		} else if (!projectName.equals(other.projectName))
 			return false;
 		if (startdate == null) {
 			if (other.startdate != null)
@@ -110,16 +110,16 @@ public class Project {
 	}
 	@Override
 	public String toString() {
-		return "Project [id=" + id + ", projectname=" + projectname + ", lead=" + lead + ", startdate=" + startdate
+		return "Project [id=" + id + ", projectName=" + projectName + ", lead=" + lead + ", startdate=" + startdate
 				+ ", enddate=" + enddate + "]";
 	}
 	public Project() {
 		super();
 	}
-	public Project(Integer id, String projectname, Employee lead, String startdate, String enddate) {
+	public Project(Integer id, String projectName, Employee lead, String startdate, String enddate) {
 		super();
 		this.id = id;
-		this.projectname = projectname;
+		this.projectName = projectName;
 		this.lead = lead;
 		this.startdate = startdate;
 		this.enddate = enddate;

@@ -1,0 +1,14 @@
+<app-sub-nav></app-sub-nav>
+<div class="container border" *ngFor="let comment of comments">
+    <div class="row">
+        <div class="col-sm">
+            <div class="col">
+                <p><strong>{{comment.empId.first}}</strong> : {{comment.textId.textstring}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <input id="userComment" type="text" class="form-control mb-4"  [(ngModel)]="userComment" 
+     placeholder="Comment" maxlength="255"/>
+</div>

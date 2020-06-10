@@ -11,8 +11,8 @@ public interface ProjectEmployeeDAO {
 	public ProjectEmployee addProjectEmployee(ProjectEmployee projectEmployee);
 	// read
 	public ProjectEmployee getProjectEmployee(int projectEmployeeId);
-	public ProjectEmployee getProjectEmployeeByProject(Project project);
-	public Set<ProjectEmployee> getProjectEmployeeByEmployee(Employee employee);
+	public Set<ProjectEmployee> getProjectEmployeesByProject(Project project);
+	public Set<ProjectEmployee> getProjectEmployeesByEmployee(Employee employee);
 	// update
 	public void updateProjectEmployee(ProjectEmployee projectEmployee);
 	// delete

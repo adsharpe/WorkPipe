@@ -93,10 +93,110 @@ CREATE sequence alert_seq nocache;
 CREATE sequence projects_comment_seq nocache;
 CREATE sequence tasks_comment_seq nocache;
 
--- Insertions
---Insert into login(id,username, password)
---values (1, 'Jon', 'pass');
---
---Insert into Employee(id,firstname, lastname, login_id, supervisor_id)
---values (1,'Jonathan', 'Mendez', 1, 1);
---commit;
+-- Initilization Login
+Insert into login(id,username, password)
+values (1, 'Jon', 'pass');
+Insert into login(id,username, password)
+values (2, 'Cov', 'pass');
+Insert into login(id,username, password)
+values (3, 'Apollo', 'pass');
+Insert into login(id,username, password)
+values (4, 'Stephen', 'pass');
+Insert into login(id,username, password)
+values (5, 'Richard', 'pass');
+
+-- Initilization Employee
+Insert into Employee(id,firstname, lastname, login_id, supervisor_id, title)
+values (1,'Jonathan', 'Mendez', 1, 5, 'employee');
+Insert into Employee(id,firstname, lastname, login_id, title,supervisor_id)
+values (2,'Covals', 'Douze', 2, 'Team Lead',5);
+Insert into Employee(id,firstname, lastname, login_id, supervisor_id,title)
+values (3,'Apollo', 'D. Sharpe', 3, 5, 'employee');
+Insert into Employee(id,firstname, lastname, login_id, supervisor_id, title)
+values (4,'Stephen', 'Wingbermuehle', 4, 5, 'employee');
+Insert into Employee(id,firstname, lastname, login_id, title,supervisor_id)
+values (5,'Richard', 'Orr', 5, 'Supervisor',5);
+
+-- Initilization Project
+Insert into Project(id, projectname, teamlead_id, startdate)
+values (1, 'WorkPipe', 2, TO_Date('09/03/2020', 'DD/MM/YYYY'));
+
+-- Initilization Project_Employee
+Insert into Project_Employee(id, Employee_ID, Project_ID)
+values(1,1,1);
+Insert into Project_Employee(id, Employee_ID, Project_ID)
+values(2,2,1);
+Insert into Project_Employee(id, Employee_ID, Project_ID)
+values(3,3,1);
+Insert into Project_Employee(id, Employee_ID, Project_ID)
+values(4,4,1);
+
+--Initilization Status
+Insert into Status(id, statusname)
+values(1, 'Not Assigned');
+Insert into Status(id, statusname)
+values(2, 'In progress');
+Insert into Status(id, statusname)
+values(3, 'Waiting Approval');
+Insert into Status(id, statusname)
+values(4, 'Completed');
+Insert into Status(id, statusname)
+values(5, 'Rejected');
+
+-- Initilizatoin Task
+Insert into Task(id, description_id, employee_id, status_id, project_id)
+values(1, 1, 1, 2, 1);
+Insert into Task(id, description_id, employee_id, status_id, project_id)
+values(2, 2, 2, 2, 1);
+Insert into Task(id, description_id, employee_id, status_id, project_id)
+values(3, 3, 3, 2, 1);
+Insert into Task(id, description_id, employee_id, status_id, project_id)
+values(4, 4, 4, 2, 1);
+Insert into Task(id, description_id, employee_id, status_id, project_id)
+values(5, 5, 2, 2, 1);
+Insert into Task(id, description_id,  status_id, project_id)
+values(6, 6, 1, 1);
+Insert into Task(id, description_id,  status_id, project_id)
+values(7, 7, 1, 1);
+
+
+-- Initilization Text
+    --Task Description
+Insert into Text(id, string)
+values(1, 'Create a login component');
+Insert into Text(id, string)
+values(2, 'Create a task component');
+Insert into Text(id, string)
+values(3, 'Create a project component');
+Insert into Text(id, string)
+values(4, 'Create the entire back-end');
+Insert into Text(id, string)
+values (5, 'Add CSS/Bootstrap');
+Insert into Text(id, string)
+values (6, 'Add more componenet');
+Insert into Text(id, string)
+values (7, 'Do nothing');
+    --Project Comment
+Insert into Text(id, string)
+values (8, 'Is there any more task we might have?');
+Insert into Text(id, string)
+values (9, 'Not that I can think of.');
+    --Task Comment
+Insert into Text(id, string)
+values (10, 'How is the component coming along?');
+Insert into Text(id, string)
+values (11, 'Almost done!');
+
+-- Initilization Project_Comment
+Insert into Project_Comment(id, project_id, employee_id, text_id)
+values(1, 1, 2, 8);
+Insert into Project_Comment(id, project_id, employee_id, text_id)
+values(2, 1, 1, 9);
+
+-- Initilization Task_Comment
+Insert into Task_Comment(id, task_id, employee_id, text_id)
+values(1, 3, 2, 10);
+Insert into Task_Comment(id, task_id, employee_id, text_id)
+values(2, 3, 3, 11);
+
+commit;

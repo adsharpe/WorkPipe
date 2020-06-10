@@ -20,7 +20,7 @@ public class CommuniqueHibernate implements CommuniqueDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();
 
 		@Override
-		public Communique addCommuniqueType(Communique c) {
+		public Communique addCommunique(Communique c) {
 			Session s = hu.getSession();
 			Transaction tx = null;
 			try {
